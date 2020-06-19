@@ -1,0 +1,29 @@
+{ "name": "ubborg-usecase-rescuedisk-pmb",
+  "version": "0.0.1",
+  "description": "An example ubborg plan (bundle mixin) for an Ubuntu/GRUB/LVM rescue disk.",
+  "keywords": [],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/ubborg-usecase-rescuedisk-pmb-js/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/ubborg-usecase-rescuedisk-pmb-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/ubborg-usecase-rescuedisk-pmb-js/issues"
+  },
+  "contributors": [],
+
+  "private": false, "license": "ISC",
+
+  "main": "src/rescueDisk.mjs",
+  "scripts": { "test": "bash test/all.sh" },
+  "directories": { "test": "test" },
+
+  "dependencies": {},
+  "devDependencies": {
+  },
+
+
+  "npm vs. BOM = Unexpected token": "-*- coding: UTF-8 -*-"
+}
