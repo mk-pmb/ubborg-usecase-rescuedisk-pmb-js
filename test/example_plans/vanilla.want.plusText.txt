@@ -1,0 +1,190 @@
++ stage[example_plans/vanilla]
+  + bundle[cjs:ubborg-usecase-rescuedisk-pmb]
+    + osUser[urd]
+      = disablePasswordLogin: false
+      = exists: true
+      = homeDirPath: "/var/lib/ubborg-usecase-rescuedisk-pmb"
+      = interactive: true
+      = passwordHash: "$6$fake…$==bo…"
+      = preserveExistingPasswordHash: false
+      = shell: "bash"
+      = userIdNum: 942
+      + osUserLogin[…]
+        = disablePasswordLogin: false
+        = exists: true
+        = homeDirPath: "/var/lib/ubborg-usecase-rescuedisk-pmb"
+        = interactive: true
+        = passwordHash: "$6$fake…$==bo…"
+        = preserveExistingPasswordHash: false
+        = shell: "bash"
+        = userIdNum: 942
+        - osUserLogin[…]
+      + osUserGroupMembership[…|urd]
+        = grName: "urd"
+        = loginName: "urd"
+        = member: true
+        ^ osUserLogin[urd]
+        + osUserGroup[urd]
+          = exists: true
+          = interactive: false
+          - osUserGroup[urd]
+        - osUserGroupMembership[…|urd]
+      + osUserGroupMembership[…|netdev]
+        = grName: "netdev"
+        = loginName: "urd"
+        = member: true
+        ^ osUserLogin[urd]
+        + osUserGroup[netdev]
+          = exists: true
+          = interactive: false
+          - osUserGroup[netdev]
+        - osUserGroupMembership[…|netdev]
+      + osUserGroupMembership[…|dialout]
+        = grName: "dialout"
+        = loginName: "urd"
+        = member: true
+        ^ osUserLogin[urd]
+        + osUserGroup[dialout]
+          = exists: true
+          = interactive: false
+          - osUserGroup[dialout]
+        - osUserGroupMembership[…|dialout]
+      + osUserGroupMembership[…|fuse]
+        = grName: "fuse"
+        = loginName: "urd"
+        = member: true
+        ^ osUserLogin[urd]
+        + osUserGroup[fuse]
+          = exists: true
+          = interactive: false
+          - osUserGroup[fuse]
+        - osUserGroupMembership[…|fuse]
+      + osUserGroupMembership[…|saned]
+        = grName: "saned"
+        = loginName: "urd"
+        = member: true
+        ^ osUserLogin[urd]
+        + osUserGroup[saned]
+          = exists: true
+          = interactive: false
+          - osUserGroup[saned]
+        - osUserGroupMembership[…|saned]
+      + osUserGroupMembership[…|lp]
+        = grName: "lp"
+        = loginName: "urd"
+        = member: true
+        ^ osUserLogin[urd]
+        + osUserGroup[lp]
+          = exists: true
+          = interactive: false
+          - osUserGroup[lp]
+        - osUserGroupMembership[…|lp]
+      + osUserGroupMembership[…|adm]
+        = grName: "adm"
+        = loginName: "urd"
+        = member: true
+        ^ osUserLogin[urd]
+        + osUserGroup[adm]
+          = exists: true
+          = interactive: false
+          - osUserGroup[adm]
+        - osUserGroupMembership[…|adm]
+      + osUserGroupMembership[…|sudo]
+        = grName: "sudo"
+        = loginName: "urd"
+        = member: true
+        ^ osUserLogin[urd]
+        + osUserGroup[sudo]
+          = exists: true
+          = interactive: false
+          - osUserGroup[sudo]
+        - osUserGroupMembership[…|sudo]
+      - osUser[urd]
+    + iniFile[/var/lib/AccountsService/users/urd]
+      + file[…]
+        = mimeType: "text/plain"
+        + file[/var/lib/AccountsService/users]
+          = mimeType: "inode/directory"
+          + file[/var/lib/AccountsService]
+            = mimeType: "inode/directory"
+            + file[/var/lib]
+              = mimeType: "inode/directory"
+              + file[/var]
+                = mimeType: "inode/directory"
+                - file[/var]
+              - file[/var/lib]
+            - file[/var/lib/AccountsService]
+          - file[/var/lib/AccountsService/users]
+        - file[…]
+      + iniFileSect[…|User]
+        = exists: true
+        = path: "/var/lib/AccountsService/users/urd"
+        = sect: "User"
+        - iniFileSect[…|User]
+      + iniFileOpt[…|User|XSession]
+        = key: "XSession"
+        = path: "/var/lib/AccountsService/users/urd"
+        = sect: "User"
+        = val: "openbox"
+        ^ iniFileSect[/var/lib/AccountsService/users/urd|User]
+        - iniFileOpt[…|User|XSession]
+      + iniFileOpt[…|User|XKeyboardLayouts]
+        = key: "XKeyboardLayouts"
+        = path: "/var/lib/AccountsService/users/urd"
+        = sect: "User"
+        = val: ""
+        ^ iniFileSect[/var/lib/AccountsService/users/urd|User]
+        - iniFileOpt[…|User|XKeyboardLayouts]
+      - iniFile[/var/lib/AccountsService/users/urd]
+    + bundle[…/src/lightdm/autologin]
+      = param: {"loginName": "urd"}
+      + iniFile[/etc/lightdm/lightdm.conf.d/autologin.conf]
+        + file[…]
+          = mimeType: "text/plain"
+          + file[/etc/lightdm/lightdm.conf.d]
+            = mimeType: "inode/directory"
+            + file[/etc/lightdm]
+              = mimeType: "inode/directory"
+              + file[/etc]
+                = mimeType: "inode/directory"
+                - file[/etc]
+              - file[/etc/lightdm]
+            - file[/etc/lightdm/lightdm.conf.d]
+          - file[…]
+        + iniFileSect[…|Seat:*]
+          = exists: true
+          = path: "/etc/lightdm/lightdm.conf.d/autologin.conf"
+          = sect: "Seat:*"
+          - iniFileSect[…|Seat:*]
+        + iniFileOpt[…|Seat:*|autologin-session]
+          = key: "autologin-session"
+          = path: "/etc/lightdm/lightdm.conf.d/autologin.conf"
+          = sect: "Seat:*"
+          = val: "lightdm-autologin"
+          ^ iniFileSect[/etc/lightdm/lightdm.conf.d/autologin.conf|Seat:*]
+          - iniFileOpt[…|Seat:*|autologin-session]
+        + iniFileOpt[…|Seat:*|autologin-guest]
+          = key: "autologin-guest"
+          = path: "/etc/lightdm/lightdm.conf.d/autologin.conf"
+          = sect: "Seat:*"
+          = val: false
+          ^ iniFileSect[/etc/lightdm/lightdm.conf.d/autologin.conf|Seat:*]
+          - iniFileOpt[…|Seat:*|autologin-guest]
+        + iniFileOpt[…|Seat:*|autologin-user]
+          = key: "autologin-user"
+          = path: "/etc/lightdm/lightdm.conf.d/autologin.conf"
+          = sect: "Seat:*"
+          = val: "urd"
+          ^ iniFileSect[/etc/lightdm/lightdm.conf.d/autologin.conf|Seat:*]
+          - iniFileOpt[…|Seat:*|autologin-user]
+        + iniFileOpt[…|Seat:*|autologin-user-timeout]
+          = key: "autologin-user-timeout"
+          = path: "/etc/lightdm/lightdm.conf.d/autologin.conf"
+          = sect: "Seat:*"
+          = val: 0
+          ^ iniFileSect[/etc/lightdm/lightdm.conf.d/autologin.conf|Seat:*]
+          - iniFileOpt[…|Seat:*|autologin-user-timeout]
+        - iniFile[/etc/lightdm/lightdm.conf.d/autologin.conf]
+      - bundle[…/src/lightdm/autologin]
+    - bundle[cjs:ubborg-usecase-rescuedisk-pmb]
+  - stage[example_plans/vanilla]
