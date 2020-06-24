@@ -21,7 +21,7 @@ Returns a promise for having declared the required resources
 in the name of ubborg bundle `bun`.
 
 `opt` may be an options object. For currently supported options (all optional),
-[see here](dfopt.mjs).
+[see here](src/dfOpt.mjs).
 
 
 
