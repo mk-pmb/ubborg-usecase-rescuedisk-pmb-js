@@ -12,7 +12,9 @@ async function rescueDisk(bun) {
   const mustUser = objPop(userSpec, { mustBe }).mustBe;
   const loginName = mustUser('nonEmpty str', 'loginName');
 
-  vdu(bun, userSpec);
+  await vdu(bun, userSpec);
+  // ^-- await: to ensure homeDir is declared
+
   if (param('bool', 'autoLogin')) {
     bun.needs('subBundle', {
       url: 'src/lightdm/autologin',
