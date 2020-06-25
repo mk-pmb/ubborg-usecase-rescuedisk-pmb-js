@@ -9,26 +9,30 @@ An example ubborg plan (bundle mixin) for an Ubuntu/GRUB/LVM rescue disk.
 <!--/#echo -->
 
 
+### Stability: Alpha preview
+
 
 API
 ---
 
-This module exports one function:
-
-### mixin(bun[, opt])
-
-Returns a promise for having declared the required resources
-in the name of ubborg bundle `bun`.
-
-`opt` may be an options object. For currently supported options (all optional),
-[see here](src/dfOpt.mjs).
+This module exports an ubborg module that accepts the `param`s
+[described here](src/dfOpt.mjs).
 
 
 
 Usage
 -----
 
-See tests. Will hopefully be simplified soon.
+For default params, your bundle can be as easy as:
+
+<!--#include file="test/example_plans/vanilla.mjs" code="javascript" -->
+<!--#verbatim lncnt="5" -->
+```javascript
+export default async(bun) => {
+  bun.needs('bundle', 'cjs:ubborg-usecase-rescuedisk-pmb');
+};
+```
+<!--/include-->
 
 
 <!--#toc stop="scan" -->
