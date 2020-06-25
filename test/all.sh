@@ -13,7 +13,7 @@ function all () {
     check_plan || return $?
   done
 
-  local DIFFS=( example_plans/tmp.*.diff )
+  local DIFFS=( example_plans/*.tmp.*.diff )
   if [ "${#DIFFS[@]}" -le 1 -a ! -f "${DIFFS[0]}" ]; then
     echo "+OK all tests passed."
     return 0
@@ -38,8 +38,8 @@ function check_fmt () {
   [ -f "$EXPECTED" ] || return 0
   local TMP_DEST="$PLAN.tmp.$FMT.$FEXT"
   local DIFF_DEST="$PLAN.tmp.$FMT.diff"
-  ubborg-planner-pmb depsTree "$PLAN" | ./censor."$FMT".sed \
-    >"$TMP_DEST" || return $?
+  ubborg-planner-pmb depsTree "$PLAN" | ./censor."$FMT".sed >"$TMP_DEST"
+  [ "${PIPESTATUS[*]}" == '0 0' ] || return 2
   if diff -U 2 -- "$EXPECTED" "$TMP_DEST" >"$DIFF_DEST"; then
     rm --one-file-system -- "$DIFF_DEST" "$TMP_DEST"
   else
