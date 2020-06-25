@@ -3,7 +3,7 @@
 import objPop from 'objpop';
 import mustBe from 'typechecks-pmb/must-be';
 
-import dfOpt from './dfOpt';
+import dfOpt from './src/dfOpt';
 import vdu from './src/vanillaDesktopUser';
 
 async function rescueDisk(bun) {
@@ -21,12 +21,15 @@ async function rescueDisk(bun) {
       param: { loginName },
     });
   }
+
+  bun.needs('subBundle', {
+    url: 'src/workarounds/',
+    param: { loginName },
+  });
 }
 
 Object.assign(rescueDisk, {
-
   paramDefaults: dfOpt,
-
 });
 
 export default rescueDisk;

@@ -2,7 +2,7 @@
 
 import passwordHash from 'ansible-bogus-linux-pwhash';
 
-import pkgMeta from './package.json';
+import pkgMeta from '../package.json';
 
 const defaultOpts = {
   rescueUser: {
@@ -16,7 +16,8 @@ const defaultOpts = {
     shell: 'bash',
     windowManager: 'openbox',
   },
-  autoLogin: true, // Whether to auto-login the rescueUser.
+  autoLogin: true,  // Whether to auto-login the rescueUser.
+  workarounds: {},  // see src/workarounds/
 };
 
 export default defaultOpts;
