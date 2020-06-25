@@ -4,4 +4,5 @@ import bob from '../util/bundledOptionalBundles';
 
 export default bob('workarounds', {
   avoidAccidentialTouchpadTap: true,
+  avoidDefaultAptUpdates: true,
 });
