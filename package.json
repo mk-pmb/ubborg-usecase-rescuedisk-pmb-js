@@ -1,6 +1,6 @@
 { "name": "ubborg-usecase-rescuedisk-pmb",
-  "version": "0.0.1",
-  "description": "An example ubborg plan (bundle mixin) for an Ubuntu/GRUB/LVM rescue disk.",
+  "version": "0.0.2",
+  "description": "An example ubborg bundle for an Ubuntu/GRUB/LVM rescue disk.",
   "keywords": [],
 
   "author": "M.K. (https://github.com/mk-pmb)",

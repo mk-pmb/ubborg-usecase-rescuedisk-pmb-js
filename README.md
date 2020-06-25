@@ -5,7 +5,7 @@ ubborg-usecase-rescuedisk-pmb
 <!--/#echo -->
 
 <!--#echo json="package.json" key="description" -->
-An example ubborg plan (bundle mixin) for an Ubuntu/GRUB/LVM rescue disk.
+An example ubborg bundle for an Ubuntu/GRUB/LVM rescue disk.
 <!--/#echo -->
 
 
