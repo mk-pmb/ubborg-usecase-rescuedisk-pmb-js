@@ -322,6 +322,31 @@
           ^ file[/etc/apt/apt.conf.d]
           - file[/etc/apt/apt.conf.d/95no-periodic-interference]
         - bundle[…avoidDefaultAptUpdates]
+      + bundle[…presentationMode]
+        + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.xscreensaver]
+          = content: "# This file was generated using ubborg-usecase-rescuedisk-pmb v0.0.2\nmode: off\nlock: False\n"
+          = enforcedGroup: "urd"
+          = enforcedModes: "a=r,ug+w"
+          = enforcedOwner: "urd"
+          = mimeType: "text/plain"
+          = replace: true
+          ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb]
+          - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.xscreensaver]
+        + file[/etc/systemd/logind.conf.d/insomnia.conf]
+          = content: ["[Login]\n", "HandlePowerKey=ignore\n", "HandleSuspendKey=ignore\n", "HandleHibernateKey=ignore\n", "HandleLidSwitch=ignore\n", "HandleLidSwitchExternalPower=ignore\n", "HandleLidSwitchDocked=ignore\n", "PowerKeyIgnoreInhibited=no\n", "SuspendKeyIgnoreInhibited=no\n", "HibernateKeyIgnoreInhibited=no\n", "LidSwitchIgnoreInhibited=no\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a=r,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain"
+          + file[/etc/systemd/logind.conf.d]
+            = mimeType: "inode/directory"
+            + file[/etc/systemd]
+              = mimeType: "inode/directory"
+              ^ file[/etc]
+              - file[/etc/systemd]
+            - file[/etc/systemd/logind.conf.d]
+          - file[/etc/systemd/logind.conf.d/insomnia.conf]
+        - bundle[…presentationMode]
       - bundle[…/src/workarounds/]
     - bundle[cjs:ubborg-usecase-rescuedisk-pmb]
   - stage[example_plans/vanilla]
