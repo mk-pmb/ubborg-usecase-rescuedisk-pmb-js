@@ -275,6 +275,53 @@
             - iniFileOpt[…|Desktop Entry|Hidden]
           - iniFile[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop]
         - bundle[…avoidAccidentialTouchpadTap]
+      + bundle[…avoidDefaultAptUpdates]
+        + iniFile[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop]
+          + file[…]
+            = enforcedGroup: "urd"
+            = enforcedModes: "a=rx,ug+w"
+            = enforcedOwner: "urd"
+            = mimeType: "text/plain"
+            ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
+            - file[…]
+          + iniFileSect[…|Desktop Entry]
+            = exists: true
+            = path: "/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop"
+            = sect: "Desktop Entry"
+            - iniFileSect[…|Desktop Entry]
+          + iniFileOpt[…|Desktop Entry|Hidden]
+            = key: "Hidden"
+            = path: "/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop"
+            = sect: "Desktop Entry"
+            = val: "true"
+            ^ iniFileSect[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop|Desktop Entry]
+            - iniFileOpt[…|Desktop Entry|Hidden]
+          - iniFile[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop]
+        + file[/etc/apt/apt.conf.d/95never-install-recommends]
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb v0.0.2\n", "APT::Install-Recommends \"0\";\n", "APT::Install-Suggests \"0\";\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a=r,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain"
+          = replace: true
+          + file[/etc/apt/apt.conf.d]
+            = mimeType: "inode/directory"
+            + file[/etc/apt]
+              = mimeType: "inode/directory"
+              ^ file[/etc]
+              - file[/etc/apt]
+            - file[/etc/apt/apt.conf.d]
+          - file[/etc/apt/apt.conf.d/95never-install-recommends]
+        + file[/etc/apt/apt.conf.d/95no-periodic-interference]
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb v0.0.2\n", "APT::Periodic::Enable \"0\";\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a=r,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain"
+          = replace: true
+          ^ file[/etc/apt/apt.conf.d]
+          - file[/etc/apt/apt.conf.d/95no-periodic-interference]
+        - bundle[…avoidDefaultAptUpdates]
       - bundle[…/src/workarounds/]
     - bundle[cjs:ubborg-usecase-rescuedisk-pmb]
   - stage[example_plans/vanilla]

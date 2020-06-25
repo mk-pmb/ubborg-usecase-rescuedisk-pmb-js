@@ -33,6 +33,9 @@ function check_plan () {
 }
 
 
+function safemv () { mv --verbose --no-target-directory --no-clobber -- "$@"; }
+
+
 function check_fmt () {
   local EXPECTED="$PLAN.want.$FMT.$FEXT"
   [ -f "$EXPECTED" ] || return 0
@@ -45,6 +48,10 @@ function check_fmt () {
   else
     echo "W: $(wc --lines -- $DIFF_DEST)"
     head -- "$DIFF_DEST" | sed -re 's~^~    ~'
+    if [ "$DIFFMODE" == owr ]; then
+      safemv "$EXPECTED"{,.$$.bak}
+      safemv "$TMP_DEST" "$EXPECTED"
+    fi
   fi
   OK_FMTS+="$FMT,"
 }

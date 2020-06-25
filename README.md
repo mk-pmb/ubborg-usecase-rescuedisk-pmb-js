@@ -42,6 +42,9 @@ export default async(bun) => {
 Known issues
 ------------
 
+* Abusing bundle params to describe per-user resources introduces unjustified
+  artificial singleton limitations. This is a dirty hack to bridge the time
+  until ubborg supports user-supplied resource types.
 * Needs more/better tests and docs.
 
 
