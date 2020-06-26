@@ -22,10 +22,7 @@ async function rescueDisk(bun) {
     });
   }
 
-  bun.needs('subBundle', {
-    url: 'src/workarounds/',
-    param: { loginName },
-  });
+  bun.needs('subBundle', { url: 'src/workarounds/', param: { loginName } });
 }
 
 Object.assign(rescueDisk, {

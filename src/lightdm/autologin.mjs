@@ -6,6 +6,16 @@ async function autologin(bun) {
   const timeoutSec = param('pos0 int', 'timeoutSec', 0);
   param.expectEmpty();
 
+  bun.needs('debPkg', [
+    'lightdm',
+  ]);
+
+  bun.needs('file', {
+    path: '/etc/lightdm/user_session_prefs',
+    mimeType: 'sym',
+    content: '/var/lib/AccountsService/users',
+  });
+
   await bun.needs('iniFile', {
     path: '/etc/lightdm/lightdm.conf.d/autologin.conf',
     sections: {
