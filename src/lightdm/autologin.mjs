@@ -16,9 +16,10 @@ async function autologin(bun) {
     content: '/var/lib/AccountsService/users',
   });
 
-  await bun.needs('iniFile', {
+  await bun.needs('admFile', {
     path: '/etc/lightdm/lightdm.conf.d/autologin.conf',
-    sections: {
+    mimeType: 'static_ini',
+    content: {
       'Seat:*': {
         'autologin-session':  'lightdm-autologin',
         'autologin-guest':    false,
