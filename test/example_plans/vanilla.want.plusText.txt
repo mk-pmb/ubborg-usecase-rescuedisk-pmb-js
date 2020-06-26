@@ -139,17 +139,27 @@
       - iniFile[/var/lib/AccountsService/users/urd]
     + bundle[…/src/lightdm/autologin]
       = param: {"loginName": "urd"}
+      + debPkg[lightdm]
+        = defer: true
+        = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+        = state: "installed"
+        - debPkg[lightdm]
+      + file[/etc/lightdm/user_session_prefs]
+        = content: "/var/lib/AccountsService/users"
+        = mimeType: "inode/symlink"
+        + file[/etc/lightdm]
+          = mimeType: "inode/directory"
+          + file[/etc]
+            = mimeType: "inode/directory"
+            - file[/etc]
+          - file[/etc/lightdm]
+        - file[/etc/lightdm/user_session_prefs]
       + iniFile[/etc/lightdm/lightdm.conf.d/autologin.conf]
         + file[…]
           = mimeType: "text/plain"
           + file[/etc/lightdm/lightdm.conf.d]
             = mimeType: "inode/directory"
-            + file[/etc/lightdm]
-              = mimeType: "inode/directory"
-              + file[/etc]
-                = mimeType: "inode/directory"
-                - file[/etc]
-              - file[/etc/lightdm]
+            ^ file[/etc/lightdm]
             - file[/etc/lightdm/lightdm.conf.d]
           - file[…]
         + iniFileSect[…|Seat:*]
