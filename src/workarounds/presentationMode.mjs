@@ -40,7 +40,6 @@ export default async(bun) => {
         HibernateKeyIgnoreInhibited: 'no',
         LidSwitchIgnoreInhibited: 'no',
       },
-    }
+    },
   });
-
 };
