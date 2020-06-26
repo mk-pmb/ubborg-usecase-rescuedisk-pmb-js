@@ -3,5 +3,6 @@
 export default async(bun) => {
   bun.needs('debPkg', [
     'mtpaint',
+    'imagemagick',
   ]);
 };

@@ -1,5 +1,5 @@
 + stage[example_plans/vanilla]
-  = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": 111, "installs": […
+  = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": 113, "installs": […
   + bundle[cjs:ubborg-usecase-rescuedisk-pmb]
     + osUser[urd]
       = disablePasswordLogin: false
@@ -204,14 +204,12 @@
           = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
           = state: "installed"
           - debPkg[mtpaint]
-        - bundle[…basicImageEditing]
-      + bundle[…clipboard]
-        + debPkg[xsel]
+        + debPkg[imagemagick]
           = defer: true
           = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
           = state: "installed"
-          - debPkg[xsel]
-        - bundle[…clipboard]
+          - debPkg[imagemagick]
+        - bundle[…basicImageEditing]
       + bundle[…configMgmt]
         + debPkg[crudini]
           = defer: true
@@ -363,6 +361,18 @@
           = mimeType: "inode/symlink"
           - file[/PL]
         - bundle[…diskPartMgmt]
+      + bundle[…diskSmart]
+        + debPkg[smartmontools]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[smartmontools]
+        + debPkg[nullmailer]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[nullmailer]
+        - bundle[…diskSmart]
       + bundle[…fileSystems]
         + debPkg[udisks2]
           = defer: true
@@ -452,11 +462,6 @@
           = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
           = state: "installed"
           - debPkg[bc]
-        + debPkg[gnome-calculator]
-          = defer: true
-          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
-          = state: "installed"
-          - debPkg[gnome-calculator]
         + debPkg[gnumeric]
           = defer: true
           = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
@@ -842,6 +847,11 @@
           = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
           = state: "installed"
           - debPkg[xserver-xorg]
+        + debPkg[xsel]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[xsel]
         + debPkg[scrot]
           = defer: true
           = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}

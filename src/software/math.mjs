@@ -3,7 +3,6 @@
 export default async(bun) => {
   bun.needs('debPkg', [
     'bc',
-    'gnome-calculator',
     'gnumeric',
     'wxmaxima',
   ]);

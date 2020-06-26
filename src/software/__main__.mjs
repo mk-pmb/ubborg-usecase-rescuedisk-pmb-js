@@ -4,13 +4,13 @@ import bob from '../util/bundledOptionalBundles';
 
 export default bob('software', {
   basicImageEditing: true,
-  clipboard: true,
   configMgmt: true,
   dataRecovery: true,
   debPkgUtil: true,
   debugUtil: true,
   dialogScripting: true,
   diskPartMgmt: true,
+  diskSmart: true,
   fileSystems: true,
   fileViewers: true,
   grub: true,
