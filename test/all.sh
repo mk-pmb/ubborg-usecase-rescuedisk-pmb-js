@@ -8,20 +8,25 @@ function all () {
   cd -- "$SELFPATH" || return $?
   SECONDS=0
 
-  local PLAN=
+  local PLAN= ERR_CNT=0
   for PLAN in example_plans/*.mjs; do
     PLAN="${PLAN%.mjs}"
-    check_plan || return $?
+    check_plan || (( ERR_CNT += 1 ))
   done
 
   local DIFFS=( example_plans/*.tmp.*.diff )
   echo ":total_duration_sec=$SECONDS"
   if [ "${#DIFFS[@]}" -le 1 -a ! -f "${DIFFS[0]}" ]; then
-    echo "+OK all tests passed."
-    return 0
+    if [ "$ERR_CNT" == 0 ]; then
+      echo "+OK all tests passed."
+      return 0
+    else
+      echo "-ERR No diffs but $ERR_CNT tests failed." >&2
+      return 4
+    fi
   fi
 
-  echo "E: Some outputs differ from expectations." >&2
+  echo "-ERR Some outputs differ from expectations." >&2
   return 4
 }
 

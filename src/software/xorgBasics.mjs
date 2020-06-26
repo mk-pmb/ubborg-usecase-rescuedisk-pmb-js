@@ -14,6 +14,8 @@ export default async(bun) => {
     'xdotool',
     'xserver-xorg',
 
+    'xsel',
+
     'scrot',
     'wmctrl',
   ]);
