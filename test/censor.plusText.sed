@@ -3,6 +3,7 @@
 
 /^ += passwordHash: /s~(\$[^$"]{4})[^$"]+~\1…~g
 s~^ += deferredDebPkgs: ~&\n\r~
+/^ += content: .{100,}/s~, "~,\n¬¶            "~g
 
 
 

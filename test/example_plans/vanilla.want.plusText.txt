@@ -308,7 +308,9 @@
             - iniFileOpt[…|Desktop Entry|Hidden]
           - iniFile[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop]
         + file[/etc/apt/apt.conf.d/95never-install-recommends]
-          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb v0.0.2\n", "APT::Install-Recommends \"0\";\n", "APT::Install-Suggests \"0\";\n"]
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb v0.0.2\n",
+¬¶            "APT::Install-Recommends \"0\";\n",
+¬¶            "APT::Install-Suggests \"0\";\n"]
           = enforcedGroup: "adm"
           = enforcedModes: "a=r,ug+w"
           = enforcedOwner: "root"
@@ -323,7 +325,8 @@
             - file[/etc/apt/apt.conf.d]
           - file[/etc/apt/apt.conf.d/95never-install-recommends]
         + file[/etc/apt/apt.conf.d/95no-periodic-interference]
-          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb v0.0.2\n", "APT::Periodic::Enable \"0\";\n"]
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb v0.0.2\n",
+¬¶            "APT::Periodic::Enable \"0\";\n"]
           = enforcedGroup: "adm"
           = enforcedModes: "a=r,ug+w"
           = enforcedOwner: "root"
@@ -343,7 +346,17 @@
           ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb]
           - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.xscreensaver]
         + file[/etc/systemd/logind.conf.d/insomnia.conf]
-          = content: ["[Login]\n", "HandlePowerKey=ignore\n", "HandleSuspendKey=ignore\n", "HandleHibernateKey=ignore\n", "HandleLidSwitch=ignore\n", "HandleLidSwitchExternalPower=ignore\n", "HandleLidSwitchDocked=ignore\n", "PowerKeyIgnoreInhibited=no\n", "SuspendKeyIgnoreInhibited=no\n", "HibernateKeyIgnoreInhibited=no\n", "LidSwitchIgnoreInhibited=no\n"]
+          = content: ["[Login]\n",
+¬¶            "HandlePowerKey=ignore\n",
+¬¶            "HandleSuspendKey=ignore\n",
+¬¶            "HandleHibernateKey=ignore\n",
+¬¶            "HandleLidSwitch=ignore\n",
+¬¶            "HandleLidSwitchExternalPower=ignore\n",
+¬¶            "HandleLidSwitchDocked=ignore\n",
+¬¶            "PowerKeyIgnoreInhibited=no\n",
+¬¶            "SuspendKeyIgnoreInhibited=no\n",
+¬¶            "HibernateKeyIgnoreInhibited=no\n",
+¬¶            "LidSwitchIgnoreInhibited=no\n"]
           = enforcedGroup: "adm"
           = enforcedModes: "a=r,ug+w"
           = enforcedOwner: "root"
