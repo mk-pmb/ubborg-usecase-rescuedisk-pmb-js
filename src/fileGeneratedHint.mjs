@@ -4,7 +4,7 @@ import pkgMeta from '../package.json';
 
 function fileGeneratedHint(before, after) {
   return ((before || '') + 'This file was generated using ' + pkgMeta.name
-    + ' v' + pkgMeta.version + (after || ''));
+    + (after || ''));
 }
 
 export default fileGeneratedHint;

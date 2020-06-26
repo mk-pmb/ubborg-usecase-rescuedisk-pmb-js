@@ -1,5 +1,5 @@
 + stage[example_plans/vanilla]
-  = deferredDebPkgs: …
+  = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": 111, "installs": […
   + bundle[cjs:ubborg-usecase-rescuedisk-pmb]
     + osUser[urd]
       = disablePasswordLogin: false
@@ -197,6 +197,663 @@
           - iniFileOpt[…|Seat:*|autologin-user-timeout]
         - iniFile[/etc/lightdm/lightdm.conf.d/autologin.conf]
       - bundle[…/src/lightdm/autologin]
+    + bundle[…/src/software/]
+      + bundle[…basicImageEditing]
+        + debPkg[mtpaint]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[mtpaint]
+        - bundle[…basicImageEditing]
+      + bundle[…clipboard]
+        + debPkg[xsel]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[xsel]
+        - bundle[…clipboard]
+      + bundle[…configMgmt]
+        + debPkg[crudini]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[crudini]
+        + debPkg[ansible]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[ansible]
+        - bundle[…configMgmt]
+      + bundle[…dataRecovery]
+        + debPkg[gddrescue]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[gddrescue]
+        - bundle[…dataRecovery]
+      + bundle[…debPkgUtil]
+        + debPkg[apt]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[apt]
+        + debPkg[aptitude]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[aptitude]
+        - bundle[…debPkgUtil]
+      + bundle[…debugUtil]
+        + debPkg[acpi]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[acpi]
+        + debPkg[colordiff]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[colordiff]
+        + debPkg[debconf-utils]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[debconf-utils]
+        + debPkg[file]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[file]
+        + debPkg[htop]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[htop]
+        + debPkg[iotop]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[iotop]
+        + debPkg[lsof]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[lsof]
+        + debPkg[mmc-utils]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[mmc-utils]
+        + debPkg[units]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[units]
+        - bundle[…debugUtil]
+      + bundle[…dialogScripting]
+        + debPkg[gxmessage]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[gxmessage]
+        + debPkg[x11-utils]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[x11-utils]
+        + debPkg[zenity]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[zenity]
+        + debPkg[yad]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[yad]
+        + debPkg[alltray]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[alltray]
+        - bundle[…dialogScripting]
+      + bundle[…diskPartMgmt]
+        + debPkg[util-linux]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[util-linux]
+        + debPkg[gparted]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[gparted]
+        + debPkg[gpart]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[gpart]
+        + debPkg[dosfstools]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[dosfstools]
+        + debPkg[mtools]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[mtools]
+        + debPkg[lvm2]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[lvm2]
+        + debPkg[cryptsetup]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[cryptsetup]
+        + debPkg[cryptsetup-initramfs]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[cryptsetup-initramfs]
+        + file[/PL]
+          = content: "dev/disk/by-partlabel"
+          = mimeType: "inode/symlink"
+          - file[/PL]
+        - bundle[…diskPartMgmt]
+      + bundle[…fileSystems]
+        + debPkg[udisks2]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[udisks2]
+        + debPkg[udiskie]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[udiskie]
+        + debPkg[fatresize]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[fatresize]
+        + debPkg[exfat-fuse]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[exfat-fuse]
+        + debPkg[exfat-utils]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[exfat-utils]
+        + debPkg[ntfs-3g]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[ntfs-3g]
+        - bundle[…fileSystems]
+      + bundle[…fileViewers]
+        + debPkg[eog]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[eog]
+        + debPkg[gpicview]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[gpicview]
+        + debPkg[evince]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[evince]
+        + debPkg[okular]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[okular]
+        - bundle[…fileViewers]
+      + bundle[…grub]
+        + debPkg[grub2-common]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[grub2-common]
+        + debPkg[grub-efi-amd64-bin]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[grub-efi-amd64-bin]
+        + debPkg[grub-efi-ia32-bin]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[grub-efi-ia32-bin]
+        + debPkg[grub-pc-bin]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[grub-pc-bin]
+        - bundle[…grub]
+      + bundle[…kernel]
+        + debPkg[linux-image-lowlatency]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[linux-image-lowlatency]
+        - bundle[…kernel]
+      + bundle[…math]
+        + debPkg[bc]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[bc]
+        + debPkg[gnome-calculator]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[gnome-calculator]
+        + debPkg[gnumeric]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[gnumeric]
+        + debPkg[wxmaxima]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[wxmaxima]
+        - bundle[…math]
+      + bundle[…networkBasics]
+        + debPkg[avahi-daemon]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[avahi-daemon]
+        + debPkg[avahi-utils]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[avahi-utils]
+        + debPkg[ifupdown]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[ifupdown]
+        + debPkg[libnss-mdns]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[libnss-mdns]
+        + debPkg[libnss-myhostname]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[libnss-myhostname]
+        + debPkg[net-tools]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[net-tools]
+        + debPkg[networkd-dispatcher]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[networkd-dispatcher]
+        + debPkg[network-manager]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[network-manager]
+        - bundle[…networkBasics]
+      + bundle[…networkDataTransfer]
+        + debPkg[axel]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[axel]
+        + debPkg[curl]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[curl]
+        + debPkg[netcat]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = presenceMarker: "cmd:"
+          = state: "installed"
+          - debPkg[netcat]
+        + debPkg[socat]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[socat]
+        + debPkg[wget]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[wget]
+        - bundle[…networkDataTransfer]
+      + bundle[…networkDebug]
+        + debPkg[iputils-ping]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = presenceMarker: "cmd:ping"
+          = state: "installed"
+          - debPkg[iputils-ping]
+        ^ debPkg[netcat]
+        - bundle[…networkDebug]
+      + bundle[…openbox]
+        + debPkg[openbox]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[openbox]
+        + debPkg[obconf]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[obconf]
+        + debPkg[python-xdg]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[python-xdg]
+        + debPkg[wbar]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[wbar]
+        + debPkg[wbar-config]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[wbar-config]
+        + debPkg[gnome-accessibility-themes]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = presenceMarker: "file:/usr/share/icons/HighContrast/32x32/"
+          = state: "installed"
+          - debPkg[gnome-accessibility-themes]
+        + debPkg[wmbattery]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[wmbattery]
+        + debPkg[wmbubble]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[wmbubble]
+        - bundle[…openbox]
+      + bundle[…remoteDesktop]
+        + debPkg[x11vnc]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[x11vnc]
+        + debPkg[remmina]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[remmina]
+        - bundle[…remoteDesktop]
+      + bundle[…remoteShell]
+        + debPkg[openssh-server]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[openssh-server]
+        + debPkg[haveged]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[haveged]
+        - bundle[…remoteShell]
+      + bundle[…rtfm]
+        + debPkg[man]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[man]
+        - bundle[…rtfm]
+      + bundle[…shell]
+        + debPkg[bash]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[bash]
+        + debPkg[bash-completion]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[bash-completion]
+        + debPkg[mingetty]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[mingetty]
+        + debPkg[screen]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[screen]
+        + debPkg[tmux]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[tmux]
+        + debPkg[less]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[less]
+        + debPkg[moreutils]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[moreutils]
+        + debPkg[nano]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[nano]
+        + debPkg[procps]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[procps]
+        + debPkg[pv]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[pv]
+        + debPkg[rename]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[rename]
+        + debPkg[rlwrap]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[rlwrap]
+        + debPkg[psmisc]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[psmisc]
+        - bundle[…shell]
+      + bundle[…sysCore]
+        + debPkg[ubuntu-minimal]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[ubuntu-minimal]
+        + debPkg[anacron]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[anacron]
+        + debPkg[console-data]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[console-data]
+        + debPkg[initramfs-tools]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[initramfs-tools]
+        + debPkg[keyboard-configuration]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[keyboard-configuration]
+        + debPkg[logrotate]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[logrotate]
+        + debPkg[perl]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[perl]
+        + debPkg[systemd]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[systemd]
+        - bundle[…sysCore]
+      + bundle[…terminalEmus]
+        + debPkg[sakura]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[sakura]
+        + debPkg[gnome-terminal]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[gnome-terminal]
+        + debPkg[dconf-cli]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[dconf-cli]
+        - bundle[…terminalEmus]
+      + bundle[…textEditors]
+        + debPkg[featherpad]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[featherpad]
+        + debPkg[mousepad]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[mousepad]
+        - bundle[…textEditors]
+      + bundle[…ubuntuBasePkgLists]
+        + debPkgRepo[ubuntu_security]
+          = components: ["main", "restricted", "universe", "multiverse"]
+          = deferPkgListUpdate: true
+          = dists: ["focal-security"]
+          = src: true
+          = state: "enabled"
+          = urls: ["http://security.ubuntu.com/ubuntu"]
+          + file[/etc/apt/sources.list.d/ubborg.ubuntu_security.list]
+            = content: ["# generated by ubborg-planner-pmb\n",
+¬¶            "deb     http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse\n",
+¬¶            "deb-src http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse\n"]
+            = enforcedGroup: "adm"
+            = enforcedModes: "a=r,ug+w"
+            = enforcedOwner: "root"
+            = mimeType: "text/plain"
+            + file[/etc/apt/sources.list.d]
+              = mimeType: "inode/directory"
+              + file[/etc/apt]
+                = mimeType: "inode/directory"
+                ^ file[/etc]
+                - file[/etc/apt]
+              - file[/etc/apt/sources.list.d]
+            - file[/etc/apt/sources.list.d/ubborg.ubuntu_security.list]
+          - debPkgRepo[ubuntu_security]
+        + debPkgRepo[ubuntu_base]
+          = components: ["main", "restricted", "universe", "multiverse"]
+          = deferPkgListUpdate: true
+          = dists: ["focal", "focal-backports", "focal-updates", "focal-proposed"]
+          = src: true
+          = state: "enabled"
+          = urls: ["http://de.archive.ubuntu.com/ubuntu"]
+          + file[/etc/apt/sources.list.d/ubborg.ubuntu_base.list]
+            = content: ["# generated by ubborg-planner-pmb\n",
+¬¶            "deb     http://de.archive.ubuntu.com/ubuntu focal main restricted universe multiverse\n",
+¬¶            "deb-src http://de.archive.ubuntu.com/ubuntu focal main restricted universe multiverse\n",
+¬¶            "deb     http://de.archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse\n",
+¬¶            "deb-src http://de.archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse\n",
+¬¶            "deb     http://de.archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse\n",
+¬¶            "deb-src http://de.archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse\n",
+¬¶            "deb     http://de.archive.ubuntu.com/ubuntu focal-proposed main restricted universe multiverse\n",
+¬¶            "deb-src http://de.archive.ubuntu.com/ubuntu focal-proposed main restricted universe multiverse\n"]
+            = enforcedGroup: "adm"
+            = enforcedModes: "a=r,ug+w"
+            = enforcedOwner: "root"
+            = mimeType: "text/plain"
+            ^ file[/etc/apt/sources.list.d]
+            - file[/etc/apt/sources.list.d/ubborg.ubuntu_base.list]
+          - debPkgRepo[ubuntu_base]
+        - bundle[…ubuntuBasePkgLists]
+      + bundle[…vcs]
+        + debPkg[git]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[git]
+        + debPkg[git-annex]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[git-annex]
+        - bundle[…vcs]
+      + bundle[…xorgBasics]
+        + debPkg[unity-greeter]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[unity-greeter]
+        + debPkg[x11-xserver-utils]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[x11-xserver-utils]
+        + debPkg[xdotool]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[xdotool]
+        + debPkg[xserver-xorg]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[xserver-xorg]
+        + debPkg[scrot]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[scrot]
+        + debPkg[wmctrl]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[wmctrl]
+        - bundle[…xorgBasics]
+      - bundle[…/src/software/]
     + bundle[…/src/workarounds/]
       = param: {"loginName": "urd"}
       + bundle[…avoidAccidentialTouchpadTap]
@@ -308,7 +965,7 @@
             - iniFileOpt[…|Desktop Entry|Hidden]
           - iniFile[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop]
         + file[/etc/apt/apt.conf.d/95never-install-recommends]
-          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb v0.0.2\n",
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n",
 ¬¶            "APT::Install-Recommends \"0\";\n",
 ¬¶            "APT::Install-Suggests \"0\";\n"]
           = enforcedGroup: "adm"
@@ -318,14 +975,11 @@
           = replace: true
           + file[/etc/apt/apt.conf.d]
             = mimeType: "inode/directory"
-            + file[/etc/apt]
-              = mimeType: "inode/directory"
-              ^ file[/etc]
-              - file[/etc/apt]
+            ^ file[/etc/apt]
             - file[/etc/apt/apt.conf.d]
           - file[/etc/apt/apt.conf.d/95never-install-recommends]
         + file[/etc/apt/apt.conf.d/95no-periodic-interference]
-          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb v0.0.2\n",
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n",
 ¬¶            "APT::Periodic::Enable \"0\";\n"]
           = enforcedGroup: "adm"
           = enforcedModes: "a=r,ug+w"
@@ -337,7 +991,7 @@
         - bundle[…avoidDefaultAptUpdates]
       + bundle[…presentationMode]
         + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.xscreensaver]
-          = content: "# This file was generated using ubborg-usecase-rescuedisk-pmb v0.0.2\nmode: off\nlock: False\n"
+          = content: "# This file was generated using ubborg-usecase-rescuedisk-pmb\nmode: off\nlock: False\n"
           = enforcedGroup: "urd"
           = enforcedModes: "a=r,ug+w"
           = enforcedOwner: "urd"
