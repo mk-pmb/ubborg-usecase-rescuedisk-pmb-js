@@ -6,6 +6,7 @@ function all () {
   export LANG{,UAGE}=en_US.UTF-8  # make error messages search engine-friendly
   local SELFPATH="$(readlink -m -- "$BASH_SOURCE"/..)"
   cd -- "$SELFPATH" || return $?
+  SECONDS=0
 
   local PLAN=
   for PLAN in example_plans/*.mjs; do
@@ -14,6 +15,7 @@ function all () {
   done
 
   local DIFFS=( example_plans/*.tmp.*.diff )
+  echo ":total_duration_sec=$SECONDS"
   if [ "${#DIFFS[@]}" -le 1 -a ! -f "${DIFFS[0]}" ]; then
     echo "+OK all tests passed."
     return 0

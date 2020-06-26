@@ -22,6 +22,7 @@ async function rescueDisk(bun) {
     });
   }
 
+  bun.needs('subBundle', { url: 'src/software/' });
   bun.needs('subBundle', { url: 'src/workarounds/', param: { loginName } });
 }
 

@@ -18,6 +18,12 @@ const defaultOpts = {
   },
   autoLogin: true,  // Whether to auto-login the rescueUser.
   workarounds: {},  // see src/workarounds/
+  software: {},     // see src/software/
+  osVersion: {
+    family: 'linux',
+    distro: 'ubuntu',
+    codename: 'focal',
+  },
 };
 
 export default defaultOpts;
