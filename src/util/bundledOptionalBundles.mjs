@@ -2,15 +2,19 @@
 
 import pProps from 'p-props';
 
-function true2undef(x) { return (x === true ? undefined : x); }
-
 function makeBob(paramKey, defaultFeatureCfg, origOpt) {
   const opt = (origOpt || false);
   const subResType = (opt.subResType || 'bundle');
   async function bob(bun) {
-    const features = bun.makeParamPopper().mustBe('dictObj', paramKey);
+    let features = bun.makeParamPopper().mustBe('bool | dictObj', paramKey);
+    if (features === false) { return; }
+    const all = (features === true);
+    if (all) { features = defaultFeatureCfg; }
     await pProps(features, function need(p, url) {
-      return (p && bun.needs(subResType, { url, param: true2undef(p) }));
+      const spec = { url };
+      if ((p === false) && (!all)) { return; }
+      if (p && (p !== true)) { spec.param = p; }
+      return bun.needs(subResType, spec);
     });
   }
   Object.assign(bob, {
