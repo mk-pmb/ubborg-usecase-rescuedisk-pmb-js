@@ -154,48 +154,21 @@
             - file[/etc]
           - file[/etc/lightdm]
         - file[/etc/lightdm/user_session_prefs]
-      + iniFile[/etc/lightdm/lightdm.conf.d/autologin.conf]
-        + file[…]
-          = mimeType: "text/plain"
-          + file[/etc/lightdm/lightdm.conf.d]
-            = mimeType: "inode/directory"
-            ^ file[/etc/lightdm]
-            - file[/etc/lightdm/lightdm.conf.d]
-          - file[…]
-        + iniFileSect[…|Seat:*]
-          = exists: true
-          = path: "/etc/lightdm/lightdm.conf.d/autologin.conf"
-          = sect: "Seat:*"
-          - iniFileSect[…|Seat:*]
-        + iniFileOpt[…|Seat:*|autologin-session]
-          = key: "autologin-session"
-          = path: "/etc/lightdm/lightdm.conf.d/autologin.conf"
-          = sect: "Seat:*"
-          = val: "lightdm-autologin"
-          ^ iniFileSect[/etc/lightdm/lightdm.conf.d/autologin.conf|Seat:*]
-          - iniFileOpt[…|Seat:*|autologin-session]
-        + iniFileOpt[…|Seat:*|autologin-guest]
-          = key: "autologin-guest"
-          = path: "/etc/lightdm/lightdm.conf.d/autologin.conf"
-          = sect: "Seat:*"
-          = val: false
-          ^ iniFileSect[/etc/lightdm/lightdm.conf.d/autologin.conf|Seat:*]
-          - iniFileOpt[…|Seat:*|autologin-guest]
-        + iniFileOpt[…|Seat:*|autologin-user]
-          = key: "autologin-user"
-          = path: "/etc/lightdm/lightdm.conf.d/autologin.conf"
-          = sect: "Seat:*"
-          = val: "urd"
-          ^ iniFileSect[/etc/lightdm/lightdm.conf.d/autologin.conf|Seat:*]
-          - iniFileOpt[…|Seat:*|autologin-user]
-        + iniFileOpt[…|Seat:*|autologin-user-timeout]
-          = key: "autologin-user-timeout"
-          = path: "/etc/lightdm/lightdm.conf.d/autologin.conf"
-          = sect: "Seat:*"
-          = val: 0
-          ^ iniFileSect[/etc/lightdm/lightdm.conf.d/autologin.conf|Seat:*]
-          - iniFileOpt[…|Seat:*|autologin-user-timeout]
-        - iniFile[/etc/lightdm/lightdm.conf.d/autologin.conf]
+      + file[/etc/lightdm/lightdm.conf.d/autologin.conf]
+        = content: ["[Seat:*]\n",
+¬¶            "autologin-session=lightdm-autologin\n",
+¬¶            "autologin-guest=no\n",
+¬¶            "autologin-user=urd\n",
+¬¶            "autologin-user-timeout=0\n"]
+        = enforcedGroup: "adm"
+        = enforcedModes: "a=r,ug+w"
+        = enforcedOwner: "root"
+        = mimeType: "text/plain"
+        + file[/etc/lightdm/lightdm.conf.d]
+          = mimeType: "inode/directory"
+          ^ file[/etc/lightdm]
+          - file[/etc/lightdm/lightdm.conf.d]
+        - file[/etc/lightdm/lightdm.conf.d/autologin.conf]
       - bundle[…/src/lightdm/autologin]
     + bundle[…/src/software/]
       + bundle[…basicImageEditing]
