@@ -1,6 +1,24 @@
 + stage[example_plans/vanilla]
   = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": 113, "installs": […
   + bundle[cjs:ubborg-usecase-rescuedisk-pmb]
+    + bundle[…/src/defaultKeyboard]
+      = param: {}
+      + file[/etc/default/keyboard]
+        = content: ["# Keyboard config, see man 5 keyboard\n",
+¬¶            "XKBMODEL='pc105'\n",
+¬¶            "XKBLAYOUT='us'\n",
+¬¶            "XKBVARIANT='nodeadkeys'\n",
+¬¶            "XKBOPTIONS='caps:none'\n",
+¬¶            "BACKSPACE='guess'\n"]
+        = mimeType: "text/plain"
+        + file[/etc/default]
+          = mimeType: "inode/directory"
+          + file[/etc]
+            = mimeType: "inode/directory"
+            - file[/etc]
+          - file[/etc/default]
+        - file[/etc/default/keyboard]
+      - bundle[…/src/defaultKeyboard]
     + osUser[urd]
       = disablePasswordLogin: false
       = exists: true
@@ -129,13 +147,6 @@
         = val: "openbox"
         ^ iniFileSect[/var/lib/AccountsService/users/urd|User]
         - iniFileOpt[…|User|XSession]
-      + iniFileOpt[…|User|XKeyboardLayouts]
-        = key: "XKeyboardLayouts"
-        = path: "/var/lib/AccountsService/users/urd"
-        = sect: "User"
-        = val: ""
-        ^ iniFileSect[/var/lib/AccountsService/users/urd|User]
-        - iniFileOpt[…|User|XKeyboardLayouts]
       - iniFile[/var/lib/AccountsService/users/urd]
     + bundle[…/src/lightdm/autologin]
       = param: {"loginName": "urd"}
@@ -149,9 +160,7 @@
         = mimeType: "inode/symlink"
         + file[/etc/lightdm]
           = mimeType: "inode/directory"
-          + file[/etc]
-            = mimeType: "inode/directory"
-            - file[/etc]
+          ^ file[/etc]
           - file[/etc/lightdm]
         - file[/etc/lightdm/user_session_prefs]
       + file[/etc/lightdm/lightdm.conf.d/autologin.conf]

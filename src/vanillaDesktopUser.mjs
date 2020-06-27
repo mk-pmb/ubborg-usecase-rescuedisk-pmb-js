@@ -32,6 +32,7 @@ async function vdu(bun, props) {
     admin: undefined,
     homonymousGroupIdNum: undefined,
     windowManager: undefined,
+    primaryKeyboardLayout: undefined,
   });
 
   await bun.needs('iniFile', {
@@ -39,7 +40,6 @@ async function vdu(bun, props) {
     sections: {
       User: {
         XSession: (windowManager || 'openbox'),
-        XKeyboardLayouts: '',
       },
     },
   });
