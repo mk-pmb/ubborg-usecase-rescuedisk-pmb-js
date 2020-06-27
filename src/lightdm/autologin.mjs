@@ -32,7 +32,7 @@ async function autologin(bun) {
 
 Object.assign(autologin, {
 
-  inheritParams: {
+  inheritParam: {
     loginName: true,
     timeoutSec: true,
   },

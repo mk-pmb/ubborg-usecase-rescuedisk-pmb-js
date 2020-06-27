@@ -7,6 +7,7 @@ function all () {
   local SELFPATH="$(readlink -m -- "$BASH_SOURCE"/..)"
   cd -- "$SELFPATH" || return $?
   SECONDS=0
+  export UBBORG_TIMEOUT_FACTOR=10
 
   local PLAN= ERR_CNT=0
   for PLAN in example_plans/*.mjs; do

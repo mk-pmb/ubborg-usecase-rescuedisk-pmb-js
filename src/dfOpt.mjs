@@ -17,8 +17,9 @@ const defaultOpts = {
     windowManager: 'openbox',
   },
   autoLogin: true,  // Whether to auto-login the rescueUser.
-  workarounds: {},  // see src/workarounds/
-  software: {},     // see src/software/
+  workarounds: {},        // see src/workarounds/
+  software: {},           // see src/software/
+  primaryKeyboard: {},    // see src/defaultKeyboard.mjs; or false to skip.
   osVersion: {
     family: 'linux',
     distro: 'ubuntu',

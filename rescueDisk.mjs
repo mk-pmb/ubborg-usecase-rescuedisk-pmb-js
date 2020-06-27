@@ -12,6 +12,11 @@ async function rescueDisk(bun) {
   const mustUser = objPop(userSpec, { mustBe }).mustBe;
   const loginName = mustUser('nonEmpty str', 'loginName');
 
+  const kbd = param('dictObj | fal', 'primaryKeyboard');
+  if (kbd) {
+    bun.needs('subBundle', { url: 'src/defaultKeyboard', param: kbd });
+  }
+
   await vdu(bun, userSpec);
   // ^-- await: to ensure homeDir is declared
 
