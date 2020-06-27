@@ -845,108 +845,42 @@
           = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
           = state: "installed"
           - debPkg[xserver-xorg-input-synaptics]
-        + iniFile[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop]
-          + file[…]
-            = enforcedGroup: "urd"
-            = enforcedModes: "a=rx,ug+w"
-            = enforcedOwner: "urd"
-            = mimeType: "text/plain"
-            + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
+        + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop]
+          = content: ["[Desktop Entry]\n",
+¬¶            "Encoding=UTF-8\n",
+¬¶            "Version=0.9.4\n",
+¬¶            "Type=Application\n",
+¬¶            "Name=Touchpad Config via synclient\n",
+¬¶            "Comment=Use touchpad only to move the mouse, click only with buttons.\n",
+¬¶            "Exec=/usr/bin/synclient MaxTapTime=0 MaxDoubleTapTime=0 VertEdgeScroll=0\n",
+¬¶            "StartupNotify=no\n",
+¬¶            "Terminal=no\n",
+¬¶            "Hidden=false\n"]
+          = enforcedGroup: "urd"
+          = enforcedModes: "a=rx,ug+w"
+          = enforcedOwner: "urd"
+          = mimeType: "text/plain"
+          + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
+            = mimeType: "inode/directory"
+            + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
               = mimeType: "inode/directory"
-              + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
+              + file[/var/lib/ubborg-usecase-rescuedisk-pmb]
                 = mimeType: "inode/directory"
-                + file[/var/lib/ubborg-usecase-rescuedisk-pmb]
-                  = mimeType: "inode/directory"
-                  ^ file[/var/lib]
-                  - file[/var/lib/ubborg-usecase-rescuedisk-pmb]
-                - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
-              - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
-            - file[…]
-          + iniFileSect[…|Desktop Entry]
-            = exists: true
-            = path: "/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop"
-            = sect: "Desktop Entry"
-            - iniFileSect[…|Desktop Entry]
-          + iniFileOpt[…|Desktop Entry|Encoding]
-            = key: "Encoding"
-            = path: "/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop"
-            = sect: "Desktop Entry"
-            = val: "UTF-8"
-            ^ iniFileSect[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop|Desktop Entry]
-            - iniFileOpt[…|Desktop Entry|Encoding]
-          + iniFileOpt[…|Desktop Entry|Version]
-            = key: "Version"
-            = path: "/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop"
-            = sect: "Desktop Entry"
-            = val: "0.9.4"
-            ^ iniFileSect[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop|Desktop Entry]
-            - iniFileOpt[…|Desktop Entry|Version]
-          + iniFileOpt[…|Desktop Entry|Type]
-            = key: "Type"
-            = path: "/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop"
-            = sect: "Desktop Entry"
-            = val: "Application"
-            ^ iniFileSect[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop|Desktop Entry]
-            - iniFileOpt[…|Desktop Entry|Type]
-          + iniFileOpt[…|Desktop Entry|Name]
-            = key: "Name"
-            = path: "/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop"
-            = sect: "Desktop Entry"
-            = val: "Touchpad Config via synclient"
-            ^ iniFileSect[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop|Desktop Entry]
-            - iniFileOpt[…|Desktop Entry|Name]
-          + iniFileOpt[…|Desktop Entry|Comment]
-            = key: "Comment"
-            = path: "/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop"
-            = sect: "Desktop Entry"
-            = val: "Use touchpad only to move the mouse, click only with buttons."
-            ^ iniFileSect[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop|Desktop Entry]
-            - iniFileOpt[…|Desktop Entry|Comment]
-          + iniFileOpt[…|Desktop Entry|StartupNotify]
-            = key: "StartupNotify"
-            = path: "/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop"
-            = sect: "Desktop Entry"
-            = val: false
-            ^ iniFileSect[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop|Desktop Entry]
-            - iniFileOpt[…|Desktop Entry|StartupNotify]
-          + iniFileOpt[…|Desktop Entry|Terminal]
-            = key: "Terminal"
-            = path: "/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop"
-            = sect: "Desktop Entry"
-            = val: false
-            ^ iniFileSect[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop|Desktop Entry]
-            - iniFileOpt[…|Desktop Entry|Terminal]
-          + iniFileOpt[…|Desktop Entry|Hidden]
-            = key: "Hidden"
-            = path: "/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop"
-            = sect: "Desktop Entry"
-            = val: "false"
-            ^ iniFileSect[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop|Desktop Entry]
-            - iniFileOpt[…|Desktop Entry|Hidden]
-          - iniFile[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop]
+                ^ file[/var/lib]
+                - file[/var/lib/ubborg-usecase-rescuedisk-pmb]
+              - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
+            - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
+          - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop]
         - bundle[…avoidAccidentialTouchpadTap]
       + bundle[…avoidDefaultAptUpdates]
-        + iniFile[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop]
-          + file[…]
-            = enforcedGroup: "urd"
-            = enforcedModes: "a=rx,ug+w"
-            = enforcedOwner: "urd"
-            = mimeType: "text/plain"
-            ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
-            - file[…]
-          + iniFileSect[…|Desktop Entry]
-            = exists: true
-            = path: "/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop"
-            = sect: "Desktop Entry"
-            - iniFileSect[…|Desktop Entry]
-          + iniFileOpt[…|Desktop Entry|Hidden]
-            = key: "Hidden"
-            = path: "/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop"
-            = sect: "Desktop Entry"
-            = val: "true"
-            ^ iniFileSect[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop|Desktop Entry]
-            - iniFileOpt[…|Desktop Entry|Hidden]
-          - iniFile[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop]
+        + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop]
+          = content: ["[Desktop Entry]\n", "Hidden=true\n"]
+          = enforcedGroup: "urd"
+          = enforcedModes: "a=rx,ug+w"
+          = enforcedOwner: "urd"
+          = mimeType: "text/plain"
+          ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
+          - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop]
         + file[/etc/apt/apt.conf.d/95never-install-recommends]
           = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n",
 ¬¶            "APT::Install-Recommends \"0\";\n",
