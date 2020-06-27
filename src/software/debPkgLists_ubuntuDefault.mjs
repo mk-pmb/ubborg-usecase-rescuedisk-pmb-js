@@ -3,9 +3,8 @@
 import mustBe from 'typechecks-pmb/must-be';
 
 export default async(bun) => {
-  const param = bun.getParams();
-  const dist = mustBe.nest('Ubuntu version codename',
-    (param.osVersion || false).codename);
+  const osVer = bun.makeParamPopper().mustBe('dictObj', 'osVersion');
+  const dist = mustBe.nest('Ubuntu version codename', osVer.codename);
   const components = [
     'main',
     'restricted',

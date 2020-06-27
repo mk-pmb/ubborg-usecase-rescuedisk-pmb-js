@@ -6,6 +6,7 @@ export default bob('software', {
   basicImageEditing: true,
   configMgmt: true,
   dataRecovery: true,
+  debPkgLists_ubuntuDefault: true,
   debPkgUtil: true,
   debugUtil: true,
   dialogScripting: true,
@@ -27,7 +28,6 @@ export default bob('software', {
   sysCore: true,
   terminalEmus: true,
   textEditors: true,
-  ubuntuBasePkgLists: true,
   vcs: true,
   xorgBasics: true,
 });
