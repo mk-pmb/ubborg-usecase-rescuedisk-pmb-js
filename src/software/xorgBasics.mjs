@@ -18,5 +18,7 @@ export default async(bun) => {
 
     'scrot',
     'wmctrl',
+
+    'xdg-utils',
   ]);
 };
