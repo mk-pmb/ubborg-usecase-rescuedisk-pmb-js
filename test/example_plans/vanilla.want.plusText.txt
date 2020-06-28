@@ -19,16 +19,39 @@
           - file[/etc/default]
         - file[/etc/default/keyboard]
       - bundle[…/src/defaultKeyboard]
-    + osUser[urd]
-      = disablePasswordLogin: false
-      = exists: true
-      = homeDirPath: "/var/lib/ubborg-usecase-rescuedisk-pmb"
-      = interactive: true
-      = passwordHash: "$6$fake…$==bo…"
-      = preserveExistingPasswordHash: false
-      = shell: "bash"
-      = userIdNum: 942
-      + osUserLogin[…]
+    + bundle[…/src/user]
+      + bundle[cjs:ubborg-usecase-rescuedisk-pmb/src/lightdm/autologin]
+        = param: {"loginName": "urd"}
+        + debPkg[lightdm]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[lightdm]
+        + file[/etc/lightdm/user_session_prefs]
+          = content: "/var/lib/AccountsService/users"
+          = mimeType: "inode/symlink"
+          + file[/etc/lightdm]
+            = mimeType: "inode/directory"
+            ^ file[/etc]
+            - file[/etc/lightdm]
+          - file[/etc/lightdm/user_session_prefs]
+        + file[/etc/lightdm/lightdm.conf.d/autologin.conf]
+          = content: ["[Seat:*]\n",
+¬¶            "autologin-session=lightdm-autologin\n",
+¬¶            "autologin-guest=no\n",
+¬¶            "autologin-user=urd\n",
+¬¶            "autologin-user-timeout=0\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a=r,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain"
+          + file[/etc/lightdm/lightdm.conf.d]
+            = mimeType: "inode/directory"
+            ^ file[/etc/lightdm]
+            - file[/etc/lightdm/lightdm.conf.d]
+          - file[/etc/lightdm/lightdm.conf.d/autologin.conf]
+        - bundle[cjs:ubborg-usecase-rescuedisk-pmb/src/lightdm/autologin]
+      + osUser[urd]
         = disablePasswordLogin: false
         = exists: true
         = homeDirPath: "/var/lib/ubborg-usecase-rescuedisk-pmb"
@@ -37,148 +60,265 @@
         = preserveExistingPasswordHash: false
         = shell: "bash"
         = userIdNum: 942
-        - osUserLogin[…]
-      + osUserGroupMembership[…|urd]
-        = grName: "urd"
-        = loginName: "urd"
-        = member: true
-        ^ osUserLogin[urd]
-        + osUserGroup[urd]
+        + osUserLogin[…]
+          = disablePasswordLogin: false
           = exists: true
-          = interactive: false
-          - osUserGroup[urd]
-        - osUserGroupMembership[…|urd]
-      + osUserGroupMembership[…|netdev]
-        = grName: "netdev"
-        = loginName: "urd"
-        = member: true
-        ^ osUserLogin[urd]
-        + osUserGroup[netdev]
-          = exists: true
-          = interactive: false
-          - osUserGroup[netdev]
-        - osUserGroupMembership[…|netdev]
-      + osUserGroupMembership[…|dialout]
-        = grName: "dialout"
-        = loginName: "urd"
-        = member: true
-        ^ osUserLogin[urd]
-        + osUserGroup[dialout]
-          = exists: true
-          = interactive: false
-          - osUserGroup[dialout]
-        - osUserGroupMembership[…|dialout]
-      + osUserGroupMembership[…|fuse]
-        = grName: "fuse"
-        = loginName: "urd"
-        = member: true
-        ^ osUserLogin[urd]
-        + osUserGroup[fuse]
-          = exists: true
-          = interactive: false
-          - osUserGroup[fuse]
-        - osUserGroupMembership[…|fuse]
-      + osUserGroupMembership[…|saned]
-        = grName: "saned"
-        = loginName: "urd"
-        = member: true
-        ^ osUserLogin[urd]
-        + osUserGroup[saned]
-          = exists: true
-          = interactive: false
-          - osUserGroup[saned]
-        - osUserGroupMembership[…|saned]
-      + osUserGroupMembership[…|lp]
-        = grName: "lp"
-        = loginName: "urd"
-        = member: true
-        ^ osUserLogin[urd]
-        + osUserGroup[lp]
-          = exists: true
-          = interactive: false
-          - osUserGroup[lp]
-        - osUserGroupMembership[…|lp]
-      + osUserGroupMembership[…|adm]
-        = grName: "adm"
-        = loginName: "urd"
-        = member: true
-        ^ osUserLogin[urd]
-        + osUserGroup[adm]
-          = exists: true
-          = interactive: false
-          - osUserGroup[adm]
-        - osUserGroupMembership[…|adm]
-      + osUserGroupMembership[…|sudo]
-        = grName: "sudo"
-        = loginName: "urd"
-        = member: true
-        ^ osUserLogin[urd]
-        + osUserGroup[sudo]
-          = exists: true
-          = interactive: false
-          - osUserGroup[sudo]
-        - osUserGroupMembership[…|sudo]
-      - osUser[urd]
-    + iniFile[/var/lib/AccountsService/users/urd]
-      + file[…]
-        = mimeType: "text/plain"
-        + file[/var/lib/AccountsService/users]
-          = mimeType: "inode/directory"
-          + file[/var/lib/AccountsService]
+          = homeDirPath: "/var/lib/ubborg-usecase-rescuedisk-pmb"
+          = interactive: true
+          = passwordHash: "$6$fake…$==bo…"
+          = preserveExistingPasswordHash: false
+          = shell: "bash"
+          = userIdNum: 942
+          - osUserLogin[…]
+        + osUserGroupMembership[…|urd]
+          = grName: "urd"
+          = loginName: "urd"
+          = member: true
+          ^ osUserLogin[urd]
+          + osUserGroup[urd]
+            = exists: true
+            = interactive: false
+            - osUserGroup[urd]
+          - osUserGroupMembership[…|urd]
+        + osUserGroupMembership[…|netdev]
+          = grName: "netdev"
+          = loginName: "urd"
+          = member: true
+          ^ osUserLogin[urd]
+          + osUserGroup[netdev]
+            = exists: true
+            = interactive: false
+            - osUserGroup[netdev]
+          - osUserGroupMembership[…|netdev]
+        + osUserGroupMembership[…|dialout]
+          = grName: "dialout"
+          = loginName: "urd"
+          = member: true
+          ^ osUserLogin[urd]
+          + osUserGroup[dialout]
+            = exists: true
+            = interactive: false
+            - osUserGroup[dialout]
+          - osUserGroupMembership[…|dialout]
+        + osUserGroupMembership[…|fuse]
+          = grName: "fuse"
+          = loginName: "urd"
+          = member: true
+          ^ osUserLogin[urd]
+          + osUserGroup[fuse]
+            = exists: true
+            = interactive: false
+            - osUserGroup[fuse]
+          - osUserGroupMembership[…|fuse]
+        + osUserGroupMembership[…|saned]
+          = grName: "saned"
+          = loginName: "urd"
+          = member: true
+          ^ osUserLogin[urd]
+          + osUserGroup[saned]
+            = exists: true
+            = interactive: false
+            - osUserGroup[saned]
+          - osUserGroupMembership[…|saned]
+        + osUserGroupMembership[…|lp]
+          = grName: "lp"
+          = loginName: "urd"
+          = member: true
+          ^ osUserLogin[urd]
+          + osUserGroup[lp]
+            = exists: true
+            = interactive: false
+            - osUserGroup[lp]
+          - osUserGroupMembership[…|lp]
+        + osUserGroupMembership[…|adm]
+          = grName: "adm"
+          = loginName: "urd"
+          = member: true
+          ^ osUserLogin[urd]
+          + osUserGroup[adm]
+            = exists: true
+            = interactive: false
+            - osUserGroup[adm]
+          - osUserGroupMembership[…|adm]
+        + osUserGroupMembership[…|sudo]
+          = grName: "sudo"
+          = loginName: "urd"
+          = member: true
+          ^ osUserLogin[urd]
+          + osUserGroup[sudo]
+            = exists: true
+            = interactive: false
+            - osUserGroup[sudo]
+          - osUserGroupMembership[…|sudo]
+        - osUser[urd]
+      + iniFile[/var/lib/AccountsService/users/urd]
+        + file[…]
+          = mimeType: "text/plain"
+          + file[/var/lib/AccountsService/users]
             = mimeType: "inode/directory"
-            + file[/var/lib]
+            + file[/var/lib/AccountsService]
               = mimeType: "inode/directory"
-              + file[/var]
+              + file[/var/lib]
                 = mimeType: "inode/directory"
-                - file[/var]
-              - file[/var/lib]
-            - file[/var/lib/AccountsService]
-          - file[/var/lib/AccountsService/users]
-        - file[…]
-      + iniFileSect[…|User]
-        = exists: true
-        = path: "/var/lib/AccountsService/users/urd"
-        = sect: "User"
-        - iniFileSect[…|User]
-      + iniFileOpt[…|User|XSession]
-        = key: "XSession"
-        = path: "/var/lib/AccountsService/users/urd"
-        = sect: "User"
-        = val: "openbox"
-        ^ iniFileSect[/var/lib/AccountsService/users/urd|User]
-        - iniFileOpt[…|User|XSession]
-      - iniFile[/var/lib/AccountsService/users/urd]
-    + bundle[…/src/lightdm/autologin]
-      = param: {"loginName": "urd"}
-      + debPkg[lightdm]
-        = defer: true
-        = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
-        = state: "installed"
-        - debPkg[lightdm]
-      + file[/etc/lightdm/user_session_prefs]
-        = content: "/var/lib/AccountsService/users"
-        = mimeType: "inode/symlink"
-        + file[/etc/lightdm]
-          = mimeType: "inode/directory"
-          ^ file[/etc]
-          - file[/etc/lightdm]
-        - file[/etc/lightdm/user_session_prefs]
-      + file[/etc/lightdm/lightdm.conf.d/autologin.conf]
-        = content: ["[Seat:*]\n",
-¬¶            "autologin-session=lightdm-autologin\n",
-¬¶            "autologin-guest=no\n",
-¬¶            "autologin-user=urd\n",
-¬¶            "autologin-user-timeout=0\n"]
-        = enforcedGroup: "adm"
+                + file[/var]
+                  = mimeType: "inode/directory"
+                  - file[/var]
+                - file[/var/lib]
+              - file[/var/lib/AccountsService]
+            - file[/var/lib/AccountsService/users]
+          - file[…]
+        + iniFileSect[…|User]
+          = exists: true
+          = path: "/var/lib/AccountsService/users/urd"
+          = sect: "User"
+          - iniFileSect[…|User]
+        + iniFileOpt[…|User|XSession]
+          = key: "XSession"
+          = path: "/var/lib/AccountsService/users/urd"
+          = sect: "User"
+          = val: "openbox"
+          ^ iniFileSect[/var/lib/AccountsService/users/urd|User]
+          - iniFileOpt[…|User|XSession]
+        - iniFile[/var/lib/AccountsService/users/urd]
+      + file[/var/lib/ubborg-usecase-rescuedisk-pmb/]
+        = enforcedGroup: "urd"
         = enforcedModes: "a=r,ug+w"
-        = enforcedOwner: "root"
-        = mimeType: "text/plain"
-        + file[/etc/lightdm/lightdm.conf.d]
+        = enforcedOwner: "urd"
+        = mimeType: "inode/directory"
+        ^ file[/var/lib]
+        - file[/var/lib/ubborg-usecase-rescuedisk-pmb/]
+      + file[/var/lib/ubborg-usecase-rescuedisk-pmb/Desktop]
+        = enforcedGroup: "urd"
+        = enforcedModes: "a=r,ug+w"
+        = enforcedOwner: "urd"
+        = mimeType: "inode/directory"
+        + file[/var/lib/ubborg-usecase-rescuedisk-pmb]
           = mimeType: "inode/directory"
-          ^ file[/etc/lightdm]
-          - file[/etc/lightdm/lightdm.conf.d]
-        - file[/etc/lightdm/lightdm.conf.d/autologin.conf]
-      - bundle[…/src/lightdm/autologin]
+          ^ file[/var/lib]
+          - file[/var/lib/ubborg-usecase-rescuedisk-pmb]
+        - file[/var/lib/ubborg-usecase-rescuedisk-pmb/Desktop]
+      + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
+        = enforcedGroup: "urd"
+        = enforcedModes: "a=r,ug+w"
+        = enforcedOwner: "urd"
+        = mimeType: "inode/directory"
+        ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb]
+        - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
+      + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/ssh]
+        = enforcedGroup: "urd"
+        = enforcedModes: "a=r,ug+w"
+        = enforcedOwner: "urd"
+        = mimeType: "inode/directory"
+        ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
+        - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/ssh]
+      ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/ssh]
+      + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
+        = enforcedGroup: "urd"
+        = enforcedModes: "a=r,ug+w"
+        = enforcedOwner: "urd"
+        = mimeType: "inode/directory"
+        ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
+        - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
+      + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.xscreensaver]
+        = content: "# This file was generated using ubborg-usecase-rescuedisk-pmb\nmode: off\nlock: False\n"
+        = enforcedGroup: "urd"
+        = enforcedModes: "a=r,ug+w"
+        = enforcedOwner: "urd"
+        = mimeType: "text/plain"
+        ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb]
+        - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.xscreensaver]
+      - bundle[…/src/user]
+    + bundle[…/src/workarounds/]
+      + bundle[…avoidAccidentialTouchpadTap]
+        + debPkg[xserver-xorg-input-synaptics]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[xserver-xorg-input-synaptics]
+        + file[/etc/xdg/autostart/touchpad-config-synclient.desktop]
+          = content: ["[Desktop Entry]\n",
+¬¶            "Encoding=UTF-8\n",
+¬¶            "Version=0.9.4\n",
+¬¶            "Type=Application\n",
+¬¶            "Name=Touchpad Config via synclient\n",
+¬¶            "Comment=Use touchpad only to move the mouse, click only with buttons.\n",
+¬¶            "Exec=/usr/bin/synclient MaxTapTime=0 MaxDoubleTapTime=0 VertEdgeScroll=0\n",
+¬¶            "StartupNotify=no\n",
+¬¶            "Terminal=no\n",
+¬¶            "Hidden=false\n"]
+          = enforcedModes: "a=rx,ug+w"
+          = mimeType: "text/plain"
+          + file[/etc/xdg/autostart]
+            = mimeType: "inode/directory"
+            + file[/etc/xdg]
+              = mimeType: "inode/directory"
+              ^ file[/etc]
+              - file[/etc/xdg]
+            - file[/etc/xdg/autostart]
+          - file[/etc/xdg/autostart/touchpad-config-synclient.desktop]
+        - bundle[…avoidAccidentialTouchpadTap]
+      + bundle[…avoidDefaultAptUpdates]
+        + file[/etc/xdg/autostart/update-notifier.desktop]
+          = content: ["[Desktop Entry]\n", "Hidden=true\n"]
+          = enforcedModes: "a=rx,ug+w"
+          = mimeType: "text/plain"
+          ^ file[/etc/xdg/autostart]
+          - file[/etc/xdg/autostart/update-notifier.desktop]
+        + file[/etc/apt/apt.conf.d/95never-install-recommends]
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n",
+¬¶            "APT::Install-Recommends \"0\";\n",
+¬¶            "APT::Install-Suggests \"0\";\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a=r,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain"
+          = replace: true
+          + file[/etc/apt/apt.conf.d]
+            = mimeType: "inode/directory"
+            + file[/etc/apt]
+              = mimeType: "inode/directory"
+              ^ file[/etc]
+              - file[/etc/apt]
+            - file[/etc/apt/apt.conf.d]
+          - file[/etc/apt/apt.conf.d/95never-install-recommends]
+        + file[/etc/apt/apt.conf.d/95no-periodic-interference]
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n",
+¬¶            "APT::Periodic::Enable \"0\";\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a=r,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain"
+          = replace: true
+          ^ file[/etc/apt/apt.conf.d]
+          - file[/etc/apt/apt.conf.d/95no-periodic-interference]
+        - bundle[…avoidDefaultAptUpdates]
+      + bundle[…insomnia]
+        + file[/etc/systemd/logind.conf.d/insomnia.conf]
+          = content: ["[Login]\n",
+¬¶            "HandlePowerKey=ignore\n",
+¬¶            "HandleSuspendKey=ignore\n",
+¬¶            "HandleHibernateKey=ignore\n",
+¬¶            "HandleLidSwitch=ignore\n",
+¬¶            "HandleLidSwitchExternalPower=ignore\n",
+¬¶            "HandleLidSwitchDocked=ignore\n",
+¬¶            "PowerKeyIgnoreInhibited=no\n",
+¬¶            "SuspendKeyIgnoreInhibited=no\n",
+¬¶            "HibernateKeyIgnoreInhibited=no\n",
+¬¶            "LidSwitchIgnoreInhibited=no\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a=r,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain"
+          + file[/etc/systemd/logind.conf.d]
+            = mimeType: "inode/directory"
+            + file[/etc/systemd]
+              = mimeType: "inode/directory"
+              ^ file[/etc]
+              - file[/etc/systemd]
+            - file[/etc/systemd/logind.conf.d]
+          - file[/etc/systemd/logind.conf.d/insomnia.conf]
+        - bundle[…insomnia]
+      - bundle[…/src/workarounds/]
     + bundle[…/src/software/]
       + bundle[…basicImageEditing]
         + debPkg[mtpaint]
@@ -229,10 +369,7 @@
             = mimeType: "text/plain"
             + file[/etc/apt/sources.list.d]
               = mimeType: "inode/directory"
-              + file[/etc/apt]
-                = mimeType: "inode/directory"
-                ^ file[/etc]
-                - file[/etc/apt]
+              ^ file[/etc/apt]
               - file[/etc/apt/sources.list.d]
             - file[/etc/apt/sources.list.d/ubborg.ubuntu_security.list]
           - debPkgRepo[ubuntu_security]
@@ -851,110 +988,5 @@
           - debPkg[xdg-utils]
         - bundle[…xorgBasics]
       - bundle[…/src/software/]
-    + bundle[…/src/workarounds/]
-      = param: {"loginName": "urd"}
-      + bundle[…avoidAccidentialTouchpadTap]
-        + debPkg[xserver-xorg-input-synaptics]
-          = defer: true
-          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
-          = state: "installed"
-          - debPkg[xserver-xorg-input-synaptics]
-        + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop]
-          = content: ["[Desktop Entry]\n",
-¬¶            "Encoding=UTF-8\n",
-¬¶            "Version=0.9.4\n",
-¬¶            "Type=Application\n",
-¬¶            "Name=Touchpad Config via synclient\n",
-¬¶            "Comment=Use touchpad only to move the mouse, click only with buttons.\n",
-¬¶            "Exec=/usr/bin/synclient MaxTapTime=0 MaxDoubleTapTime=0 VertEdgeScroll=0\n",
-¬¶            "StartupNotify=no\n",
-¬¶            "Terminal=no\n",
-¬¶            "Hidden=false\n"]
-          = enforcedGroup: "urd"
-          = enforcedModes: "a=rx,ug+w"
-          = enforcedOwner: "urd"
-          = mimeType: "text/plain"
-          + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
-            = mimeType: "inode/directory"
-            + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
-              = mimeType: "inode/directory"
-              + file[/var/lib/ubborg-usecase-rescuedisk-pmb]
-                = mimeType: "inode/directory"
-                ^ file[/var/lib]
-                - file[/var/lib/ubborg-usecase-rescuedisk-pmb]
-              - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
-            - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
-          - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/touchpad-config-synclient.desktop]
-        - bundle[…avoidAccidentialTouchpadTap]
-      + bundle[…avoidDefaultAptUpdates]
-        + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop]
-          = content: ["[Desktop Entry]\n", "Hidden=true\n"]
-          = enforcedGroup: "urd"
-          = enforcedModes: "a=rx,ug+w"
-          = enforcedOwner: "urd"
-          = mimeType: "text/plain"
-          ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
-          - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/update-notifier.desktop]
-        + file[/etc/apt/apt.conf.d/95never-install-recommends]
-          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n",
-¬¶            "APT::Install-Recommends \"0\";\n",
-¬¶            "APT::Install-Suggests \"0\";\n"]
-          = enforcedGroup: "adm"
-          = enforcedModes: "a=r,ug+w"
-          = enforcedOwner: "root"
-          = mimeType: "text/plain"
-          = replace: true
-          + file[/etc/apt/apt.conf.d]
-            = mimeType: "inode/directory"
-            ^ file[/etc/apt]
-            - file[/etc/apt/apt.conf.d]
-          - file[/etc/apt/apt.conf.d/95never-install-recommends]
-        + file[/etc/apt/apt.conf.d/95no-periodic-interference]
-          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n",
-¬¶            "APT::Periodic::Enable \"0\";\n"]
-          = enforcedGroup: "adm"
-          = enforcedModes: "a=r,ug+w"
-          = enforcedOwner: "root"
-          = mimeType: "text/plain"
-          = replace: true
-          ^ file[/etc/apt/apt.conf.d]
-          - file[/etc/apt/apt.conf.d/95no-periodic-interference]
-        - bundle[…avoidDefaultAptUpdates]
-      + bundle[…presentationMode]
-        + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.xscreensaver]
-          = content: "# This file was generated using ubborg-usecase-rescuedisk-pmb\nmode: off\nlock: False\n"
-          = enforcedGroup: "urd"
-          = enforcedModes: "a=r,ug+w"
-          = enforcedOwner: "urd"
-          = mimeType: "text/plain"
-          = replace: true
-          ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb]
-          - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.xscreensaver]
-        + file[/etc/systemd/logind.conf.d/insomnia.conf]
-          = content: ["[Login]\n",
-¬¶            "HandlePowerKey=ignore\n",
-¬¶            "HandleSuspendKey=ignore\n",
-¬¶            "HandleHibernateKey=ignore\n",
-¬¶            "HandleLidSwitch=ignore\n",
-¬¶            "HandleLidSwitchExternalPower=ignore\n",
-¬¶            "HandleLidSwitchDocked=ignore\n",
-¬¶            "PowerKeyIgnoreInhibited=no\n",
-¬¶            "SuspendKeyIgnoreInhibited=no\n",
-¬¶            "HibernateKeyIgnoreInhibited=no\n",
-¬¶            "LidSwitchIgnoreInhibited=no\n"]
-          = enforcedGroup: "adm"
-          = enforcedModes: "a=r,ug+w"
-          = enforcedOwner: "root"
-          = mimeType: "text/plain"
-          + file[/etc/systemd/logind.conf.d]
-            = mimeType: "inode/directory"
-            + file[/etc/systemd]
-              = mimeType: "inode/directory"
-              ^ file[/etc]
-              - file[/etc/systemd]
-            - file[/etc/systemd/logind.conf.d]
-          - file[/etc/systemd/logind.conf.d/insomnia.conf]
-        - bundle[…presentationMode]
-      - bundle[…/src/workarounds/]
     - bundle[cjs:ubborg-usecase-rescuedisk-pmb]
   - stage[example_plans/vanilla]
