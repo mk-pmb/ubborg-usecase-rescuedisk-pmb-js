@@ -3,13 +3,7 @@
 import fileGeneratedHint from '../fileGeneratedHint';
 
 export default async(bun) => {
-  const owner = bun.getParams().loginName;
-
-  await bun.needs('xdgAutostarter', {
-    bfn: 'update-notifier',
-    exec: false,
-    owner,
-  });
+  bun.needs('xdgAutostarter', { bfn: 'update-notifier', exec: false });
 
   function aptCfg(name, lines) {
     return bun.needs('admFile', {
@@ -19,11 +13,11 @@ export default async(bun) => {
       content: [fileGeneratedHint('# ', '\n'), ...lines],
     });
   };
-  await aptCfg('95never-install-recommends', [
+  aptCfg('95never-install-recommends', [
     'APT::Install-Recommends "0";\n',
     'APT::Install-Suggests "0";\n',
   ]);
-  await aptCfg('95no-periodic-interference', [
+  aptCfg('95no-periodic-interference', [
     // Because it usually blocks the apt database at exactly the moment
     // you want to install something.
     'APT::Periodic::Enable "0";\n',

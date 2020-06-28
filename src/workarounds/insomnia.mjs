@@ -3,27 +3,7 @@
 import fileGeneratedHint from '../fileGeneratedHint';
 
 export default async(bun) => {
-  const owner = bun.getParams().loginName;
-  const fileDf = {
-    enforcedOwner: owner,
-    enforcedGroup: owner,
-    enforcedModes: 'a=r,ug+w',
-    mimeType: 'text/plain',
-    replace: true,
-  };
-
-  await bun.needs('file', {
-    ...fileDf,
-    path: '~/.xscreensaver',
-    content: [
-      fileGeneratedHint('# '),
-      'mode: off',
-      'lock: False',
-      '',
-    ].join('\n'),
-  });
-
-  await bun.needs('admFile', {
+  bun.needs('admFile', {
     path: '/etc/systemd/logind.conf.d/insomnia.conf',
     mimeType: 'static_ini',
     content: {
