@@ -1,5 +1,5 @@
 + stage[example_plans/vanilla]
-  = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": 113, "installs": […
+  = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": 114, "installs": […
   + bundle[cjs:ubborg-usecase-rescuedisk-pmb]
     + bundle[…/src/defaultKeyboard]
       = param: {}
@@ -844,6 +844,11 @@
           = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
           = state: "installed"
           - debPkg[wmctrl]
+        + debPkg[xdg-utils]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[xdg-utils]
         - bundle[…xorgBasics]
       - bundle[…/src/software/]
     + bundle[…/src/workarounds/]
