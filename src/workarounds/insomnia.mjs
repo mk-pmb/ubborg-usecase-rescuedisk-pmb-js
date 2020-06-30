@@ -1,7 +1,5 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import fileGeneratedHint from '../fileGeneratedHint';
-
 export default async(bun) => {
   bun.needs('admFile', {
     path: '/etc/systemd/logind.conf.d/insomnia.conf',
