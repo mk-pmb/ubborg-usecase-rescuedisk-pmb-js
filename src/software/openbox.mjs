@@ -7,6 +7,7 @@ export default async(bun) => {
 
     // required for openbox *.desktop autostart:
     'python-xdg',
+    'python3-xdg',
 
     // A launch bar, b/c openbox doesn't have desktop icons:
     'wbar',
