@@ -1,6 +1,6 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import pMap from 'p-map';
+import mapMerge from 'map-merge-defaults-pmb';
 
 async function vdu(bun, props) {
   const {
@@ -48,7 +48,7 @@ async function vdu(bun, props) {
     },
   });
 
-  await pMap([
+  await mapMerge.pr({ owner: loginName, mimeType: 'dir' }, 'path', [
     '~/',
     '~/Desktop',
     '~/.config',
@@ -56,14 +56,7 @@ async function vdu(bun, props) {
     '~/.config/ssh',
     '~/.config/autostart',
     ...(extraUserFiles || []),
-  ], function userFile(spec) {
-    if (!spec.path) { return userFile({ path: spec }); }
-    return bun.needs('userFile', {
-      owner: loginName,
-      mimeType: 'dir',
-      ...spec,
-    });
-  });
+  ], bun.needs.bind(bun, 'userFile'));
 }
 
 
