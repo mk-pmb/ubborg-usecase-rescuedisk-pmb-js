@@ -10,5 +10,8 @@ export default async(bun) => {
     'net-tools',    // ifconfig & friends
     'networkd-dispatcher',
     'network-manager',
+
+    'iw',   // includes iwlist
+    'rfkill',
   ]);
 };
