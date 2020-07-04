@@ -6,4 +6,5 @@ export default bob('workarounds', {
   avoidAccidentialTouchpadTap: true,
   avoidDefaultAptUpdates: true,
   insomnia: true,
+  systemd_quick_shutdown: true,
 });
