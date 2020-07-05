@@ -334,7 +334,7 @@
       - bundle[…/src/workarounds/]
     + bundle[…/src/software/debPkg/__stage__]
       + stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
-        = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": 115, "installs": […
+        = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": 118, "installs": […
         + bundle[…basicImageEditing]
           + debPkg[mtpaint]
             = defer: true
@@ -471,7 +471,19 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[units]
+          + debPkg[usbutils]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[usbutils]
           - bundle[…debugUtil]
+        + bundle[…develBasics]
+          + debPkg[build-essential]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[build-essential]
+          - bundle[…develBasics]
         + bundle[…dialogScripting]
           + debPkg[gxmessage]
             = defer: true
@@ -934,6 +946,13 @@
             = state: "installed"
             - debPkg[systemd]
           - bundle[…sysCore]
+        + bundle[…sysInstall]
+          + debPkg[multistrap]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[multistrap]
+          - bundle[…sysInstall]
         + bundle[…terminalEmus]
           + debPkg[sakura]
             = defer: true
