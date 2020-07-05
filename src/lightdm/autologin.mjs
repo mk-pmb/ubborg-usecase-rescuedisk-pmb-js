@@ -10,10 +10,13 @@ async function autologin(bun) {
     'lightdm',
   ]);
 
-  bun.needs('file', {
+  const accSvcUsers = '/var/lib/AccountsService/users';
+  await bun.needs('admFile', { path: accSvcUsers, mimeType: 'dir' });
+  await bun.needs('admFile', {
     path: '/etc/lightdm/user_session_prefs',
     mimeType: 'sym',
-    content: '/var/lib/AccountsService/users',
+    content: accSvcUsers,
+    targetMimeType: 'dir',
   });
 
   await bun.needs('admFile', {
