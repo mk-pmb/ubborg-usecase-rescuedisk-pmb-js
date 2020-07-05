@@ -1,5 +1,5 @@
 + stage[example_plans/vanilla]
-  = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": 114, "installs": […
+  = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": 117, "installs": […
   + bundle[cjs:ubborg-usecase-rescuedisk-pmb]
     + bundle[…/src/defaultKeyboard]
       = param: {}
@@ -696,6 +696,16 @@
           = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
           = state: "installed"
           - debPkg[network-manager]
+        + debPkg[iw]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[iw]
+        + debPkg[rfkill]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[rfkill]
         - bundle[…networkBasics]
       + bundle[…networkDataTransfer]
         + debPkg[axel]
@@ -750,6 +760,11 @@
           = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
           = state: "installed"
           - debPkg[python-xdg]
+        + debPkg[python3-xdg]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "installed"
+          - debPkg[python3-xdg]
         + debPkg[wbar]
           = defer: true
           = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
