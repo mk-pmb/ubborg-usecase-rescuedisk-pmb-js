@@ -14,7 +14,7 @@ async function rescueDisk(bun) {
   // ^-- await: to ensure homeDir is declared
 
   bun.needs('subBundle', { url: 'src/workarounds/' });
-  bun.needs('subBundle', { url: 'src/software/' });
+  bun.needs('subBundle', { url: 'src/software/debPkg/' });
 }
 
 Object.assign(rescueDisk, {

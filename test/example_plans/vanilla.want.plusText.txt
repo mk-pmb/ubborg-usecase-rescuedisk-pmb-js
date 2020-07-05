@@ -332,7 +332,7 @@
           - file[/etc/systemd/system.conf.d/quick_shutdown.conf]
         - bundle[…systemd_quick_shutdown]
       - bundle[…/src/workarounds/]
-    + bundle[…/src/software/]
+    + bundle[…/src/software/debPkg/]
       + bundle[…basicImageEditing]
         + debPkg[mtpaint]
           = defer: true
@@ -1015,6 +1015,6 @@
           = state: "installed"
           - debPkg[xdg-utils]
         - bundle[…xorgBasics]
-      - bundle[…/src/software/]
+      - bundle[…/src/software/debPkg/]
     - bundle[cjs:ubborg-usecase-rescuedisk-pmb]
   - stage[example_plans/vanilla]

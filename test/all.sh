@@ -6,6 +6,11 @@ function all () {
   export LANG{,UAGE}=en_US.UTF-8  # make error messages search engine-friendly
   local SELFPATH="$(readlink -m -- "$BASH_SOURCE"/..)"
   cd -- "$SELFPATH" || return $?
+
+  case "$1" in
+    owr ) DIFFMODE="$1" exec smart-less-pmb -e ./all.sh; return $?;;
+  esac
+
   SECONDS=0
   export UBBORG_TIMEOUT_FACTOR=10
 
