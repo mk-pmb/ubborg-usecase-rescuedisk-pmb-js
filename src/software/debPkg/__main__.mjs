@@ -1,8 +1,8 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import bob from '../util/bundledOptionalBundles';
+import bob from '../../util/bundledOptionalBundles';
 
-export default bob('software', {
+export default bob('software_debPkg', {
   basicImageEditing: true,
   configMgmt: true,
   dataRecovery: true,
