@@ -12,6 +12,7 @@ export default async(bun) => {
     'lsof',
     'mmc-utils',  // debug memory card slots
     'units',      // convert disk size prefixes
+    'usbutils',   // lsusb
     // ¬focal 'winpdb',
   ]);
 };
