@@ -42,7 +42,7 @@
 ¬¶            "autologin-user=urd\n",
 ¬¶            "autologin-user-timeout=0\n"]
           = enforcedGroup: "adm"
-          = enforcedModes: "a=r,ug+w"
+          = enforcedModes: "a-x,a=rX,ug+w"
           = enforcedOwner: "root"
           = mimeType: "text/plain"
           + file[/etc/lightdm/lightdm.conf.d]
@@ -182,14 +182,14 @@
         - iniFile[/var/lib/AccountsService/users/urd]
       + file[/var/lib/ubborg-usecase-rescuedisk-pmb/]
         = enforcedGroup: "urd"
-        = enforcedModes: "a=r,ug+w"
+        = enforcedModes: "a-x,a=rX,ug+w"
         = enforcedOwner: "urd"
         = mimeType: "inode/directory"
         ^ file[/var/lib]
         - file[/var/lib/ubborg-usecase-rescuedisk-pmb/]
       + file[/var/lib/ubborg-usecase-rescuedisk-pmb/Desktop]
         = enforcedGroup: "urd"
-        = enforcedModes: "a=r,ug+w"
+        = enforcedModes: "a-x,a=rX,ug+w"
         = enforcedOwner: "urd"
         = mimeType: "inode/directory"
         + file[/var/lib/ubborg-usecase-rescuedisk-pmb]
@@ -199,14 +199,14 @@
         - file[/var/lib/ubborg-usecase-rescuedisk-pmb/Desktop]
       + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
         = enforcedGroup: "urd"
-        = enforcedModes: "a=r,ug+w"
+        = enforcedModes: "a-x,a=rX,ug+w"
         = enforcedOwner: "urd"
         = mimeType: "inode/directory"
         ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb]
         - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
       + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/ssh]
         = enforcedGroup: "urd"
-        = enforcedModes: "a=r,ug+w"
+        = enforcedModes: "a-x,a=rX,ug+w"
         = enforcedOwner: "urd"
         = mimeType: "inode/directory"
         ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
@@ -214,7 +214,7 @@
       ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/ssh]
       + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
         = enforcedGroup: "urd"
-        = enforcedModes: "a=r,ug+w"
+        = enforcedModes: "a-x,a=rX,ug+w"
         = enforcedOwner: "urd"
         = mimeType: "inode/directory"
         ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
@@ -222,7 +222,7 @@
       + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.xscreensaver]
         = content: "# This file was generated using ubborg-usecase-rescuedisk-pmb\nmode: off\nlock: False\n"
         = enforcedGroup: "urd"
-        = enforcedModes: "a=r,ug+w"
+        = enforcedModes: "a-x,a=rX,ug+w"
         = enforcedOwner: "urd"
         = mimeType: "text/plain"
         ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb]
@@ -269,7 +269,7 @@
 ¬¶            "APT::Install-Recommends \"0\";\n",
 ¬¶            "APT::Install-Suggests \"0\";\n"]
           = enforcedGroup: "adm"
-          = enforcedModes: "a=r,ug+w"
+          = enforcedModes: "a-x,a=rX,ug+w"
           = enforcedOwner: "root"
           = mimeType: "text/plain"
           = replace: true
@@ -285,7 +285,7 @@
           = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n",
 ¬¶            "APT::Periodic::Enable \"0\";\n"]
           = enforcedGroup: "adm"
-          = enforcedModes: "a=r,ug+w"
+          = enforcedModes: "a-x,a=rX,ug+w"
           = enforcedOwner: "root"
           = mimeType: "text/plain"
           = replace: true
@@ -306,7 +306,7 @@
 ¬¶            "HibernateKeyIgnoreInhibited=no\n",
 ¬¶            "LidSwitchIgnoreInhibited=no\n"]
           = enforcedGroup: "adm"
-          = enforcedModes: "a=r,ug+w"
+          = enforcedModes: "a-x,a=rX,ug+w"
           = enforcedOwner: "root"
           = mimeType: "text/plain"
           + file[/etc/systemd/logind.conf.d]
