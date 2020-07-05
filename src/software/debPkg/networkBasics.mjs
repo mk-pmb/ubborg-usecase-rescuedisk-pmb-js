@@ -11,7 +11,8 @@ export default async(bun) => {
     'networkd-dispatcher',
     'network-manager',
 
-    'iw',   // includes iwlist
+    'iw',
+    'wireless-tools',   // includes iwlist
     'rfkill',
   ]);
 };

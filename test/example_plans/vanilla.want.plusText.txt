@@ -334,7 +334,7 @@
       - bundle[…/src/workarounds/]
     + bundle[…/src/software/debPkg/__stage__]
       + stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
-        = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": 118, "installs": […
+        = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": 119, "installs": […
         + bundle[…basicImageEditing]
           + debPkg[mtpaint]
             = defer: true
@@ -715,6 +715,11 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[iw]
+          + debPkg[wireless-tools]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[wireless-tools]
           + debPkg[rfkill]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
