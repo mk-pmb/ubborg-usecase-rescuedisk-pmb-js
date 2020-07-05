@@ -3,7 +3,7 @@
 ( grep -Fe '{' -B 9002 -- __main__.mjs
   printf '%s\n' *.mjs | LANG=C sort -V | sed -rf <(echo '
     s~\.mjs~~
-    /^__main__$/d
+    /^__[a-z]+__$/d
     /^[A-Za-z][A-Za-z0-9_]*$/!{s~^~\x27~;s~$~\x27~}
     s~^~  ~
     s~$~: true,~
