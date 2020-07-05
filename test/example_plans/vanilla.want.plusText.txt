@@ -318,6 +318,19 @@
             - file[/etc/systemd/logind.conf.d]
           - file[/etc/systemd/logind.conf.d/insomnia.conf]
         - bundle[…insomnia]
+      + bundle[…systemd_quick_shutdown]
+        + file[/etc/systemd/system.conf.d/quick_shutdown.conf]
+          = content: ["[Manager]\n", "DefaultTimeoutStopSec=30\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain"
+          + file[/etc/systemd/system.conf.d]
+            = mimeType: "inode/directory"
+            ^ file[/etc/systemd]
+            - file[/etc/systemd/system.conf.d]
+          - file[/etc/systemd/system.conf.d/quick_shutdown.conf]
+        - bundle[…systemd_quick_shutdown]
       - bundle[…/src/workarounds/]
     + bundle[…/src/software/]
       + bundle[…basicImageEditing]
