@@ -342,7 +342,7 @@
       - bundle[…/src/workarounds/]
     + bundle[…/src/software/debPkg/__stage__]
       + stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
-        = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": …, "installs": […], "removes": 0}
+        = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": …, "installs": […], "removes": […]}
         + bundle[…basicImageEditing]
           + debPkg[mtpaint]
             = defer: true
@@ -1049,6 +1049,28 @@
             = state: "installed"
             - debPkg[xdg-utils]
           - bundle[…xorgBasics]
+        + bundle[…xorgClipboardPersist]
+          + debPkg[parcellite]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[parcellite]
+          + debPkg[unity-services]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "absent"
+            - debPkg[unity-services]
+          + debPkg[xfce4-clipman-plugin]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "absent"
+            - debPkg[xfce4-clipman-plugin]
+          + debPkg[xfce4-clipman]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "absent"
+            - debPkg[xfce4-clipman]
+          - bundle[…xorgClipboardPersist]
         - stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
       - bundle[…/src/software/debPkg/__stage__]
     - bundle[cjs:ubborg-usecase-rescuedisk-pmb]
