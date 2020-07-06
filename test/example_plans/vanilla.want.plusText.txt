@@ -1,5 +1,5 @@
 + stage[example_plans/vanilla]
-  = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "modifies": 2, "installs": […
+  = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "modifies": …, "installs": […], "removes": 0}
   + bundle[cjs:ubborg-usecase-rescuedisk-pmb]
     + bundle[…/src/defaultKeyboard]
       = param: {}
@@ -342,7 +342,7 @@
       - bundle[…/src/workarounds/]
     + bundle[…/src/software/debPkg/__stage__]
       + stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
-        = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": 119, "installs": […
+        = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": …, "installs": […], "removes": 0}
         + bundle[…basicImageEditing]
           + debPkg[mtpaint]
             = defer: true
@@ -378,7 +378,7 @@
           + debPkgRepo[ubuntu_security]
             = components: ["main", "restricted", "universe", "multiverse"]
             = deferPkgListUpdate: true
-            = dists: ["focal-security"]
+            = dists: ["%{codename}-security"]
             = src: true
             = state: "enabled"
             = urls: ["http://security.ubuntu.com/ubuntu"]
@@ -387,7 +387,7 @@
 ¬¶            "deb     http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse\n",
 ¬¶            "deb-src http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse\n"]
               = enforcedGroup: "adm"
-              = enforcedModes: "a=r,ug+w"
+              = enforcedModes: "a-x,a=rX,ug+w"
               = enforcedOwner: "root"
               = mimeType: "text/plain"
               + file[/etc/apt/sources.list.d]
@@ -399,7 +399,7 @@
           + debPkgRepo[ubuntu_base]
             = components: ["main", "restricted", "universe", "multiverse"]
             = deferPkgListUpdate: true
-            = dists: ["focal", "focal-backports", "focal-updates", "focal-proposed"]
+            = dists: ["%{codename}", "%{codename}-backports", "%{codename}-updates", "%{codename}-proposed"]
             = src: true
             = state: "enabled"
             = urls: ["http://de.archive.ubuntu.com/ubuntu"]
@@ -414,7 +414,7 @@
 ¬¶            "deb     http://de.archive.ubuntu.com/ubuntu focal-proposed main restricted universe multiverse\n",
 ¬¶            "deb-src http://de.archive.ubuntu.com/ubuntu focal-proposed main restricted universe multiverse\n"]
               = enforcedGroup: "adm"
-              = enforcedModes: "a=r,ug+w"
+              = enforcedModes: "a-x,a=rX,ug+w"
               = enforcedOwner: "root"
               = mimeType: "text/plain"
               ^ file[/etc/apt/sources.list.d]
