@@ -32,4 +32,5 @@ export default bob('software_debPkg', {
   textEditors: true,
   vcs: true,
   xorgBasics: true,
+  xorgClipboardPersist: true,
 });
