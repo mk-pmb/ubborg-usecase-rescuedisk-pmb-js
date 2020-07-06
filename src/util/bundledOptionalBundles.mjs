@@ -13,7 +13,7 @@ function makeBob(paramKey, defaultFeatureCfg, origOpt) {
     await pProps(features, function need(p, url) {
       const spec = { url };
       if ((p === false) && (!all)) { return; }
-      if (p && (p !== true)) { spec.param = p; }
+      if (typeof p !== 'boolean') { spec.param = { [url]: p }; }
       return bun.needs(subResType, spec);
     });
   }

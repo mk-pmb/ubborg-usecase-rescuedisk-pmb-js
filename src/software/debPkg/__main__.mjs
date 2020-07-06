@@ -21,6 +21,7 @@ export default bob('software_debPkg', {
   networkBasics: true,
   networkDataTransfer: true,
   networkDebug: true,
+  nodejs: true,
   openbox: true,
   remoteDesktop: true,
   remoteShell: true,
