@@ -1,10 +1,6 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import mustBe from 'typechecks-pmb/must-be';
-
 export default async(bun) => {
-  const osVer = bun.makeParamPopper().mustBe('dictObj', 'osVersion');
-  const dist = mustBe.nest('Ubuntu version codename', osVer.codename);
   const components = [
     'main',
     'restricted',
@@ -16,7 +12,8 @@ export default async(bun) => {
     return bun.needs('debPkgRepo', {
       name: 'ubuntu_' + name,
       urls: [`http://${subdomain || name}.ubuntu.com/ubuntu`],
-      dists: (distSuffixes || [name]).map(s => (dist + (s && '-') + s)),
+      dists: (distSuffixes || [name]).map(
+        s => ('%{codename}' + (s && '-') + s)),
       components,
     });
   }
