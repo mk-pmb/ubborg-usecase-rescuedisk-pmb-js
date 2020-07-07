@@ -792,6 +792,17 @@
               = mimeType: "text/plain"
               ^ file[/etc/apt/sources.list.d]
               - file[/etc/apt/sources.list.d/ubborg.nodejs.list]
+            + file[/etc/apt/trusted.gpg.d/nodesource.gpg]
+              = enforcedGroup: "adm"
+              = enforcedModes: "a-x,a=rX,ug+w"
+              = enforcedOwner: "root"
+              = mimeType: "application/octet-stream"
+              = uploadFromLocalPath: true
+              + file[/etc/apt/trusted.gpg.d]
+                = mimeType: "inode/directory"
+                ^ file[/etc/apt]
+                - file[/etc/apt/trusted.gpg.d]
+              - file[/etc/apt/trusted.gpg.d/nodesource.gpg]
             - debPkgRepo[nodejs]
           + debPkg[nodejs]
             = defer: true
