@@ -10,6 +10,7 @@ function makeBob(paramKey, defaultFeatureCfg, origOpt) {
     if (features === false) { return; }
     const all = (features === true);
     if (all) { features = defaultFeatureCfg; }
+    // console.error(paramKey, features);
     await pProps(features, function need(p, url) {
       const spec = { url };
       if ((p === false) && (!all)) { return; }

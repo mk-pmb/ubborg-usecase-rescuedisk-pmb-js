@@ -48,6 +48,7 @@ async function installNodejs(bun) {
   const nodeSett = bun.makeParamPopper().mustBe('tru | dictObj', 'nodejs');
   const mustNode = mustBe.tProp('Node.js setting ', nodeSett);
   const repoInfo = mustNode('undef | dictObj', 'repo');
+  // console.error(repoInfo).fail();
   const mustRepo = mustBe.tProp('Node.js debian repo setting ', repoInfo);
 
   const version = mustNode('pos int', 'version');
