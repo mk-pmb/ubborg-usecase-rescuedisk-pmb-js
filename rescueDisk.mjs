@@ -3,9 +3,10 @@
 import dfOpt from './src/dfOpt';
 
 async function rescueDisk(bun) {
-  const param = bun.makeParamPopper().mustBe;
+  const mustParam = bun.makeParamPopper().mustBe;
+  // console.error(bun.getParams()).fail();
 
-  const kbd = param('dictObj | fal', 'primaryKeyboard');
+  const kbd = mustParam('dictObj | fal', 'primaryKeyboard');
   if (kbd) {
     bun.needs('subBundle', { url: 'src/defaultKeyboard', param: kbd });
   }
