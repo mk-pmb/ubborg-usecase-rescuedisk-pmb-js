@@ -11,7 +11,7 @@ export default async(bun) => {
   function ubuRepo(name, subdomain, distSuffixes) {
     return bun.needs('debPkgRepo', {
       name: 'ubuntu_' + name,
-      urls: [`http://${subdomain || name}.ubuntu.com/ubuntu`],
+      debUrls: [`http://${subdomain || name}.ubuntu.com/ubuntu`],
       dists: (distSuffixes || [name]).map(
         s => ('%{codename}' + (s && '-') + s)),
       components,
