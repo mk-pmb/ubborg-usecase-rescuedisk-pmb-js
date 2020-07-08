@@ -30,6 +30,15 @@ const dfNodeOpts = {
       ],
     },
   },
+  etcNpmrc: {
+    audit: false,
+    'https-proxy': true,    // true = same as proxy
+    'package-lock': false,
+    proxy: null,
+    registry: 'https://registry.npmjs.org/',
+    'send-metrics': false,
+    'update-notifier': false,
+  },
 };
 
 
@@ -72,6 +81,24 @@ async function installNodejs(bun) {
   await bun.needs('debPkg', [
     'nodejs',
   ]);
+
+  const npmrc = mustNode('undef | fal | dictObj', 'etcNpmrc');
+  if (npmrc) {
+    if (npmrc['https-proxy'] === true) { npmrc['https-proxy'] = npmrc.proxy; }
+    await bun.needs('admFile', {
+      path: '/etc/npmrc',
+      mimeType: 'static_ini',
+      content: { '\n': npmrc },
+      iniOpt: {
+        pairSep: ' = ',
+        translateValues: {
+          'false': 'false',
+          'true': 'true',
+          'null': null,
+        },
+      },
+    });
+  }
 };
 
 Object.assign(installNodejs, {
