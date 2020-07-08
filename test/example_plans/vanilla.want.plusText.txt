@@ -809,6 +809,18 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[nodejs]
+          + file[/etc/npmrc]
+            = content: ["audit = false\n",
+¬¶            "package-lock = false\n",
+¬¶            "registry = https://registry.npmjs.org/\n",
+¬¶            "send-metrics = false\n",
+¬¶            "update-notifier = false\n"]
+            = enforcedGroup: "adm"
+            = enforcedModes: "a-x,a=rX,ug+w"
+            = enforcedOwner: "root"
+            = mimeType: "text/plain"
+            ^ file[/etc]
+            - file[/etc/npmrc]
           - bundle[…nodejs]
         + bundle[…openbox]
           + debPkg[openbox]
