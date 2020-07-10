@@ -689,6 +689,18 @@
             = state: "installed"
             - debPkg[grub-pc-bin]
           - bundle[…grub]
+        + bundle[…hexEditors]
+          + debPkg[ghex]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[ghex]
+          + debPkg[wxhexeditor]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[wxhexeditor]
+          - bundle[…hexEditors]
         + bundle[…iconsGnomeDefault]
           + debPkg[gnome-icon-theme]
             = defer: true
