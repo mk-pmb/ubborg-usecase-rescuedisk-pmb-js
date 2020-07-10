@@ -2,12 +2,15 @@
 
 import mapMerge from 'map-merge-defaults-pmb';
 
+import iniStyleNpmrc from './util/iniStyleNpmrc';
+
 async function vdu(bun, props) {
   const {
-    loginName,
-    homonymousGroupIdNum,
-    windowManager,
     extraUserFiles,
+    gitCfg,
+    homonymousGroupIdNum,
+    loginName,
+    windowManager,
   } = props;
   if (loginName === false) { return; }
   let { userIdNum } = props;
@@ -34,9 +37,10 @@ async function vdu(bun, props) {
     userIdNum,
     groups,
     admin: undefined,
+    extraUserFiles: undefined,
+    gitCfg: undefined,
     homonymousGroupIdNum: undefined,
     windowManager: undefined,
-    extraUserFiles: undefined,
   });
 
   await bun.needs('iniFile', {
@@ -57,6 +61,14 @@ async function vdu(bun, props) {
     '~/.config/autostart',
     ...(extraUserFiles || []),
   ], bun.needs.bind(bun, 'userFile'));
+
+  await (gitCfg && bun.needs('userFile', {
+    owner: loginName,
+    path: '~/.gitconfig',
+    mimeType: 'static_ini',
+    content: gitCfg,
+    iniOpt: { ...iniStyleNpmrc, pairInd: '\t' },
+  }));
 }
 
 
