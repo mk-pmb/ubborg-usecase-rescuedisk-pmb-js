@@ -1,6 +1,7 @@
 #!/bin/bash
 # -*- coding: utf-8, tab-width: 2 -*-
-( grep -Fe '{' -B 9002 -- __main__.mjs
+BUN_FN='__main__.mjs'
+( grep -Fe '{' -B 9002 -m 1 -- "$BUN_FN"
   printf '%s\n' *.mjs | LANG=C sort -V | sed -rf <(echo '
     s~\.mjs~~
     /^__[a-z]+__$/d
@@ -8,5 +9,5 @@
     s~^~  ~
     s~$~: true,~
     ')
-  echo '});'
-) | sponge __main__.mjs
+  grep -Fe '}' -A 9002 -- "$BUN_FN"
+) | sponge "$BUN_FN"; exit $?
