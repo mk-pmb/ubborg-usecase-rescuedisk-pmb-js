@@ -1,6 +1,6 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import pProps from 'p-props';
+import aMap from 'map-assoc-core';
 
 function makeBob(paramKey, defaultFeatureCfg, origOpt) {
   const opt = (origOpt || false);
@@ -11,12 +11,17 @@ function makeBob(paramKey, defaultFeatureCfg, origOpt) {
     const all = (features === true);
     if (all) { features = defaultFeatureCfg; }
     // console.error(paramKey, features);
-    await pProps(features, function need(p, url) {
+    const specs = [];
+    aMap(features, function decide(p, url) {
       const spec = { url };
       if ((p === false) && (!all)) { return; }
       if (typeof p !== 'boolean') { spec.param = { [url]: p }; }
-      return bun.needs(subResType, spec);
+      specs.push(spec);
     });
+    if (!specs.length) { return; }
+    const preStage = (opt.prereqStages || false);
+    if (preStage.length) { await bun.needs('stage', preStage); }
+    await bun.needs(subResType, specs);
   }
   Object.assign(bob, {
     paramDefaults: { [paramKey]: defaultFeatureCfg },

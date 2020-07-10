@@ -1124,5 +1124,8 @@
           - bundle[…xorgClipboardPersist]
         - stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
       - bundle[…/src/software/debPkg/__stage__]
+    + bundle[…/src/software/npmPkg/__stage__]
+      * stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/npmPkg/]
+      - bundle[…/src/software/npmPkg/__stage__]
     - bundle[cjs:ubborg-usecase-rescuedisk-pmb]
   - stage[example_plans/vanilla]

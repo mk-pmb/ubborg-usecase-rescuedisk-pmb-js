@@ -16,6 +16,7 @@ async function rescueDisk(bun) {
 
   bun.needs('subBundle', { url: 'src/workarounds/' });
   bun.needs('subBundle', { url: 'src/software/debPkg/__stage__' });
+  bun.needs('subBundle', { url: 'src/software/npmPkg/__stage__' });
 }
 
 Object.assign(rescueDisk, {
