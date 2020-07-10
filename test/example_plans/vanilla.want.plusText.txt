@@ -653,6 +653,28 @@
             = state: "installed"
             - debPkg[grub-pc-bin]
           - bundle[…grub]
+        + bundle[…iconsGnomeDefault]
+          + debPkg[gnome-icon-theme]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[gnome-icon-theme]
+          + debPkg[gnome-icon-theme-symbolic]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[gnome-icon-theme-symbolic]
+          + debPkg[gnome-icon-theme-suede]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[gnome-icon-theme-suede]
+          + debPkg[adwaita-icon-theme-full]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[adwaita-icon-theme-full]
+          - bundle[…iconsGnomeDefault]
         + bundle[…kernel]
           + debPkg[linux-image-lowlatency]
             = defer: true

@@ -16,6 +16,7 @@ export default bob('software_debPkg', {
   fileSystems: true,
   fileViewers: true,
   grub: true,
+  iconsGnomeDefault: true,
   kernel: true,
   math: true,
   networkBasics: true,
