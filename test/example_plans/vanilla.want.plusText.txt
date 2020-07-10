@@ -235,6 +235,42 @@
         = mimeType: "text/plain"
         ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb]
         - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.xscreensaver]
+      + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.gitconfig]
+        = content: ["[user]\n",
+¬¶            "\tname = User Name\n",
+¬¶            "\temail = user@host.tld\n",
+¬¶            "\n",
+¬¶            "[color]\n",
+¬¶            "\tui = auto\n",
+¬¶            "\n",
+¬¶            "[color \"status\"]\n",
+¬¶            "\tupdated = bold yellow\n",
+¬¶            "\tchanged = bold red\n",
+¬¶            "\tuntracked = cyan\n",
+¬¶            "\n",
+¬¶            "[merge]\n",
+¬¶            "\tff = only\n",
+¬¶            "\n",
+¬¶            "[receive]\n",
+¬¶            "\tdenyDeletes = true\n",
+¬¶            "\tdenyNonFastForwards = true\n",
+¬¶            "\n",
+¬¶            "[push]\n",
+¬¶            "\tdefault = matching\n",
+¬¶            "\n",
+¬¶            "[annex]\n",
+¬¶            "\tbackends = SHA256E SHA512E\n",
+¬¶            "\n",
+¬¶            "[alias]\n",
+¬¶            "\tchp = cherry-pick\n",
+¬¶            "\trmt = remote\n",
+¬¶            "\tusi = update-server-info\n"]
+        = enforcedGroup: "urd"
+        = enforcedModes: "a-x,a=rX,ug+w"
+        = enforcedOwner: "urd"
+        = mimeType: "text/plain"
+        ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb]
+        - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.gitconfig]
       - bundle[…/src/user]
     + bundle[…/src/workarounds/]
       + bundle[…avoidAccidentialTouchpadTap]

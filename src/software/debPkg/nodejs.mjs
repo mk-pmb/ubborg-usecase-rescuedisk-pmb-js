@@ -6,6 +6,8 @@ import mustBe from 'typechecks-pmb/must-be';
 import lPad from 'lodash.padstart';
 import loPick from 'lodash.pick';
 
+import iniStyleNpmrc from '../../util/iniStyleNpmrc';
+
 const dfNodeOpts = {
   version: 12,
   repo: {
@@ -89,14 +91,7 @@ async function installNodejs(bun) {
       path: '/etc/npmrc',
       mimeType: 'static_ini',
       content: { '\n': npmrc },
-      iniOpt: {
-        pairSep: ' = ',
-        translateValues: {
-          'false': 'false',
-          'true': 'true',
-          'null': null,
-        },
-      },
+      iniOpt: iniStyleNpmrc,
     });
   }
 };
