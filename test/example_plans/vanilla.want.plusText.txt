@@ -613,6 +613,18 @@
             = state: "installed"
             - debPkg[nullmailer]
           - bundle[…diskSmart]
+        + bundle[…fileEncodings]
+          + debPkg[rar]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[rar]
+          + debPkg[zip]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[zip]
+          - bundle[…fileEncodings]
         + bundle[…fileSystems]
           + debPkg[udisks2]
             = defer: true
