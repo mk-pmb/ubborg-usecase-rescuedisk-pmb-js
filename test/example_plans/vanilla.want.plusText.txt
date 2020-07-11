@@ -475,21 +475,11 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[acpi]
-          + debPkg[colordiff]
-            = defer: true
-            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
-            = state: "installed"
-            - debPkg[colordiff]
           + debPkg[debconf-utils]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[debconf-utils]
-          + debPkg[file]
-            = defer: true
-            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
-            = state: "installed"
-            - debPkg[file]
           + debPkg[htop]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
@@ -613,6 +603,18 @@
             = state: "installed"
             - debPkg[nullmailer]
           - bundle[…diskSmart]
+        + bundle[…fileCmp]
+          + debPkg[colordiff]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[colordiff]
+          + debPkg[meld]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[meld]
+          - bundle[…fileCmp]
         + bundle[…fileEncodings]
           + debPkg[rar]
             = defer: true
@@ -624,6 +626,11 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[zip]
+          + debPkg[file]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[file]
           - bundle[…fileEncodings]
         + bundle[…fileSystems]
           + debPkg[udisks2]

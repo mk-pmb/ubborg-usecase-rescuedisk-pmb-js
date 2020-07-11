@@ -13,6 +13,7 @@ export default bob('software_debPkg', {
   dialogScripting: true,
   diskPartMgmt: true,
   diskSmart: true,
+  fileCmp: true,
   fileEncodings: true,
   fileSystems: true,
   fileViewers: true,
