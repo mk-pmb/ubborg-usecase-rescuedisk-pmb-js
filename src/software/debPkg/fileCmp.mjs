@@ -2,8 +2,9 @@
 
 export default async(bun) => {
   bun.needs('debPkg', [
-    'rar',
-    'zip',
-    'file',
+    'colordiff',
+
+    // ¬focal 'diffuse',
+    'meld',
   ]);
 };
