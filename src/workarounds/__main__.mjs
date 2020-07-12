@@ -1,10 +1,5 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import bob from '../util/bundledOptionalBundles';
+import bob from 'ubborg-bundled-optional-bundles-pmb';
 
-export default bob('workarounds', {
-  avoidAccidentialTouchpadTap: true,
-  avoidDefaultAptUpdates: true,
-  insomnia: true,
-  systemd_quick_shutdown: true,
-});
+export default bob(import.meta);
