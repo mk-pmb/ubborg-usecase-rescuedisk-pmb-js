@@ -1,10 +1,5 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import bob from '../../util/bundledOptionalBundles';
+import bob from 'ubborg-bundled-optional-bundles-pmb';
 
-export default bob('software_npmPkg', {
-}, {
-  prereqStages: [
-    '../debPkg/__stage__',
-  ],
-});
+export default bob(import.meta, { paramKey: 'software_npmPkg' });
