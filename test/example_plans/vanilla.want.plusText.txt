@@ -188,22 +188,19 @@
           ^ iniFileSect[/var/lib/AccountsService/users/urd|User]
           - iniFileOpt[…|User|XSession]
         - iniFile[/var/lib/AccountsService/users/urd]
-      + file[/var/lib/ubborg-usecase-rescuedisk-pmb/]
+      + file[/var/lib/ubborg-usecase-rescuedisk-pmb]
         = enforcedGroup: "urd"
         = enforcedModes: "a-x,a=rX,ug+w"
         = enforcedOwner: "urd"
         = mimeType: "inode/directory"
         ^ file[/var/lib]
-        - file[/var/lib/ubborg-usecase-rescuedisk-pmb/]
+        - file[/var/lib/ubborg-usecase-rescuedisk-pmb]
       + file[/var/lib/ubborg-usecase-rescuedisk-pmb/Desktop]
         = enforcedGroup: "urd"
         = enforcedModes: "a-x,a=rX,ug+w"
         = enforcedOwner: "urd"
         = mimeType: "inode/directory"
-        + file[/var/lib/ubborg-usecase-rescuedisk-pmb]
-          = mimeType: "inode/directory"
-          ^ file[/var/lib]
-          - file[/var/lib/ubborg-usecase-rescuedisk-pmb]
+        ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb]
         - file[/var/lib/ubborg-usecase-rescuedisk-pmb/Desktop]
       + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
         = enforcedGroup: "urd"
