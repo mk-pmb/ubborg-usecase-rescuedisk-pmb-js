@@ -6,6 +6,7 @@ import iniStyleNpmrc from './util/iniStyleNpmrc';
 
 async function vdu(bun, props) {
   const {
+    desktopBgColor,
     extraUserFiles,
     gitCfg,
     homonymousGroupIdNum,
@@ -37,6 +38,7 @@ async function vdu(bun, props) {
     userIdNum,
     groups,
     admin: undefined,
+    desktopBgColor: undefined,
     extraUserFiles: undefined,
     gitCfg: undefined,
     homonymousGroupIdNum: undefined,
@@ -61,6 +63,13 @@ async function vdu(bun, props) {
     '~/.config/autostart',
     ...(extraUserFiles || []),
   ], bun.needs.bind(bun, 'userFile'));
+
+  await (desktopBgColor && bun.needs('xdgAutostarter', {
+    owner: loginName,
+    bfn: 'desktop_bgcolor',
+    title: 'Set desktop background color',
+    exec: 'xsetroot -solid ' + desktopBgColor,
+  }));
 
   await (gitCfg && bun.needs('userFile', {
     owner: loginName,

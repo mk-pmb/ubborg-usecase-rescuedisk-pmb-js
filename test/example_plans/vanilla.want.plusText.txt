@@ -232,6 +232,23 @@
         = mimeType: "text/plain"
         ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb]
         - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.xscreensaver]
+      + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/desktop_bgcolor.desktop]
+        = content: ["[Desktop Entry]\n",
+¬¶            "Encoding=UTF-8\n",
+¬¶            "Version=0.9.4\n",
+¬¶            "Type=Application\n",
+¬¶            "Name=Set desktop background color\n",
+¬¶            "Comment=\n",
+¬¶            "Exec=xsetroot -solid darkslateblue\n",
+¬¶            "StartupNotify=no\n",
+¬¶            "Terminal=no\n",
+¬¶            "Hidden=false\n"]
+        = enforcedGroup: "urd"
+        = enforcedModes: "a=rx,ug+w"
+        = enforcedOwner: "urd"
+        = mimeType: "text/plain"
+        ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
+        - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/desktop_bgcolor.desktop]
       + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.gitconfig]
         = content: ["[user]\n",
 ¬¶            "\tname = User Name\n",
