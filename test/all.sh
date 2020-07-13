@@ -12,7 +12,7 @@ function all () {
   esac
 
   SECONDS=0
-  export UBBORG_TIMEOUT_FACTOR=10
+  export UBBORG_TIMEOUT_FACTOR=20
 
   local PLAN= ERR_CNT=0
   for PLAN in example_plans/*.mjs; do
