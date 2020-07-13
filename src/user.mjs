@@ -25,6 +25,7 @@ const paramDefaults = {
     shell: 'bash',
     windowManager: 'openbox',
     autoLogin: true,
+    desktopBgColor: 'darkslateblue',
     gitCfg,
   },
 };
