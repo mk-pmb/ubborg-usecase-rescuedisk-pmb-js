@@ -1099,6 +1099,13 @@
             = state: "installed"
             - debPkg[systemd]
           - bundle[…sysCore]
+        + bundle[…sysDrivers]
+          + debPkg[ubuntu-drivers-common]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[ubuntu-drivers-common]
+          - bundle[…sysDrivers]
         + bundle[…sysInstall]
           + debPkg[multistrap]
             = defer: true
@@ -1213,6 +1220,28 @@
           - bundle[…xorgClipboardPersist]
         - stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
       - bundle[…/src/software/debPkg/__stage__]
+    + bundle[…/src/software/nonDebDrivers/]
+      + bundle[…rtlwifi_rtl8188eufw]
+        + file[/lib/firmware/rtlwifi/rtl8188eufw.bin]
+          = downloadUrls: ["http://web.archive.org/web/20200711191717if_/https://raw.githubusercontent.com/lwfinger/rtl8188eu/c83976d1dfb4793893158461430261562b3a5bf0/rtl8188eufw.bin"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "application/octet-stream"
+          = uploadFromLocalPath: true
+          = verifyContent: {"sha512hex": ["e90d356780da27fa585c63d94e482c4f858beacbacc3e8b5a9645ffcca8d2e2a", "84247bab22300ad14dab4467bdfb493e43a608bce57b4a94dbb6604b42766248"]}
+          + file[/lib/firmware/rtlwifi]
+            = mimeType: "inode/directory"
+            + file[/lib/firmware]
+              = mimeType: "inode/directory"
+              + file[/lib]
+                = mimeType: "inode/directory"
+                - file[/lib]
+              - file[/lib/firmware]
+            - file[/lib/firmware/rtlwifi]
+          - file[/lib/firmware/rtlwifi/rtl8188eufw.bin]
+        - bundle[…rtlwifi_rtl8188eufw]
+      - bundle[…/src/software/nonDebDrivers/]
     + bundle[…/src/software/npmPkg/__stage__]
       * stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/npmPkg/]
       - bundle[…/src/software/npmPkg/__stage__]
