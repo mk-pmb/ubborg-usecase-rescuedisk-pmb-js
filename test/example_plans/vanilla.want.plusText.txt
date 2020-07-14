@@ -224,6 +224,14 @@
         = mimeType: "inode/directory"
         ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
         - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
+      + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/user-dirs.locale]
+        = content: "C\n"
+        = enforcedGroup: "urd"
+        = enforcedModes: "a-x,a=rX,ug+w"
+        = enforcedOwner: "urd"
+        = mimeType: "text/plain"
+        ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
+        - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/user-dirs.locale]
       + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.xscreensaver]
         = content: "# This file was generated using ubborg-usecase-rescuedisk-pmb\nmode: off\nlock: False\n"
         = enforcedGroup: "urd"

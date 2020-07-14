@@ -61,6 +61,10 @@ async function vdu(bun, props) {
     '~/.config/ssh',
     '~/.config/ssh',
     '~/.config/autostart',
+    { path: '~/.config/user-dirs.locale',
+      mimeType: 'text/plain',
+      content: 'C\n',
+    },
     ...(extraUserFiles || []),
   ], bun.needs.bind(bun, 'userFile'));
 
