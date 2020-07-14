@@ -504,6 +504,11 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[iotop]
+          + debPkg[lshw]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[lshw]
           + debPkg[lsof]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
