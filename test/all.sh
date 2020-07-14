@@ -8,7 +8,9 @@ function all () {
   cd -- "$SELFPATH" || return $?
 
   case "$1" in
+    '' ) ;;
     owr ) DIFFMODE="$1" exec smart-less-pmb -e ./all.sh; return $?;;
+    * ) echo "E: unsupported option: '$1'" >&2; return 3;;
   esac
 
   SECONDS=0
