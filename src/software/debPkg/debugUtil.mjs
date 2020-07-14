@@ -7,6 +7,7 @@ export default async(bun) => {
     'debconf-utils',
     'htop',
     'iotop',
+    'lshw',
     'lsof',
     'mmc-utils',  // debug memory card slots
     'units',      // convert disk size prefixes
