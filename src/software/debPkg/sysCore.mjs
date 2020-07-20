@@ -17,6 +17,7 @@ export default async(bun) => {
     ...ubuMin,
     'anacron',
     'console-data',
+    'gksu',     // provides gksudo
     'initramfs-tools',
     'keyboard-configuration',
     'logrotate',
