@@ -1100,6 +1100,11 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[console-data]
+          + debPkg[gksu]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[gksu]
           + debPkg[initramfs-tools]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
