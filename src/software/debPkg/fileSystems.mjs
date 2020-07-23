@@ -5,9 +5,15 @@ export default async(bun) => {
     'udisks2',
     'udiskie',    // A mount helper tray icon
 
-    'fatresize',
     'exfat-fuse',
     'exfat-utils',
+    'fatattr',
+    'fatresize',
     'ntfs-3g',
+
+    'hfsplus',
+    'hfsprogs',
+    'hfsutils',
+    'hfsutils-tcltk', // provides "hfs", the HFS volume manipulation tool.
   ]);
 };

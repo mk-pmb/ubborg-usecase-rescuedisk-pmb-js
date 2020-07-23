@@ -426,11 +426,6 @@
             - debPkg[ansible]
           - bundle[…configMgmt]
         + bundle[…cryptoAndRandomness]
-          + debPkg[dmsetup]
-            = defer: true
-            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
-            = state: "installed"
-            - debPkg[dmsetup]
           + debPkg[ent]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
@@ -605,6 +600,11 @@
             - debPkg[alltray]
           - bundle[…dialogScripting]
         + bundle[…diskPartMgmt]
+          + debPkg[hdparm]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[hdparm]
           + debPkg[util-linux]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
@@ -645,6 +645,11 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[cryptsetup-initramfs]
+          + debPkg[dmsetup]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[dmsetup]
           + file[/PL]
             = content: "dev/disk/by-partlabel"
             = mimeType: "inode/symlink"
@@ -675,21 +680,81 @@
             - debPkg[meld]
           - bundle[…fileCmp]
         + bundle[…fileEncodings]
-          + debPkg[rar]
-            = defer: true
-            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
-            = state: "installed"
-            - debPkg[rar]
-          + debPkg[zip]
-            = defer: true
-            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
-            = state: "installed"
-            - debPkg[zip]
           + debPkg[file]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[file]
+          + debPkg[par2]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[par2]
+          + debPkg[archivemount]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[archivemount]
+          + debPkg[p7zip-full]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[p7zip-full]
+          + debPkg[plzip]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[plzip]
+          + debPkg[rar]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[rar]
+          + debPkg[lhasa]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[lhasa]
+          + debPkg[liblz4-tool]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[liblz4-tool]
+          + debPkg[lunzip]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[lunzip]
+          + debPkg[lzip]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[lzip]
+          + debPkg[lziprecover]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[lziprecover]
+          + debPkg[lzma]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[lzma]
+          + debPkg[zip]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[zip]
+          + debPkg[unzip]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[unzip]
+          + debPkg[fuse-zip]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[fuse-zip]
           - bundle[…fileEncodings]
         + bundle[…fileSystems]
           + debPkg[udisks2]
@@ -702,11 +767,6 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[udiskie]
-          + debPkg[fatresize]
-            = defer: true
-            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
-            = state: "installed"
-            - debPkg[fatresize]
           + debPkg[exfat-fuse]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
@@ -717,11 +777,41 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[exfat-utils]
+          + debPkg[fatattr]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[fatattr]
+          + debPkg[fatresize]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[fatresize]
           + debPkg[ntfs-3g]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[ntfs-3g]
+          + debPkg[hfsplus]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[hfsplus]
+          + debPkg[hfsprogs]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[hfsprogs]
+          + debPkg[hfsutils]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[hfsutils]
+          + debPkg[hfsutils-tcltk]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[hfsutils-tcltk]
           - bundle[…fileSystems]
         + bundle[…fileViewers]
           + debPkg[eog]
@@ -1111,6 +1201,16 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[psmisc]
+          + debPkg[inotify-tools]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[inotify-tools]
+          + debPkg[lockfile-progs]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[lockfile-progs]
           - bundle[…shell]
         + bundle[…sysCore]
           + debPkg[ubuntu-minimal]
