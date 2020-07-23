@@ -698,6 +698,11 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[file]
+          + debPkg[sharutils]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[sharutils]
           + debPkg[par2]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
@@ -957,6 +962,7 @@
           + debPkg[net-tools]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = presenceMarker: "cmd:ifconfig"
             = state: "installed"
             - debPkg[net-tools]
           + debPkg[networkd-dispatcher]
@@ -969,6 +975,12 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[network-manager]
+          + debPkg[syslinux-utils]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = presenceMarker: "cmd:gethostip"
+            = state: "installed"
+            - debPkg[syslinux-utils]
           + debPkg[iw]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
@@ -977,6 +989,7 @@
           + debPkg[wireless-tools]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = presenceMarker: "cmd:iwlist"
             = state: "installed"
             - debPkg[wireless-tools]
           + debPkg[rfkill]
@@ -999,7 +1012,6 @@
           + debPkg[netcat]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
-            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[netcat]
           + debPkg[socat]
@@ -1012,6 +1024,21 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[wget]
+          + debPkg[sshfs]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[sshfs]
+          + debPkg[corkscrew]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[corkscrew]
+          + debPkg[proxytunnel]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[proxytunnel]
           - bundle[…networkDataTransfer]
         + bundle[…networkDebug]
           + debPkg[iputils-ping]
@@ -1020,7 +1047,6 @@
             = presenceMarker: "cmd:ping"
             = state: "installed"
             - debPkg[iputils-ping]
-          ^ debPkg[netcat]
           - bundle[…networkDebug]
         + bundle[…nodejs]
           + debPkgRepo[nodejs]
