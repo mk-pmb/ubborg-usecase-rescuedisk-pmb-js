@@ -18,7 +18,7 @@ const lzip = [
 export default async(bun) => {
   bun.needs('debPkg', [
     'file',
-
+    'sharutils',   // uuencode
     'par2',     // parity check/repair tool
     // ¬focal // 'pypar2',
 

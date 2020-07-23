@@ -7,12 +7,13 @@ export default async(bun) => {
     'ifupdown',
     'libnss-mdns',
     'libnss-myhostname',
-    'net-tools',    // ifconfig & friends
+    'net-tools => cmd:ifconfig',
     'networkd-dispatcher',
     'network-manager',
+    'syslinux-utils => cmd:gethostip',
 
     'iw',
-    'wireless-tools',   // includes iwlist
+    'wireless-tools => cmd:iwlist',
     'rfkill',
   ]);
 };

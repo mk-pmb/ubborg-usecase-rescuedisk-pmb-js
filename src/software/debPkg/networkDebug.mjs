@@ -3,6 +3,5 @@
 export default async(bun) => {
   bun.needs('debPkg', [
     'iputils-ping => cmd:ping',
-    'netcat => cmd:',
   ]);
 };
