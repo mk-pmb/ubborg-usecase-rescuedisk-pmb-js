@@ -295,6 +295,19 @@
         - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.gitconfig]
       - bundle[…/src/user]
     + bundle[…/src/workarounds/]
+      + bundle[…allowMagicSysRq]
+        + file[/etc/sysctl.d/90-allow-magic-sysrq.conf]
+          = content: "kernel.sysrq = 1\n"
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain"
+          + file[/etc/sysctl.d]
+            = mimeType: "inode/directory"
+            ^ file[/etc]
+            - file[/etc/sysctl.d]
+          - file[/etc/sysctl.d/90-allow-magic-sysrq.conf]
+        - bundle[…allowMagicSysRq]
       + bundle[…avoidAccidentialTouchpadTap]
         + debPkg[xserver-xorg-input-synaptics]
           = defer: true
