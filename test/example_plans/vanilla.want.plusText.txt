@@ -308,6 +308,64 @@
             - file[/etc/sysctl.d]
           - file[/etc/sysctl.d/90-allow-magic-sysrq.conf]
         - bundle[…allowMagicSysRq]
+      + bundle[…aptAskQuestionsEarly]
+        + file[/etc/apt/apt.conf.d/40interview-first]
+          = content: [" #-*- coding: utf-8, tab-width: 2 -*-\n",
+¬¶            "\n",
+¬¶            "# Make apt/dpkg try to ask all config questions up front,\n",
+¬¶            "# so that once the update starts, it _should_ be able to\n",
+¬¶            "# finish without any further interaction.\n",
+¬¶            "\n",
+¬¶            "DPkg::Pre-Install-Pkgs {\n",
+¬¶            "  \"dpkg-preconfigure --apt --priority=high\";\n",
+¬¶            "};\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain; charset=utf-8"
+          + file[/etc/apt/apt.conf.d]
+            = mimeType: "inode/directory"
+            + file[/etc/apt]
+              = mimeType: "inode/directory"
+              ^ file[/etc]
+              - file[/etc/apt]
+            - file[/etc/apt/apt.conf.d]
+          - file[/etc/apt/apt.conf.d/40interview-first]
+        - bundle[…aptAskQuestionsEarly]
+      + bundle[…aptImpatientHttp]
+        + file[/etc/apt/apt.conf.d/40impatient-http]
+          = content: [" #-*- coding: utf-8, tab-width: 2 -*-\n",
+¬¶            "\n",
+¬¶            "# Waste less time on dead mirror servers.\n",
+¬¶            "\n",
+¬¶            "Acquire::http::Retries \"1\";\n",
+¬¶            "Acquire::http::timeout \"10\";\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain; charset=utf-8"
+          ^ file[/etc/apt/apt.conf.d]
+          - file[/etc/apt/apt.conf.d/40impatient-http]
+        - bundle[…aptImpatientHttp]
+      + bundle[…aptUpdateSegfault]
+        + file[/etc/apt/apt.conf.d/90cache-limit-avoid-segfault]
+          = content: [" #-*- coding: utf-8, tab-width: 2 -*-\n",
+¬¶            "\n",
+¬¶            "# increase apt's cache limit to avoid \"apt-get update\" segfaulting\n",
+¬¶            "# while reading package lists.\n",
+¬¶            "# see LANG=C man 5 apt.conf | grep Cache-Start, -A 15\n",
+¬¶            "\n",
+¬¶            "# unit = bytes.    ,m ,k ,b\n",
+¬¶            "APT::Cache-Start  32000000;\n",
+¬¶            "APT::Cache-Grow    2000000;\n",
+¬¶            "APT::Cache-Limit 128000000;\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain; charset=utf-8"
+          ^ file[/etc/apt/apt.conf.d]
+          - file[/etc/apt/apt.conf.d/90cache-limit-avoid-segfault]
+        - bundle[…aptUpdateSegfault]
       + bundle[…avoidAccidentialTouchpadTap]
         + debPkg[xserver-xorg-input-synaptics]
           = defer: true
@@ -352,13 +410,7 @@
           = enforcedOwner: "root"
           = mimeType: "text/plain"
           = replace: true
-          + file[/etc/apt/apt.conf.d]
-            = mimeType: "inode/directory"
-            + file[/etc/apt]
-              = mimeType: "inode/directory"
-              ^ file[/etc]
-              - file[/etc/apt]
-            - file[/etc/apt/apt.conf.d]
+          ^ file[/etc/apt/apt.conf.d]
           - file[/etc/apt/apt.conf.d/95never-install-recommends]
         + file[/etc/apt/apt.conf.d/95no-periodic-interference]
           = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n",
