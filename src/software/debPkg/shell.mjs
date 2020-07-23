@@ -18,5 +18,8 @@ export default async(bun) => {
     'rename',
     'rlwrap',
     'psmisc',   // provides killall
+
+    'inotify-tools',
+    'lockfile-progs',
   ]);
 };

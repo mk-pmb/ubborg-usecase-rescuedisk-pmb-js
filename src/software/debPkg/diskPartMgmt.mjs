@@ -17,9 +17,11 @@ const lvm = [
 
 export default async(bun) => {
   bun.needs('debPkg', [
-    'util-linux',   // sfdisk
+    'hdparm',
+    'util-linux',   // provides sfdisk
     ...gparted,
     ...lvm,
+    'dmsetup',    // no longer a default in Ubuntu Xenial
   ]);
   bun.needs('file', {
     path: '/PL',
