@@ -297,11 +297,20 @@
     + bundle[…/src/workarounds/]
       + bundle[…allowMagicSysRq]
         + file[/etc/sysctl.d/90-allow-magic-sysrq.conf]
-          = content: "kernel.sysrq = 1\n"
+          = content: [" #-*- coding: utf-8, tab-width: 2 -*-\n",
+¬¶            "#\n",
+¬¶            "# Security concerns described here:\n",
+¬¶            "# https://bugs.launchpad.net/ubuntu/+source/linux/+bug/194676\n",
+¬¶            "# However, session-killing and OOM kill can be really handy at times.\n",
+¬¶            "#\n",
+¬¶            "# German keyboards: https://de.wikipedia.org/wiki/Magische_S-Abf-Taste\n",
+¬¶            "# \"Auf Tastaturen für Deutschland drückt man […] Alt + Druck + Taste […]\"\n",
+¬¶            "\n",
+¬¶            "kernel.sysrq = 1\n"]
           = enforcedGroup: "adm"
           = enforcedModes: "a-x,a=rX,ug+w"
           = enforcedOwner: "root"
-          = mimeType: "text/plain"
+          = mimeType: "text/plain; charset=utf-8"
           + file[/etc/sysctl.d]
             = mimeType: "inode/directory"
             ^ file[/etc]
@@ -414,7 +423,9 @@
           - file[/etc/apt/apt.conf.d/95never-install-recommends]
         + file[/etc/apt/apt.conf.d/95no-periodic-interference]
           = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n",
-¬¶            "APT::Periodic::Enable \"0\";\n"]
+¬¶            "APT::Periodic::Enable \"0\";\n",
+¬¶            "# Because it usually blocks the apt database at exactly",
+¬¶            "# the moment you want to install something."]
           = enforcedGroup: "adm"
           = enforcedModes: "a-x,a=rX,ug+w"
           = enforcedOwner: "root"
