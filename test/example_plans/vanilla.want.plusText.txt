@@ -1,5 +1,5 @@
 + stage[example_plans/vanilla]
-  = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "modifies": …, "installs": […], "removes": 0}
+  = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "modifies": …, "installs": […], "removes": […]}
   + bundle[cjs:ubborg-usecase-rescuedisk-pmb]
     + bundle[…/src/defaultKeyboard]
       = param: {}
@@ -423,6 +423,13 @@
           ^ file[/etc/apt/apt.conf.d]
           - file[/etc/apt/apt.conf.d/95no-periodic-interference]
         - bundle[…avoidDefaultAptUpdates]
+      + bundle[…disableUbuntuStartupSound]
+        + debPkg[ubuntu-sounds]
+          = defer: true
+          = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+          = state: "absent"
+          - debPkg[ubuntu-sounds]
+        - bundle[…disableUbuntuStartupSound]
       + bundle[…insomnia]
         + file[/etc/systemd/logind.conf.d/insomnia.conf]
           = content: ["[Login]\n",
