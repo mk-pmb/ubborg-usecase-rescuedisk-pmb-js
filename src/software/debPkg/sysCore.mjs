@@ -24,4 +24,12 @@ export default async(bun) => {
     'perl',
     'systemd',
   ]);
+
+  bun.needs('admSymLink', {
+    path: '/etc/systemd/system/ureadahead.service',
+    content: '/dev/null',
+    // Don't copy secrets onto other partitions.
+    // Keeping ureadahead installed b/c it's part of ubuntu-minimal and
+    // would thus cause package flickering with abstract config managers.
+  });
 };
