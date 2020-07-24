@@ -18,8 +18,8 @@ export default async(bun) => {
     'APT::Install-Suggests "0";\n',
   ]);
   aptCfg('95no-periodic-interference', [
-    // Because it usually blocks the apt database at exactly the moment
-    // you want to install something.
     'APT::Periodic::Enable "0";\n',
+    '# Because it usually blocks the apt database at exactly',
+    '# the moment you want to install something.',
   ]);
 };
