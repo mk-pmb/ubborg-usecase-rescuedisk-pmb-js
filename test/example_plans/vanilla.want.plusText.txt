@@ -310,7 +310,7 @@
           = enforcedGroup: "adm"
           = enforcedModes: "a-x,a=rX,ug+w"
           = enforcedOwner: "root"
-          = mimeType: "text/plain; charset=utf-8"
+          = mimeType: "text/plain; charset=UTF-8"
           + file[/etc/sysctl.d]
             = mimeType: "inode/directory"
             ^ file[/etc]
@@ -350,7 +350,7 @@
           = enforcedGroup: "adm"
           = enforcedModes: "a-x,a=rX,ug+w"
           = enforcedOwner: "root"
-          = mimeType: "text/plain; charset=utf-8"
+          = mimeType: "text/plain; charset=UTF-8"
           + file[/etc/apt/apt.conf.d]
             = mimeType: "inode/directory"
             + file[/etc/apt]
@@ -371,7 +371,7 @@
           = enforcedGroup: "adm"
           = enforcedModes: "a-x,a=rX,ug+w"
           = enforcedOwner: "root"
-          = mimeType: "text/plain; charset=utf-8"
+          = mimeType: "text/plain; charset=UTF-8"
           ^ file[/etc/apt/apt.conf.d]
           - file[/etc/apt/apt.conf.d/40impatient-http]
         - bundle[…aptImpatientHttp]
@@ -390,7 +390,7 @@
           = enforcedGroup: "adm"
           = enforcedModes: "a-x,a=rX,ug+w"
           = enforcedOwner: "root"
-          = mimeType: "text/plain; charset=utf-8"
+          = mimeType: "text/plain; charset=UTF-8"
           ^ file[/etc/apt/apt.conf.d]
           - file[/etc/apt/apt.conf.d/90cache-limit-avoid-segfault]
         - bundle[…aptUpdateSegfault]
