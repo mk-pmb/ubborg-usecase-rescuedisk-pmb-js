@@ -449,10 +449,7 @@
           = mimeType: "text/plain"
           + file[/etc/systemd/logind.conf.d]
             = mimeType: "inode/directory"
-            + file[/etc/systemd]
-              = mimeType: "inode/directory"
-              ^ file[/etc]
-              - file[/etc/systemd]
+            ^ file[/etc/systemd]
             - file[/etc/systemd/logind.conf.d]
           - file[/etc/systemd/logind.conf.d/insomnia.conf]
         - bundle[…insomnia]
@@ -1366,6 +1363,14 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[systemd]
+          + file[/etc/systemd/system/ureadahead.service]
+            = content: "/dev/null"
+            = enforcedGroup: "adm"
+            = enforcedModes: "a-x,a=rX,ug+w"
+            = enforcedOwner: "root"
+            = mimeType: "inode/symlink"
+            ^ file[/etc/systemd/system]
+            - file[/etc/systemd/system/ureadahead.service]
           - bundle[…sysCore]
         + bundle[…sysDrivers]
           + debPkg[ubuntu-drivers-common]
