@@ -994,11 +994,6 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[gnome-icon-theme]
-          + debPkg[gnome-icon-theme-symbolic]
-            = defer: true
-            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
-            = state: "installed"
-            - debPkg[gnome-icon-theme-symbolic]
           + debPkg[gnome-icon-theme-suede]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
@@ -1269,11 +1264,11 @@
             - debPkg[openssh-server]
           - bundle[…remoteShell]
         + bundle[…rtfm]
-          + debPkg[man]
+          + debPkg[man-db]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
-            - debPkg[man]
+            - debPkg[man-db]
           - bundle[…rtfm]
         + bundle[…shell]
           + debPkg[bash]
