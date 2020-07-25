@@ -2,6 +2,6 @@
 
 export default async(bun) => {
   bun.needs('debPkg', [
-    'man',
+    'man-db',   // focal apt: Note, selecting 'man-db' instead of 'man'
   ]);
 };
