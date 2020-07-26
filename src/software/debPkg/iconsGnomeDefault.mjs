@@ -7,7 +7,7 @@ export default async(bun) => {
 
     // 'gnome-icon-theme-symbolic',
     // focal apt: Note, selecting 'adwaita-icon-theme-full'
-    //            instead of 'gnome-icon-theme-symbolic'                                                                |
+    //            instead of 'gnome-icon-theme-symbolic'
     'adwaita-icon-theme-full',
   ]);
 };
