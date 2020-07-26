@@ -360,6 +360,43 @@
             - file[/etc/apt/apt.conf.d]
           - file[/etc/apt/apt.conf.d/40interview-first]
         - bundle[…aptAskQuestionsEarly]
+      + bundle[…aptAvoidDefaultUpdates]
+        + file[/etc/xdg/autostart/update-notifier.desktop]
+          = content: ["[Desktop Entry]\n", "Hidden=true\n"]
+          = enforcedModes: "a=rx,ug+w"
+          = mimeType: "text/plain"
+          + file[/etc/xdg/autostart]
+            = mimeType: "inode/directory"
+            + file[/etc/xdg]
+              = mimeType: "inode/directory"
+              ^ file[/etc]
+              - file[/etc/xdg]
+            - file[/etc/xdg/autostart]
+          - file[/etc/xdg/autostart/update-notifier.desktop]
+        + file[/etc/apt/apt.conf.d/95never-install-recommends]
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n",
+¬¶            "APT::Install-Recommends \"0\";\n",
+¬¶            "APT::Install-Suggests \"0\";\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain"
+          = replace: true
+          ^ file[/etc/apt/apt.conf.d]
+          - file[/etc/apt/apt.conf.d/95never-install-recommends]
+        + file[/etc/apt/apt.conf.d/95no-periodic-interference]
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n",
+¬¶            "APT::Periodic::Enable \"0\";\n",
+¬¶            "# Because it usually blocks the apt database at exactly",
+¬¶            "# the moment you want to install something."]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain"
+          = replace: true
+          ^ file[/etc/apt/apt.conf.d]
+          - file[/etc/apt/apt.conf.d/95no-periodic-interference]
+        - bundle[…aptAvoidDefaultUpdates]
       + bundle[…aptImpatientHttp]
         + file[/etc/apt/apt.conf.d/40impatient-http]
           = content: [" #-*- coding: utf-8, tab-width: 2 -*-\n",
@@ -413,46 +450,9 @@
 ¬¶            "Hidden=false\n"]
           = enforcedModes: "a=rx,ug+w"
           = mimeType: "text/plain"
-          + file[/etc/xdg/autostart]
-            = mimeType: "inode/directory"
-            + file[/etc/xdg]
-              = mimeType: "inode/directory"
-              ^ file[/etc]
-              - file[/etc/xdg]
-            - file[/etc/xdg/autostart]
+          ^ file[/etc/xdg/autostart]
           - file[/etc/xdg/autostart/touchpad-config-synclient.desktop]
         - bundle[…avoidAccidentialTouchpadTap]
-      + bundle[…avoidDefaultAptUpdates]
-        + file[/etc/xdg/autostart/update-notifier.desktop]
-          = content: ["[Desktop Entry]\n", "Hidden=true\n"]
-          = enforcedModes: "a=rx,ug+w"
-          = mimeType: "text/plain"
-          ^ file[/etc/xdg/autostart]
-          - file[/etc/xdg/autostart/update-notifier.desktop]
-        + file[/etc/apt/apt.conf.d/95never-install-recommends]
-          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n",
-¬¶            "APT::Install-Recommends \"0\";\n",
-¬¶            "APT::Install-Suggests \"0\";\n"]
-          = enforcedGroup: "adm"
-          = enforcedModes: "a-x,a=rX,ug+w"
-          = enforcedOwner: "root"
-          = mimeType: "text/plain"
-          = replace: true
-          ^ file[/etc/apt/apt.conf.d]
-          - file[/etc/apt/apt.conf.d/95never-install-recommends]
-        + file[/etc/apt/apt.conf.d/95no-periodic-interference]
-          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n",
-¬¶            "APT::Periodic::Enable \"0\";\n",
-¬¶            "# Because it usually blocks the apt database at exactly",
-¬¶            "# the moment you want to install something."]
-          = enforcedGroup: "adm"
-          = enforcedModes: "a-x,a=rX,ug+w"
-          = enforcedOwner: "root"
-          = mimeType: "text/plain"
-          = replace: true
-          ^ file[/etc/apt/apt.conf.d]
-          - file[/etc/apt/apt.conf.d/95no-periodic-interference]
-        - bundle[…avoidDefaultAptUpdates]
       + bundle[…disableUbuntuStartupSound]
         + debPkg[ubuntu-sounds]
           = defer: true
@@ -483,7 +483,7 @@
             - file[/etc/systemd/logind.conf.d]
           - file[/etc/systemd/logind.conf.d/insomnia.conf]
         - bundle[…insomnia]
-      + bundle[…systemd_quick_shutdown]
+      + bundle[…systemdQuickShutdown]
         + file[/etc/systemd/system.conf.d/quick_shutdown.conf]
           = content: ["[Manager]\n", "DefaultTimeoutStopSec=30\n"]
           = enforcedGroup: "adm"
@@ -495,7 +495,7 @@
             ^ file[/etc/systemd]
             - file[/etc/systemd/system.conf.d]
           - file[/etc/systemd/system.conf.d/quick_shutdown.conf]
-        - bundle[…systemd_quick_shutdown]
+        - bundle[…systemdQuickShutdown]
       - bundle[…/src/workarounds/]
     + bundle[…/src/software/debPkg/__stage__]
       + stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
