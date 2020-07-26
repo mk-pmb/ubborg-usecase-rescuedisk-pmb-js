@@ -7,6 +7,7 @@ import iniStyleNpmrc from './util/iniStyleNpmrc';
 async function vdu(bun, props) {
   const {
     desktopBgColor,
+    dontCreateHomeDir,
     extraUserFiles,
     gitCfg,
     homonymousGroupIdNum,
@@ -39,6 +40,7 @@ async function vdu(bun, props) {
     groups,
     admin: undefined,
     desktopBgColor: undefined,
+    dontCreateHomeDir: undefined,
     extraUserFiles: undefined,
     gitCfg: undefined,
     homonymousGroupIdNum: undefined,
@@ -53,6 +55,8 @@ async function vdu(bun, props) {
       },
     },
   });
+
+  if (dontCreateHomeDir) { return; }
 
   await mapMerge.pr({ owner: loginName, mimeType: 'dir' }, 'path', [
     '~/',
