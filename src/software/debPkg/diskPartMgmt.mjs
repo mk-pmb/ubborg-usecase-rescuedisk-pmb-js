@@ -23,9 +23,5 @@ export default async(bun) => {
     ...lvm,
     'dmsetup',    // no longer a default in Ubuntu Xenial
   ]);
-  bun.needs('file', {
-    path: '/PL',
-    mimeType: 'sym',
-    content: 'dev/disk/by-partlabel',
-  });
+  bun.needs('file', '/PL =-> dev/disk/by-partlabel');
 };
