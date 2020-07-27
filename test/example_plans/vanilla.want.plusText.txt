@@ -500,6 +500,14 @@
     + bundle[…/src/software/debPkg/__stage__]
       + stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
         = deferredDebPkgs: {"policy": {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}, "updatePkgLists": true, "modifies": …, "installs": […], "removes": […]}
+        + bundle[…ansibleAux]
+          + debPkg[acl]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = presenceMarker: "cmd:setfacl"
+            = state: "installed"
+            - debPkg[acl]
+          - bundle[…ansibleAux]
         + bundle[…basicImageEditing]
           + debPkg[mtpaint]
             = defer: true
