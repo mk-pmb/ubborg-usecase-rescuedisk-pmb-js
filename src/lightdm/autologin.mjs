@@ -12,6 +12,7 @@ async function autologin(bun) {
 
   const accSvcUsers = '/var/lib/AccountsService/users';
   await bun.needs('admFile', { path: accSvcUsers, mimeType: 'dir' });
+  // ^-- Set the owner and modes that admSymDir wouldn't.
   await bun.needs('admSymDir', {
     path: '/etc/lightdm/user_session_prefs',
     content: accSvcUsers,
