@@ -1476,6 +1476,11 @@
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
             = state: "installed"
             - debPkg[x11-xserver-utils]
+          + debPkg[xinput]
+            = defer: true
+            = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
+            = state: "installed"
+            - debPkg[xinput]
           + debPkg[xdotool]
             = defer: true
             = policy: {"tryPreserveOldConfig": true, "conflict": "flinch", "incompatible": "flinch"}
