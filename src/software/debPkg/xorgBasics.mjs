@@ -11,6 +11,7 @@ export default async(bun) => {
     ...xGreeters,
 
     'x11-xserver-utils',    // provides xsetroot
+    'xinput',
     'xdotool',
     'xserver-xorg',
 
