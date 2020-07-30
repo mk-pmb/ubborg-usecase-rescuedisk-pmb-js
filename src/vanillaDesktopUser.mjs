@@ -35,6 +35,7 @@ async function vdu(bun, props) {
   await bun.needs('osUser', {
     interactive: true,
     homeDirPath: '/home/' + loginName,
+    shell: 'bash',
     ...props,
     userIdNum,
     groups,
