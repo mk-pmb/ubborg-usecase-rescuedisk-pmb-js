@@ -2,4 +2,7 @@
 
 import bob from 'ubborg-bundled-optional-bundles-pmb';
 
-export default bob(import.meta, { paramKey: 'software_nonDebDrivers' });
+export default bob(import.meta, {
+  paramKey: 'software_nonDebDrivers',
+  allowEmptyBundle: true,
+});
