@@ -4,6 +4,19 @@ import mapMerge from 'map-merge-defaults-pmb';
 
 import iniStyleNpmrc from './util/iniStyleNpmrc';
 
+const defaultUserFiles = [
+  '~/',
+  '~/Desktop/',
+  '~/.config/',
+  '~/.config/ssh/',
+  '~/.config/ssh/',
+  '~/.config/autostart/',
+  { path: '~/.config/user-dirs.locale',
+    mimeType: 'text/plain',
+    content: 'C\n',
+  },
+];
+
 async function vdu(bun, props) {
   const {
     desktopBgColor,
@@ -57,21 +70,12 @@ async function vdu(bun, props) {
     },
   });
 
-  if (dontCreateHomeDir) { return; }
 
   await mapMerge.pr({ owner: loginName }, 'path', [
-    '~/',
-    '~/Desktop/',
-    '~/.config/',
-    '~/.config/ssh/',
-    '~/.config/ssh/',
-    '~/.config/autostart/',
-    { path: '~/.config/user-dirs.locale',
-      mimeType: 'text/plain',
-      content: 'C\n',
-    },
+    ...(dontCreateHomeDir ? [] : defaultUserFiles),
     ...(extraUserFiles || []),
   ], bun.needs.bind(bun, 'userFile'));
+  if (dontCreateHomeDir) { return; }
 
   await (desktopBgColor && bun.needs('xdgAutostarter', {
     owner: loginName,
