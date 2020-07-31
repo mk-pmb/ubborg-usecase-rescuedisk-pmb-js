@@ -44,6 +44,7 @@
           - file[/var/lib/AccountsService/users]
         + file[/etc/lightdm/user_session_prefs]
           = content: "/var/lib/AccountsService/users"
+          = debugHints: {"targetMimeType": "inode/directory"}
           = enforcedGroup: "adm"
           = enforcedModes: "a-x,a=rX,ug+w"
           = enforcedOwner: "root"
