@@ -3,9 +3,9 @@
 const defaultOpts = {
   primaryKeyboard: {},    // see src/defaultKeyboard.mjs; or false to skip.
   rescueUser: {},         // see src/rescueUser.mjs.
-  workarounds: {},        // see src/workarounds/
-  software_debPkg: {},    // see src/software/debPkg/
-  software_npmPkg: {},    // see src/software/npmPkg/
+  workarounds: {},
+  software_debPkg: {},
+  software_npmPkg: {},
 };
 
 export default defaultOpts;

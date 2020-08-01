@@ -20,7 +20,7 @@
         - file[/etc/default/keyboard]
       - bundle[…/src/defaultKeyboard]
     + bundle[…/src/user]
-      + bundle[cjs:ubborg-usecase-rescuedisk-pmb/src/lightdm/autologin]
+      + bundle[cjs:ubborg-usecase-rescuedisk-pmb/src/cfg/lightdmAutologin]
         = param: {"loginName": "urd"}
         + debPkg[lightdm]
           = defer: true
@@ -70,7 +70,7 @@
             ^ file[/etc/lightdm]
             - file[/etc/lightdm/lightdm.conf.d]
           - file[/etc/lightdm/lightdm.conf.d/autologin.conf]
-        - bundle[cjs:ubborg-usecase-rescuedisk-pmb/src/lightdm/autologin]
+        - bundle[cjs:ubborg-usecase-rescuedisk-pmb/src/cfg/lightdmAutologin]
       + osUser[urd]
         = disablePasswordLogin: false
         = exists: true
