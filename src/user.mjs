@@ -50,7 +50,7 @@ async function urd(bun) {
   if (loginName === false) { return; }
 
   if (mustUser('bool', 'autoLogin')) {
-    bun.needs('bundle', { url: 'lightdm/autologin', param: { loginName } });
+    bun.needs('bundle', { url: 'cfg/lightdmAutologin', param: { loginName } });
   }
 
   await vdu(bun, {
