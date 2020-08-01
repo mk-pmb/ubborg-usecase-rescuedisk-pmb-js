@@ -1,7 +1,7 @@
 + stage[example_plans/vanilla]
   = deferredDebPkgs: {"installs": […], "modifies": …, "policy": {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}, "removes": […]}
   + bundle[cjs:ubborg-usecase-rescuedisk-pmb]
-    + bundle[…/src/defaultKeyboard]
+    + bundle[…/src/cfg/primaryKeyboard]
       = param: {}
       + file[/etc/default/keyboard]
         = content: ["# Keyboard config, see man 5 keyboard\n",
@@ -18,7 +18,7 @@
             - file[/etc]
           - file[/etc/default]
         - file[/etc/default/keyboard]
-      - bundle[…/src/defaultKeyboard]
+      - bundle[…/src/cfg/primaryKeyboard]
     + bundle[…/src/user]
       + bundle[cjs:ubborg-usecase-rescuedisk-pmb/src/cfg/lightdmAutologin]
         = param: {"loginName": "urd"}

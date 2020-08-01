@@ -6,10 +6,13 @@ async function rescueDisk(bun) {
   const mustParam = bun.makeParamPopper().mustBe;
   // console.error(bun.getParams()).fail();
 
-  const kbd = mustParam('dictObj | fal', 'primaryKeyboard');
-  if (kbd) {
-    bun.needs('subBundle', { url: 'src/defaultKeyboard', param: kbd });
-  }
+  bun.needs('subBundle', [
+    'primaryKeyboard',
+  ].map(function checkParam(name) {
+    const param = mustParam('dictObj | fal', name);
+    if (param === false) { return; }
+    return { url: 'src/cfg/' + name, param };
+  }).filter(Boolean));
 
   await bun.needs('subBundle', { url: 'src/user' });
   // ^-- await: to ensure homeDir is declared
