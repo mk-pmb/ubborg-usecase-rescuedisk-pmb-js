@@ -7,6 +7,7 @@
   s~("modifies": )[0-9]+,~\1…,~
 }
 /^ += content: .{100,}/s~, "~,\n¬¶            "~g
+/^ += debugHints: \{/d
 
 
 
