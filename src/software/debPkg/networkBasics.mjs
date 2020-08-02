@@ -3,7 +3,10 @@
 export default async(bun) => {
   bun.needs('debPkg', [
     'avahi-daemon',
+    'avahi-discover',
     'avahi-utils',
+    'python-avahi',
+
     'ifupdown',
     'libnss-mdns',
     'libnss-myhostname',
