@@ -12,7 +12,6 @@ export default async(bun) => {
     'libnss-myhostname',
     'net-tools => cmd:ifconfig',
     'networkd-dispatcher',
-    'network-manager',
     'syslinux-utils => cmd:gethostip',
 
     'iw',

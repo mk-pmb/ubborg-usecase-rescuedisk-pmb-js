@@ -1061,7 +1061,7 @@
             = state: "installed"
             - debPkg[wxmaxima]
           - bundle[…math]
-        + bundle[…networkBasics]
+        + bundle[…netBasics]
           + debPkg[avahi-daemon]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1108,11 +1108,6 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[networkd-dispatcher]
-          + debPkg[network-manager]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[network-manager]
           + debPkg[syslinux-utils]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1135,8 +1130,8 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[rfkill]
-          - bundle[…networkBasics]
-        + bundle[…networkDataTransfer]
+          - bundle[…netBasics]
+        + bundle[…netDataTransfer]
           + debPkg[axel]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1177,15 +1172,22 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[proxytunnel]
-          - bundle[…networkDataTransfer]
-        + bundle[…networkDebug]
+          - bundle[…netDataTransfer]
+        + bundle[…netDebug]
           + debPkg[iputils-ping]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = presenceMarker: "cmd:ping"
             = state: "installed"
             - debPkg[iputils-ping]
-          - bundle[…networkDebug]
+          - bundle[…netDebug]
+        + bundle[…netMgr]
+          + debPkg[network-manager]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[network-manager]
+          - bundle[…netMgr]
         + bundle[…nodejs]
           + debPkgRepo[nodejs]
             = components: ["main"]
