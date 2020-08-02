@@ -8,6 +8,7 @@ export default async(bun) => {
     bfn: 'touchpad-config-synclient',
     title: 'Touchpad Config via synclient',
     descr: 'Use touchpad only to move the mouse, click only with buttons.',
+    icon: 'input-touchpad',
     exec: ['/usr/bin/synclient',
       'MaxTapTime=0',
       'MaxDoubleTapTime=0',
