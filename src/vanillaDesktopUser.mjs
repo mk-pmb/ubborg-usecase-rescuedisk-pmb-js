@@ -23,13 +23,22 @@ async function vdu(bun, props) {
     dontCreateHomeDir,
     extraUserFiles,
     gitCfg,
-    homonymousGroupIdNum,
     loginName,
     windowManager,
   } = props;
   if (loginName === false) { return; }
   let { userIdNum } = props;
-  if (userIdNum === 'gid') { userIdNum = homonymousGroupIdNum; }
+
+  let hmnGrpId = props.homonymousGroupIdNum;
+  if (userIdNum === 'gid') {
+    userIdNum = hmnGrpId;
+    hmnGrpId = undefined;
+  }
+  if (hmnGrpId !== undefined) {
+    const e = ('Option "homonymousGroupIdNum" is currently implemented only '
+      + 'for userIdNum=gid');
+    throw new Error(e);
+  }
 
   const groups = [
     loginName,
