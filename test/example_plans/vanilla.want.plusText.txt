@@ -908,6 +908,16 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[udiskie]
+          + debPkg[gvfs-bin]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[gvfs-bin]
+          + debPkg[gvfs-fuse]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[gvfs-fuse]
           + debPkg[exfat-fuse]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
