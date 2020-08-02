@@ -3,7 +3,10 @@
 export default async(bun) => {
   bun.needs('debPkg', [
     'udisks2',
-    'udiskie',    // A mount helper tray icon
+    'udiskie',    // a mount helper tray icon
+
+    'gvfs-bin',   // provides basic GIO support
+    'gvfs-fuse',
 
     'exfat-fuse',
     'exfat-utils',
