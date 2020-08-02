@@ -1,6 +1,12 @@
 + stage[example_plans/vanilla]
   = deferredDebPkgs: {"installs": […], "modifies": …, "policy": {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}, "removes": […]}
   + bundle[cjs:ubborg-usecase-rescuedisk-pmb]
+    + bundle[…/src/cfg/i18nLocales]
+      = param: {}
+      + i18nLocale[en_US.UTF-8]
+        = present: true
+        - i18nLocale[en_US.UTF-8]
+      - bundle[…/src/cfg/i18nLocales]
     + bundle[…/src/cfg/primaryKeyboard]
       = param: {}
       + file[/etc/default/keyboard]

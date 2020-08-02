@@ -7,6 +7,7 @@ async function rescueDisk(bun) {
   // console.error(bun.getParams()).fail();
 
   bun.needs('subBundle', [
+    'i18nLocales',
     'primaryKeyboard',
   ].map(function checkParam(name) {
     const param = mustParam('dictObj | fal', name);
@@ -17,10 +18,13 @@ async function rescueDisk(bun) {
   await bun.needs('subBundle', { url: 'src/user' });
   // ^-- await: to ensure homeDir is declared
 
-  bun.needs('subBundle', { url: 'src/workarounds/' });
-  bun.needs('subBundle', { url: 'src/software/debPkg/__stage__' });
-  bun.needs('subBundle', { url: 'src/software/nonDebDrivers/' });
-  bun.needs('subBundle', { url: 'src/software/npmPkg/__stage__' });
+  bun.needs('subBundle', [
+    'src/workarounds/',
+
+    'src/software/debPkg/__stage__',
+    'src/software/nonDebDrivers/',
+    'src/software/npmPkg/__stage__',
+  ]);
 }
 
 Object.assign(rescueDisk, {
