@@ -22,6 +22,8 @@ export default async(bun) => {
     'par2',     // parity check/repair tool
     // ¬focal // 'pypar2',
 
+    'dos2unix',
+
     'archivemount',
     'p7zip-full',
     'plzip',
