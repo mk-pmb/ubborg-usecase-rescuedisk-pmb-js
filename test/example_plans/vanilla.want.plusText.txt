@@ -505,6 +505,33 @@
             - file[/etc/systemd/system.conf.d]
           - file[/etc/systemd/system.conf.d/quick_shutdown.conf]
         - bundle[…systemdQuickShutdown]
+      + bundle[…xorgUseEvdevRules]
+        + file[/usr/share/X11/xorg.conf.d/20-workaround-focal-xkb-use-evdev-rules.conf]
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n\n",
+¬¶            "Section \"InputClass\"\n",
+¬¶            "  Identifier \"Enable evdev rules even on Ubuntu focal\"\n",
+¬¶            "  MatchIsKeyboard \"on\"\n",
+¬¶            "  MatchDevicePath \"/dev/input/event*\"\n",
+¬¶            "  Option \"XkbRules\" \"evdev\"\n",
+¬¶            "EndSection\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain; charset=UTF-8"
+          + file[/usr/share/X11/xorg.conf.d]
+            = mimeType: "inode/directory"
+            + file[/usr/share/X11]
+              = mimeType: "inode/directory"
+              + file[/usr/share]
+                = mimeType: "inode/directory"
+                + file[/usr]
+                  = mimeType: "inode/directory"
+                  - file[/usr]
+                - file[/usr/share]
+              - file[/usr/share/X11]
+            - file[/usr/share/X11/xorg.conf.d]
+          - file[/usr/share/X11/xorg.conf.d/20-workaround-focal-xkb-use-evdev-rules.conf]
+        - bundle[…xorgUseEvdevRules]
       - bundle[…/src/workarounds/]
     + bundle[…/src/software/debPkg/__stage__]
       + stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
@@ -1524,21 +1551,51 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[unity-greeter]
+          + debPkg[xserver-xorg-input-all]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[xserver-xorg-input-all]
+          + debPkg[xserver-xorg-input-evdev]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[xserver-xorg-input-evdev]
+          + debPkg[xserver-xorg-input-joystick]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[xserver-xorg-input-joystick]
+          + debPkg[xserver-xorg-input-mouse]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[xserver-xorg-input-mouse]
+          + debPkg[xserver-xorg-input-wacom]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[xserver-xorg-input-wacom]
           + debPkg[x11-xserver-utils]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[x11-xserver-utils]
-          + debPkg[xinput]
+          + debPkg[xdiagnose]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
-            - debPkg[xinput]
+            - debPkg[xdiagnose]
           + debPkg[xdotool]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[xdotool]
+          + debPkg[xinput]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[xinput]
           + debPkg[xserver-xorg]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
