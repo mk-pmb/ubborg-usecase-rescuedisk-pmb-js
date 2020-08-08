@@ -1343,6 +1343,41 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[remmina]
+          + debPkg[remmina-plugin-nx]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[remmina-plugin-nx]
+          + debPkg[remmina-plugin-rdp]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[remmina-plugin-rdp]
+          + debPkg[remmina-plugin-secret]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[remmina-plugin-secret]
+          + debPkg[remmina-plugin-spice]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[remmina-plugin-spice]
+          + debPkg[remmina-plugin-vnc]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[remmina-plugin-vnc]
+          + debPkg[remmina-plugin-www]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[remmina-plugin-www]
+          + debPkg[remmina-plugin-xdmcp]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[remmina-plugin-xdmcp]
           - bundle[…remoteDesktop]
         + bundle[…remoteShell]
           + debPkg[openssh-server]
