@@ -17,4 +17,15 @@ export default async(bun) => {
   bun.needs('debPkg', [
     'network-manager',
   ]);
+
+  bun.needs('admFile', {
+    path: '/etc/NetworkManager/conf.d/override-wifi-powersave.conf',
+    mimeType: 'lines',
+    content: [
+      '[connection]',
+      'wifi.powersave = 2',
+      '# 2 = disabled; for other values: man nm-settings',
+      '# Check with: sudo iw dev wlp2s0 get power_save',
+    ],
+  });
 };

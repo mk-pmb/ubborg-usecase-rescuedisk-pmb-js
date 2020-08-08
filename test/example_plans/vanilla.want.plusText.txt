@@ -1187,6 +1187,23 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[network-manager]
+          + file[/etc/NetworkManager/conf.d/override-wifi-powersave.conf]
+            = content: ["[connection]\n",
+¬¶            "wifi.powersave = 2\n",
+¬¶            "# 2 = disabled; for other values: man nm-settings\n",
+¬¶            "# Check with: sudo iw dev wlp2s0 get power_save\n"]
+            = enforcedGroup: "adm"
+            = enforcedModes: "a-x,a=rX,ug+w"
+            = enforcedOwner: "root"
+            = mimeType: "text/plain; charset=UTF-8"
+            + file[/etc/NetworkManager/conf.d]
+              = mimeType: "inode/directory"
+              + file[/etc/NetworkManager]
+                = mimeType: "inode/directory"
+                ^ file[/etc]
+                - file[/etc/NetworkManager]
+              - file[/etc/NetworkManager/conf.d]
+            - file[/etc/NetworkManager/conf.d/override-wifi-powersave.conf]
           - bundle[…netMgr]
         + bundle[…nodejs]
           + debPkgRepo[nodejs]
