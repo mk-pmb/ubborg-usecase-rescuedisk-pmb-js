@@ -305,7 +305,7 @@
     + bundle[…/src/workarounds/]
       + bundle[…allowMagicSysRq]
         + file[/etc/sysctl.d/90-allow-magic-sysrq.conf]
-          = content: [" #-*- coding: utf-8, tab-width: 2 -*-\n",
+          = content: ["# -*- coding: utf-8, tab-width: 2 -*-\n",
 ¬¶            "#\n",
 ¬¶            "# Security concerns described here:\n",
 ¬¶            "# https://bugs.launchpad.net/ubuntu/+source/linux/+bug/194676\n",
@@ -346,7 +346,7 @@
         - bundle[…anacronEvenOnBattery]
       + bundle[…aptAskQuestionsEarly]
         + file[/etc/apt/apt.conf.d/40interview-first]
-          = content: [" #-*- coding: utf-8, tab-width: 2 -*-\n",
+          = content: ["# -*- coding: utf-8, tab-width: 2 -*-\n",
 ¬¶            "\n",
 ¬¶            "# Make apt/dpkg try to ask all config questions up front,\n",
 ¬¶            "# so that once the update starts, it _should_ be able to\n",
@@ -407,7 +407,7 @@
         - bundle[…aptAvoidDefaultUpdates]
       + bundle[…aptImpatientHttp]
         + file[/etc/apt/apt.conf.d/40impatient-http]
-          = content: [" #-*- coding: utf-8, tab-width: 2 -*-\n",
+          = content: ["# -*- coding: utf-8, tab-width: 2 -*-\n",
 ¬¶            "\n",
 ¬¶            "# Waste less time on dead mirror servers.\n",
 ¬¶            "\n",
@@ -422,7 +422,7 @@
         - bundle[…aptImpatientHttp]
       + bundle[…aptUpdateSegfault]
         + file[/etc/apt/apt.conf.d/90cache-limit-avoid-segfault]
-          = content: [" #-*- coding: utf-8, tab-width: 2 -*-\n",
+          = content: ["# -*- coding: utf-8, tab-width: 2 -*-\n",
 ¬¶            "\n",
 ¬¶            "# increase apt's cache limit to avoid \"apt-get update\" segfaulting\n",
 ¬¶            "# while reading package lists.\n",
