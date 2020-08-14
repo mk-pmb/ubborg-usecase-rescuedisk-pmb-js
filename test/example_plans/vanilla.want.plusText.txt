@@ -662,6 +662,22 @@
             - debPkg[aptitude]
           - bundle[…debPkgUtil]
         + bundle[…debugUtil]
+          + debPkg[libc-dev-bin]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:mtrace"
+            = state: "installed"
+            - debPkg[libc-dev-bin]
+          + debPkg[ltrace]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[ltrace]
+          + debPkg[strace]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[strace]
           + debPkg[acpi]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -702,16 +718,16 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[lsof]
-          + debPkg[powertop]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[powertop]
           + debPkg[mmc-utils]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[mmc-utils]
+          + debPkg[powertop]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[powertop]
           + debPkg[units]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1636,11 +1652,21 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[xserver-xorg]
+          + debPkg[xdg-utils]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[xdg-utils]
           + debPkg[xsel]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[xsel]
+          + debPkg[xterm]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[xterm]
           + debPkg[scrot]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1651,11 +1677,6 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[wmctrl]
-          + debPkg[xdg-utils]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[xdg-utils]
           - bundle[…xorgBasics]
         + bundle[…xorgClipboardPersist]
           + debPkg[parcellite]

@@ -28,11 +28,11 @@ export default async(bun) => {
     'xinput',
     'xserver-xorg',
 
+    'xdg-utils',
     'xsel',
+    'xterm',
 
     'scrot',
     'wmctrl',
-
-    'xdg-utils',
   ]);
 };
