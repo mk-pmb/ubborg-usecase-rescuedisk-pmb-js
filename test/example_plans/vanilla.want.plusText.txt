@@ -1248,6 +1248,13 @@
               - file[/etc/NetworkManager/conf.d]
             - file[/etc/NetworkManager/conf.d/override-wifi-powersave.conf]
           - bundle[…netMgr]
+        + bundle[…netTime]
+          + debPkg[ntpdate]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[ntpdate]
+          - bundle[…netTime]
         + bundle[…nodejs]
           + debPkgRepo[nodejs]
             = components: ["main"]
