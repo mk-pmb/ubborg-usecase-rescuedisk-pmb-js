@@ -1696,16 +1696,6 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "absent"
             - debPkg[unity-services]
-          + debPkg[xfce4-clipman-plugin]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "absent"
-            - debPkg[xfce4-clipman-plugin]
-          + debPkg[xfce4-clipman]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "absent"
-            - debPkg[xfce4-clipman]
           - bundle[…xorgClipboardPersist]
         - stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
       - bundle[…/src/software/debPkg/__stage__]
