@@ -562,7 +562,8 @@
         - bundle[…wifiAvoidPowersave_r8188eu]
       + bundle[…xorgDisableBogusDefaultPointer]
         + file[/usr/share/X11/xorg.conf.d/20-workaround-focal-ignore-default-pointer.conf]
-          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n\n",
+          = content: ["# This file was generated using ubborg-planner-pmb\n",
+¬¶            "\n",
 ¬¶            "Section \"InputClass\"\n",
 ¬¶            "  Identifier \"Annoying doppelganger of real, more specific touchpads\"\n",
 ¬¶            "  MatchProduct \"<default pointer>\"\n",
@@ -590,7 +591,8 @@
         - bundle[…xorgDisableBogusDefaultPointer]
       + bundle[…xorgUseEvdevRules]
         + file[/usr/share/X11/xorg.conf.d/20-workaround-focal-xkb-use-evdev-rules.conf]
-          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n\n",
+          = content: ["# This file was generated using ubborg-planner-pmb\n",
+¬¶            "\n",
 ¬¶            "Section \"InputClass\"\n",
 ¬¶            "  Identifier \"Enable evdev rules even on Ubuntu focal\"\n",
 ¬¶            "  MatchIsKeyboard \"yes\"\n",
