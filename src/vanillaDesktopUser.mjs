@@ -51,6 +51,7 @@ async function vdu(bun, props) {
       'adm',
       'sudo',
     ]),
+    'audio',
     props.groups,
   ];
 
