@@ -176,6 +176,16 @@
             = interactive: false
             - osUserGroup[sudo]
           - osUserGroupMembership[…|sudo]
+        + osUserGroupMembership[…|audio]
+          = grName: "audio"
+          = loginName: "urd"
+          = member: true
+          ^ osUserLogin[urd]
+          + osUserGroup[audio]
+            = exists: true
+            = interactive: false
+            - osUserGroup[audio]
+          - osUserGroupMembership[…|audio]
         - osUser[urd]
       + iniFile[/var/lib/AccountsService/users/urd]
         + file[…]
@@ -492,6 +502,37 @@
             - file[/etc/systemd/logind.conf.d]
           - file[/etc/systemd/logind.conf.d/insomnia.conf]
         - bundle[…insomnia]
+      + bundle[…pulseAudioOnlyForGroupAudio]
+        + file[/etc/systemd/user/pulseaudio.service.d/audio_group_only.conf]
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n\n",
+¬¶            "[Unit]\n",
+¬¶            "ConditionGroup=audio\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain; charset=UTF-8"
+          + file[/etc/systemd/user/pulseaudio.service.d]
+            = mimeType: "inode/directory"
+            + file[/etc/systemd/user]
+              = mimeType: "inode/directory"
+              ^ file[/etc/systemd]
+              - file[/etc/systemd/user]
+            - file[/etc/systemd/user/pulseaudio.service.d]
+          - file[/etc/systemd/user/pulseaudio.service.d/audio_group_only.conf]
+        + file[/etc/systemd/user/pulseaudio.socket.d/audio_group_only.conf]
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n\n",
+¬¶            "[Unit]\n",
+¬¶            "ConditionGroup=audio\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain; charset=UTF-8"
+          + file[/etc/systemd/user/pulseaudio.socket.d]
+            = mimeType: "inode/directory"
+            ^ file[/etc/systemd/user]
+            - file[/etc/systemd/user/pulseaudio.socket.d]
+          - file[/etc/systemd/user/pulseaudio.socket.d/audio_group_only.conf]
+        - bundle[…pulseAudioOnlyForGroupAudio]
       + bundle[…systemdQuickShutdown]
         + file[/etc/systemd/system.conf.d/quick_shutdown.conf]
           = content: ["[Manager]\n", "DefaultTimeoutStopSec=30\n"]
