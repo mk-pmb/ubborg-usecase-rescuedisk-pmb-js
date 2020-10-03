@@ -11,7 +11,7 @@ export default async(bun) => {
       fileGeneratedHint('# ', '\n'),
       'Section "InputClass"',
       '  Identifier "Enable evdev rules even on Ubuntu focal"',
-      '  MatchIsKeyboard "on"',
+      '  MatchIsKeyboard "yes"',
       '  MatchDevicePath "/dev/input/event*"',
       '  Option "XkbRules" "evdev"',
       'EndSection',
