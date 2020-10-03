@@ -20,6 +20,7 @@ export default async(bun) => {
 
   bun.needs('admFile', {
     path: '/etc/NetworkManager/conf.d/override-wifi-powersave.conf',
+    // see also: ../../workarounds/wifiAvoidPowersave_*
     mimeType: 'lines',
     content: [
       '[connection]',
