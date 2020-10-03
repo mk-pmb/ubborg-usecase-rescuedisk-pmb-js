@@ -565,7 +565,7 @@
           = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n\n",
 ¬¶            "Section \"InputClass\"\n",
 ¬¶            "  Identifier \"Enable evdev rules even on Ubuntu focal\"\n",
-¬¶            "  MatchIsKeyboard \"on\"\n",
+¬¶            "  MatchIsKeyboard \"yes\"\n",
 ¬¶            "  MatchDevicePath \"/dev/input/event*\"\n",
 ¬¶            "  Option \"XkbRules\" \"evdev\"\n",
 ¬¶            "EndSection\n"]
