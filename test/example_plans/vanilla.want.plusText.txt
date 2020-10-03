@@ -546,6 +546,20 @@
             - file[/etc/systemd/system.conf.d]
           - file[/etc/systemd/system.conf.d/quick_shutdown.conf]
         - bundle[…systemdQuickShutdown]
+      + bundle[…wifiAvoidPowersave_r8188eu]
+        + file[/etc/modprobe.d/wifi-avoid-powersave-r8188eu.conf]
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n\n",
+¬¶            "options 8188eu rtw_power_mgnt=0 rtw_enusbss=0\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain; charset=UTF-8"
+          + file[/etc/modprobe.d]
+            = mimeType: "inode/directory"
+            ^ file[/etc]
+            - file[/etc/modprobe.d]
+          - file[/etc/modprobe.d/wifi-avoid-powersave-r8188eu.conf]
+        - bundle[…wifiAvoidPowersave_r8188eu]
       + bundle[…xorgUseEvdevRules]
         + file[/usr/share/X11/xorg.conf.d/20-workaround-focal-xkb-use-evdev-rules.conf]
           = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n\n",
