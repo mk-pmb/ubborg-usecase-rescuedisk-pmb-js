@@ -588,6 +588,22 @@
             - file[/usr/share/X11/xorg.conf.d]
           - file[/usr/share/X11/xorg.conf.d/20-workaround-focal-ignore-default-pointer.conf]
         - bundle[…xorgDisableBogusDefaultPointer]
+      + bundle[…xorgUseEvdevRules]
+        + file[/usr/share/X11/xorg.conf.d/20-workaround-focal-xkb-use-evdev-rules.conf]
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n\n",
+¬¶            "Section \"InputClass\"\n",
+¬¶            "  Identifier \"Enable evdev rules even on Ubuntu focal\"\n",
+¬¶            "  MatchIsKeyboard \"yes\"\n",
+¬¶            "  MatchDevicePath \"/dev/input/event*\"\n",
+¬¶            "  Option \"XkbRules\" \"evdev\"\n",
+¬¶            "EndSection\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain; charset=UTF-8"
+          ^ file[/usr/share/X11/xorg.conf.d]
+          - file[/usr/share/X11/xorg.conf.d/20-workaround-focal-xkb-use-evdev-rules.conf]
+        - bundle[…xorgUseEvdevRules]
       - bundle[…/src/workarounds/]
     + bundle[…/src/software/debPkg/__stage__]
       + stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
