@@ -2,6 +2,8 @@
 
 export default async(bun) => {
   bun.needs('debPkg', [
+    'extundelete',
+
     'udisks2',
     'udiskie',    // a mount helper tray icon
 
