@@ -1032,6 +1032,11 @@
             - debPkg[fuse-zip]
           - bundle[…fileEncodings]
         + bundle[…fileSystems]
+          + debPkg[extundelete]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[extundelete]
           + debPkg[udisks2]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1308,6 +1313,11 @@
             - debPkg[proxytunnel]
           - bundle[…netDataTransfer]
         + bundle[…netDebug]
+          + debPkg[arping]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[arping]
           + debPkg[iputils-ping]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
