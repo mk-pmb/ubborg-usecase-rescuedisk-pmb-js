@@ -1813,6 +1813,18 @@
             = state: "absent"
             - debPkg[unity-services]
           - bundle[…xorgClipboardPersist]
+        + bundle[…xorgMesa]
+          + debPkg[libgl1-mesa-glx]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[libgl1-mesa-glx]
+          + debPkg[libegl1-mesa]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[libegl1-mesa]
+          - bundle[…xorgMesa]
         + bundle[…xorgXcb]
           ^ debPkg[libxcb-xtest0]
           - bundle[…xorgXcb]
