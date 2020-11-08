@@ -1770,6 +1770,11 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[xserver-xorg]
+          + debPkg[libxcb-xtest0]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[libxcb-xtest0]
           + debPkg[xdg-utils]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1808,6 +1813,9 @@
             = state: "absent"
             - debPkg[unity-services]
           - bundle[…xorgClipboardPersist]
+        + bundle[…xorgXcb]
+          ^ debPkg[libxcb-xtest0]
+          - bundle[…xorgXcb]
         - stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
       - bundle[…/src/software/debPkg/__stage__]
     * bundle[…/src/software/nonDebDrivers/]
