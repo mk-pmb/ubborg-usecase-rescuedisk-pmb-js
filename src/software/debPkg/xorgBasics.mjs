@@ -27,6 +27,7 @@ export default async(bun) => {
     'xdotool',
     'xinput',
     'xserver-xorg',
+    'libxcb-xtest0',
 
     'xdg-utils',
     'xsel',
