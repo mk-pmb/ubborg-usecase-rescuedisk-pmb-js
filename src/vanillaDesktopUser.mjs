@@ -52,6 +52,7 @@ async function vdu(bun, props) {
       'sudo',
     ]),
     'audio',
+    'nopasswdlogin',  // ref. https://askubuntu.com/a/210480
     props.groups,
   ];
 
