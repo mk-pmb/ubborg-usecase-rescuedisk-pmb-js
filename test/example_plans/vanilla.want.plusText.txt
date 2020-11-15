@@ -1376,7 +1376,6 @@
             = keyVerify: {"sha512hex": ["fbd658af32f3c6d938b3ce5f126b8103a87f3ec871a986744a1d420b72cb56f7", "2228417c6ba4bbe07bf31e5a2b3b4e0611cdbebd989beeb2fa942dcb06fd5a18"], "summary": ["pub  4096R/68576280 2014-06-13 NodeSource <gpg@nodesource.com>", "sub  4096R/AA01DA2C 2014-06-13"]}
             = src: true
             = state: "enabled"
-            = trustedLocalAptKeyRingName: "nodesource"
             ^ sysFacts[osVersion]
             + file[/etc/apt/sources.list.d/ubborg.nodejs.list]
               = content: ["# This file was generated using ubborg-planner-pmb\n",
@@ -1388,17 +1387,6 @@
               = mimeType: "text/plain"
               ^ file[/etc/apt/sources.list.d]
               - file[/etc/apt/sources.list.d/ubborg.nodejs.list]
-            + file[/etc/apt/trusted.gpg.d/nodesource.gpg]
-              = enforcedGroup: "adm"
-              = enforcedModes: "a-x,a=rX,ug+w"
-              = enforcedOwner: "root"
-              = mimeType: "application/octet-stream"
-              = uploadFromLocalPath: true
-              + file[/etc/apt/trusted.gpg.d]
-                = mimeType: "inode/directory"
-                ^ file[/etc/apt]
-                - file[/etc/apt/trusted.gpg.d]
-              - file[/etc/apt/trusted.gpg.d/nodesource.gpg]
             - debPkgRepo[nodejs]
           + debPkg[nodejs]
             = defer: true
