@@ -8,6 +8,9 @@ import loPick from 'lodash.pick';
 
 import iniStyleNpmrc from '../../util/iniStyleNpmrc';
 
+const nodeSourceOfficialGpgKeyUrl = new nodeUrlLib.URL(
+  'https://deb.nodesource.com/gpgkey/nodesource.gpg.key');
+
 const dfNodeOpts = {
   version: 12,
   repo: {
@@ -17,10 +20,7 @@ const dfNodeOpts = {
     // the number shall be, adding leading zeroes if necessary.
     components: ['main'],
 
-    trustedLocalAptKeyRingName: 'nodesource',
-    // ^- For now you'll need a pre-made, already-converted
-    //    /etc/apt/trusted.gpg.d/nodesource.gpg that we can just copy.
-    keyUrl: '/gpgkey/nodesource.gpg.key',
+    keyUrl: nodeSourceOfficialGpgKeyUrl.pathname,
     keyVerify: {
       summary: [
         'pub  4096R/68576280 2014-06-13 NodeSource <gpg@nodesource.com>',
@@ -44,12 +44,10 @@ const dfNodeOpts = {
 };
 
 
-function makeVersionTemplateRenderer(v, mustRepo) {
+function makeVersionTemplateRenderer(v) {
   function ins(m, w) { return m && lPad(v, +w); }
   const f = function versionTmpl(s) { return s && s.replace(/%(\d)v/g, ins); };
-  return Object.assign(f, {
-    prop(k) { return { [k]: f(mustRepo('nonEmpty str', k)) }; },
-  });
+  return f;
 }
 
 function urlResolveHref(h, b) { return String(new nodeUrlLib.URL(h, b)); }
@@ -63,7 +61,7 @@ async function installNodejs(bun) {
   const mustRepo = mustBe.tProp('Node.js debian repo setting ', repoInfo);
 
   const version = mustNode('pos int', 'version');
-  const verTpl = makeVersionTemplateRenderer(version, mustRepo);
+  const verTpl = makeVersionTemplateRenderer(version);
   const debUrl = verTpl(mustRepo('nonEmpty str', 'debUrl'));
 
   let keyUrl = mustRepo('undef | nul | nonEmpty str', 'keyUrl');
@@ -73,7 +71,6 @@ async function installNodejs(bun) {
     name: 'nodejs',
     debUrls: [debUrl],
     components: mustRepo('nonEmpty ary', 'components'),
-    ...verTpl.prop('trustedLocalAptKeyRingName'),
     keyUrl,
     ...loPick(repoInfo, [
       'keyVerify',
