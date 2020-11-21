@@ -1,15 +1,10 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import nodeUrlLib from 'url';
-
 import mustBe from 'typechecks-pmb/must-be';
 import lPad from 'lodash.padstart';
 import loPick from 'lodash.pick';
 
 import iniStyleNpmrc from '../../util/iniStyleNpmrc';
-
-const nodeSourceOfficialGpgKeyUrl = new nodeUrlLib.URL(
-  'https://deb.nodesource.com/gpgkey/nodesource.gpg.key');
 
 const dfNodeOpts = {
   version: 12,
@@ -20,9 +15,9 @@ const dfNodeOpts = {
     // the number shall be, adding leading zeroes if necessary.
     components: ['main'],
 
-    keyUrl: nodeSourceOfficialGpgKeyUrl.pathname,
+    keyUrls: ['/gpgkey/nodesource.gpg.key'],
     keyVerify: {
-      summary: [
+      gpgKeySummary: [
         'pub  4096R/68576280 2014-06-13 NodeSource <gpg@nodesource.com>',
         'sub  4096R/AA01DA2C 2014-06-13',
       ],
@@ -50,8 +45,6 @@ function makeVersionTemplateRenderer(v) {
   return f;
 }
 
-function urlResolveHref(h, b) { return String(new nodeUrlLib.URL(h, b)); }
-
 
 async function installNodejs(bun) {
   const nodeSett = bun.makeParamPopper().mustBe('tru | dictObj', 'nodejs');
@@ -64,15 +57,12 @@ async function installNodejs(bun) {
   const verTpl = makeVersionTemplateRenderer(version);
   const debUrl = verTpl(mustRepo('nonEmpty str', 'debUrl'));
 
-  let keyUrl = mustRepo('undef | nul | nonEmpty str', 'keyUrl');
-  if (keyUrl) { keyUrl = urlResolveHref(verTpl(keyUrl), debUrl); }
-
   await bun.needs('debPkgRepo', {
     name: 'nodejs',
     debUrls: [debUrl],
     components: mustRepo('nonEmpty ary', 'components'),
-    keyUrl,
     ...loPick(repoInfo, [
+      'keyUrls',
       'keyVerify',
     ]),
   });
