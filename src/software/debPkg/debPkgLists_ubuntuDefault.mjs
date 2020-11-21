@@ -25,6 +25,7 @@ export default async(bun) => {
       debUrls: [`http://${subdomain || name}.ubuntu.com/ubuntu`],
       dists: (distSuffixes || [name]).map(
         s => ('%{codename}' + (s && '-') + s)),
+      keyUrls: null,
       components,
     });
   }
