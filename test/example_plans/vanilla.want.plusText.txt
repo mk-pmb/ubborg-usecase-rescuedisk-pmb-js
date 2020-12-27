@@ -1410,6 +1410,17 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[nodejs]
+          + file[/usr/local/bin/nodejs]
+            = content: "/usr/bin/node"
+            = mimeType: "inode/symlink"
+            + file[/usr/local/bin]
+              = mimeType: "inode/directory"
+              + file[/usr/local]
+                = mimeType: "inode/directory"
+                ^ file[/usr]
+                - file[/usr/local]
+              - file[/usr/local/bin]
+            - file[/usr/local/bin/nodejs]
           + file[/etc/npmrc]
             = content: ["audit = false\n",
 ¬¶            "package-lock = false\n",
