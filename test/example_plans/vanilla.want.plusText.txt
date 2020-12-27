@@ -77,6 +77,11 @@
             - file[/etc/lightdm/lightdm.conf.d]
           - file[/etc/lightdm/lightdm.conf.d/autologin.conf]
         - bundle[cjs:ubborg-usecase-rescuedisk-pmb/src/cfg/lightdmAutologin]
+      + osUserGroup[urd]
+        = exists: true
+        = grIdNum: 942
+        = interactive: false
+        - osUserGroup[urd]
       + osUser[urd]
         = disablePasswordLogin: false
         = exists: true
@@ -101,10 +106,7 @@
           = loginName: "urd"
           = member: true
           ^ osUserLogin[urd]
-          + osUserGroup[urd]
-            = exists: true
-            = interactive: false
-            - osUserGroup[urd]
+          ^ osUserGroup[urd]
           - osUserGroupMembership[…|urd]
         + osUserGroupMembership[…|netdev]
           = grName: "netdev"
