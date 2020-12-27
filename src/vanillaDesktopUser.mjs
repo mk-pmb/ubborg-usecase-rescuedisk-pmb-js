@@ -32,6 +32,7 @@ async function vdu(bun, props) {
   let hmnGrpId = props.homonymousGroupIdNum;
   if (userIdNum === 'gid') {
     userIdNum = hmnGrpId;
+    await bun.needs('osUserGroup', { grName: loginName, grIdNum: hmnGrpId });
     hmnGrpId = undefined;
   }
   if (hmnGrpId !== undefined) {
