@@ -71,6 +71,8 @@ async function installNodejs(bun) {
     'nodejs',
   ]);
 
+  await bun.needs('file', '/usr/local/bin/nodejs =-> /usr/bin/node');
+
   const npmrc = mustNode('undef | fal | dictObj', 'etcNpmrc');
   if (npmrc) {
     if (npmrc['https-proxy'] === true) { npmrc['https-proxy'] = npmrc.proxy; }
