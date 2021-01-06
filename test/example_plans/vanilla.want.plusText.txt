@@ -547,7 +547,7 @@
         - bundle[…pulseAudioOnlyForGroupAudio]
       + bundle[…systemdFixesForFocal]
         + file[/lib/systemd/system/dbus.socket.d/modernize_for_ubuntu_focal.conf]
-          = content: ["[Socket]\n", "ListenStream=/run/dbus/system_bus_socket\n"]
+          = content: ["[Socket]\n", "ListenStream=\n", "ListenStream=/run/dbus/system_bus_socket\n"]
           = enforcedGroup: "adm"
           = enforcedModes: "a-x,a=rX,ug+w"
           = enforcedOwner: "root"
