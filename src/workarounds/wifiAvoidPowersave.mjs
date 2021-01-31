@@ -10,15 +10,15 @@ const powerMgtOpt = 'rtw_power_mgnt';
 
 export default async(bun) => {
   // see also: ../software/debPkg/netMgr.mjs
-  bun.needs('admFile', [
-    '8188eu',
-    '8723bs',
-  ].map(chipset => ({
-    path: `/etc/modprobe.d/wifi-avoid-powersave-r${chipset}.conf`,
+  bun.needs('admFile', {
+    path: `/etc/modprobe.d/wifi-avoid-powersave-urd.conf`,
     mimeType: 'lines',
     content: [
       fileGeneratedHint('# ', '\n'),
-      `options ${chipset} ${powerMgtOpt}=0 rtw_enusbss=0`,
+      ...[
+        '8188eu',
+        '8723bs',
+      ].map(chipset => `options ${chipset} ${powerMgtOpt}=0 rtw_enusbss=0`),
     ],
-  })));
+  });
 };
