@@ -1,5 +1,8 @@
 + stage[example_plans/vanilla]
   = deferredDebPkgs: {"installs": […], "modifies": …, "policy": {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}, "removes": […]}
+  + sysFacts[osVersion]
+    = facts: {"codename": "focal", "distro": "ubuntu", "family": "linux", "release": "20.04"}
+    - sysFacts[osVersion]
   + bundle[cjs:ubborg-usecase-rescuedisk-pmb]
     + bundle[…/src/cfg/i18nLocales]
       = param: {}
@@ -723,9 +726,7 @@
             - debPkg[gddrescue]
           - bundle[…dataRecovery]
         + bundle[…debPkgLists_ubuntuDefault]
-          + sysFacts[osVersion]
-            = facts: {"codename": "focal", "distro": "ubuntu", "family": "linux", "release": "20.04"}
-            - sysFacts[osVersion]
+          ^ sysFacts[osVersion]
           + debPkgRepo[ubuntu_security]
             = archs: null
             = components: ["main", "restricted", "universe", "multiverse"]
