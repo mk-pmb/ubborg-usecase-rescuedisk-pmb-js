@@ -590,7 +590,8 @@
               = content: ["#!/bin/sh\n",
 ¬¶            "export DBUS_SESSION_BUS_ADDRESS=; exec /usr/bin/pavucontrol \"$@\"; exit $?\n",
 ¬¶            "#\n",
-¬¶            "# Workaround: Allow multiple instances even with pavucontrol 4.0-1build1,# from Ubuntu 20.04.2 LTS focal official repos.\n",
+¬¶            "# Workaround: Allow multiple instances even with pavucontrol 4.0-1build1\n",
+¬¶            "# from Ubuntu 20.04.2 LTS focal official repos.\n",
 ¬¶            "#\n",
 ¬¶            "# Installed via cjs:ubborg-usecase-rescuedisk-pmb/src/workarounds/focal/pavucontrolMultiInstance\n"]
               = enforcedModes: "a=rx"

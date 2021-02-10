@@ -8,7 +8,7 @@ const explain = [
 const noDBus = 'export DBUS_SESSION_BUS_ADDRESS=';
 const bpc = '/bin/pavucontrol';
 const fix = noDBus + '; exec /usr' + bpc + ' "$@"; exit $?';
-const wrapper = ['#!/bin/sh', fix, '#', explain, '#'];
+const wrapper = ['#!/bin/sh', fix, '#', ...explain, '#'];
 
 export default async(bun) => {
   bun.needs('file', {
