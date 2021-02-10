@@ -582,6 +582,32 @@
             - file[/etc/systemd/system.conf.d]
           - file[/etc/systemd/system.conf.d/quick_shutdown.conf]
         - bundle[…systemdQuickShutdown]
+      + bundle[…ubuntuVersionSpecific]
+        ^ sysFacts[osVersion]
+        + bundle[cjs:ubborg-usecase-rescuedisk-pmb/src/workarounds/focal/]
+          + bundle[…pavucontrolMultiInstance]
+            + file[/usr/local/bin/pavucontrol]
+              = content: ["#!/bin/sh\n",
+¬¶            "export DBUS_SESSION_BUS_ADDRESS=; exec /usr/bin/pavucontrol \"$@\"; exit $?\n",
+¬¶            "#\n",
+¬¶            "# Workaround: Allow multiple instances even with pavucontrol 4.0-1build1,# from Ubuntu 20.04.2 LTS focal official repos.\n",
+¬¶            "#\n",
+¬¶            "# Installed via cjs:ubborg-usecase-rescuedisk-pmb/src/workarounds/focal/pavucontrolMultiInstance\n"]
+              = enforcedModes: "a=rx"
+              = mimeType: "text/plain; charset=UTF-8"
+              + file[/usr/local/bin]
+                = mimeType: "inode/directory"
+                + file[/usr/local]
+                  = mimeType: "inode/directory"
+                  + file[/usr]
+                    = mimeType: "inode/directory"
+                    - file[/usr]
+                  - file[/usr/local]
+                - file[/usr/local/bin]
+              - file[/usr/local/bin/pavucontrol]
+            - bundle[…pavucontrolMultiInstance]
+          - bundle[cjs:ubborg-usecase-rescuedisk-pmb/src/workarounds/focal/]
+        - bundle[…ubuntuVersionSpecific]
       + bundle[…wifiAvoidPowersave]
         + file[/etc/modprobe.d/wifi-avoid-powersave-urd.conf]
           = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n\n",
@@ -618,9 +644,7 @@
               = mimeType: "inode/directory"
               + file[/usr/share]
                 = mimeType: "inode/directory"
-                + file[/usr]
-                  = mimeType: "inode/directory"
-                  - file[/usr]
+                ^ file[/usr]
                 - file[/usr/share]
               - file[/usr/share/X11]
             - file[/usr/share/X11/xorg.conf.d]
@@ -1438,13 +1462,7 @@
           + file[/usr/local/bin/nodejs]
             = content: "/usr/bin/node"
             = mimeType: "inode/symlink"
-            + file[/usr/local/bin]
-              = mimeType: "inode/directory"
-              + file[/usr/local]
-                = mimeType: "inode/directory"
-                ^ file[/usr]
-                - file[/usr/local]
-              - file[/usr/local/bin]
+            ^ file[/usr/local/bin]
             - file[/usr/local/bin/nodejs]
           + file[/etc/npmrc]
             = content: ["audit = false\n",
