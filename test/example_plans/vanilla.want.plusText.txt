@@ -1388,6 +1388,11 @@
             = presenceMarker: "cmd:ping"
             = state: "installed"
             - debPkg[iputils-ping]
+          + debPkg[netsed]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[netsed]
           - bundle[…netDebug]
         + bundle[…netMgr]
           + debPkg[network-manager]
