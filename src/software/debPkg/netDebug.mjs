@@ -4,5 +4,6 @@ export default async(bun) => {
   bun.needs('debPkg', [
     'arping',
     'iputils-ping => cmd:ping',
+    'netsed',
   ]);
 };
