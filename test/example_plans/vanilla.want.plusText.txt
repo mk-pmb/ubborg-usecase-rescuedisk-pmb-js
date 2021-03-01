@@ -1382,6 +1382,12 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[arping]
+          + debPkg[bind9-dnsutils]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "dig"
+            = state: "installed"
+            - debPkg[bind9-dnsutils]
           + debPkg[iputils-ping]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
