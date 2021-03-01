@@ -3,7 +3,7 @@
 export default async(bun) => {
   bun.needs('debPkg', [
     'arping',
-    'bind9-dnsutils => dig',
+    'bind9-dnsutils => cmd:dig',
     'iputils-ping => cmd:ping',
     'netsed',
   ]);
