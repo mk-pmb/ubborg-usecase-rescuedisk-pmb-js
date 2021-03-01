@@ -1385,7 +1385,7 @@
           + debPkg[bind9-dnsutils]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = presenceMarker: "dig"
+            = presenceMarker: "cmd:dig"
             = state: "installed"
             - debPkg[bind9-dnsutils]
           + debPkg[iputils-ping]
