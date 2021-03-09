@@ -2,6 +2,8 @@
 
 export default async(bun) => {
   bun.needs('debPkg', [
+    'ext3grep',
+    'ext4magic',
     'extundelete',
 
     'udisks2',
