@@ -1096,6 +1096,16 @@
             - debPkg[fuse-zip]
           - bundle[…fileEncodings]
         + bundle[…fileSystems]
+          + debPkg[ext3grep]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[ext3grep]
+          + debPkg[ext4magic]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[ext4magic]
           + debPkg[extundelete]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
