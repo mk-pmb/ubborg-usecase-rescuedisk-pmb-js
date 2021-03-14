@@ -39,6 +39,13 @@ const dfNodeOpts = {
 };
 
 
+const globalNodeModulesPaths = [
+  '/usr/lib/nodejs',
+  '/usr/lib/node_modules',
+  '/usr/share/javascript',
+];
+
+
 function makeVersionTemplateRenderer(v) {
   function ins(m, w) { return m && lPad(v, +w); }
   const f = function versionTmpl(s) { return s && s.replace(/%(\d)v/g, ins); };
@@ -71,7 +78,16 @@ async function installNodejs(bun) {
     'nodejs',
   ]);
 
-  await bun.needs('file', '/usr/local/bin/nodejs =-> /usr/bin/node');
+  await bun.needs('admFile', [
+    '/usr/local/bin/nodejs =-> /usr/bin/node',
+    { path: '/etc/profile.d/nodejs.urd.sh',
+      mimeType: 'utf8_tw; 2; #',
+      content: [
+        ('NODE_PATH=' + globalNodeModulesPaths.join(':')),
+        'export NODE_PATH',
+      ],
+    },
+  ]);
 
   const npmrc = mustNode('undef | fal | dictObj', 'etcNpmrc');
   if (npmrc) {
