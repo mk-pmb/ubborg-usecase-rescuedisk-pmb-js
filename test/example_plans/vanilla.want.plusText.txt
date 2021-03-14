@@ -979,6 +979,10 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[dmsetup]
+          + file[/FL]
+            = content: "dev/disk/by-label"
+            = mimeType: "inode/symlink"
+            - file[/FL]
           + file[/PL]
             = content: "dev/disk/by-partlabel"
             = mimeType: "inode/symlink"
