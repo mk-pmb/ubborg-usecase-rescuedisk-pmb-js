@@ -1487,9 +1487,25 @@
             - debPkg[nodejs]
           + file[/usr/local/bin/nodejs]
             = content: "/usr/bin/node"
+            = enforcedGroup: "adm"
+            = enforcedModes: "a-x,a=rX,ug+w"
+            = enforcedOwner: "root"
             = mimeType: "inode/symlink"
             ^ file[/usr/local/bin]
             - file[/usr/local/bin/nodejs]
+          + file[/etc/profile.d/nodejs.urd.sh]
+            = content: ["# -*- coding: utf-8, tab-width: 2 -*-\n",
+¬¶            "NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript\n",
+¬¶            "export NODE_PATH\n"]
+            = enforcedGroup: "adm"
+            = enforcedModes: "a-x,a=rX,ug+w"
+            = enforcedOwner: "root"
+            = mimeType: "text/plain; charset=UTF-8"
+            + file[/etc/profile.d]
+              = mimeType: "inode/directory"
+              ^ file[/etc]
+              - file[/etc/profile.d]
+            - file[/etc/profile.d/nodejs.urd.sh]
           + file[/etc/npmrc]
             = content: ["audit = false\n",
 ¬¶            "package-lock = false\n",
