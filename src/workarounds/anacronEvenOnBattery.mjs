@@ -1,7 +1,8 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
 const ConditionACPower = '';
-// ^-- ATTN: Empty = ignore; false/no would mean start only if on
+// ^-- ATTN: Empty = ignore.
+//    false or 'no' would mean to start anacron only if on external power.
 
 export default async(bun) => {
   bun.needs('admFile', {
