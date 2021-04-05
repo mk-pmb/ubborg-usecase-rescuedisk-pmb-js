@@ -548,27 +548,6 @@
             - file[/etc/systemd/user/pulseaudio.socket.d]
           - file[/etc/systemd/user/pulseaudio.socket.d/audio_group_only.conf]
         - bundle[…pulseAudioOnlyForGroupAudio]
-      + bundle[…systemdFixesForFocal]
-        + file[/lib/systemd/system/dbus.socket.d/modernize_for_ubuntu_focal.conf]
-          = content: ["[Socket]\n", "ListenStream=\n", "ListenStream=/run/dbus/system_bus_socket\n"]
-          = enforcedGroup: "adm"
-          = enforcedModes: "a-x,a=rX,ug+w"
-          = enforcedOwner: "root"
-          = mimeType: "text/plain"
-          + file[/lib/systemd/system/dbus.socket.d]
-            = mimeType: "inode/directory"
-            + file[/lib/systemd/system]
-              = mimeType: "inode/directory"
-              + file[/lib/systemd]
-                = mimeType: "inode/directory"
-                + file[/lib]
-                  = mimeType: "inode/directory"
-                  - file[/lib]
-                - file[/lib/systemd]
-              - file[/lib/systemd/system]
-            - file[/lib/systemd/system/dbus.socket.d]
-          - file[/lib/systemd/system/dbus.socket.d/modernize_for_ubuntu_focal.conf]
-        - bundle[…systemdFixesForFocal]
       + bundle[…systemdQuickShutdown]
         + file[/etc/systemd/system.conf.d/quick_shutdown.conf]
           = content: ["[Manager]\n", "DefaultTimeoutStopSec=30\n"]
@@ -607,6 +586,27 @@
                 - file[/usr/local/bin]
               - file[/usr/local/bin/pavucontrol]
             - bundle[…pavucontrolMultiInstance]
+          + bundle[…systemdFixes]
+            + file[/lib/systemd/system/dbus.socket.d/modernize_for_ubuntu_focal.conf]
+              = content: ["[Socket]\n", "ListenStream=\n", "ListenStream=/run/dbus/system_bus_socket\n"]
+              = enforcedGroup: "adm"
+              = enforcedModes: "a-x,a=rX,ug+w"
+              = enforcedOwner: "root"
+              = mimeType: "text/plain"
+              + file[/lib/systemd/system/dbus.socket.d]
+                = mimeType: "inode/directory"
+                + file[/lib/systemd/system]
+                  = mimeType: "inode/directory"
+                  + file[/lib/systemd]
+                    = mimeType: "inode/directory"
+                    + file[/lib]
+                      = mimeType: "inode/directory"
+                      - file[/lib]
+                    - file[/lib/systemd]
+                  - file[/lib/systemd/system]
+                - file[/lib/systemd/system/dbus.socket.d]
+              - file[/lib/systemd/system/dbus.socket.d/modernize_for_ubuntu_focal.conf]
+            - bundle[…systemdFixes]
           - bundle[cjs:ubborg-usecase-rescuedisk-pmb/src/workarounds/focal/]
         - bundle[…ubuntuVersionSpecific]
       + bundle[…wifiAvoidPowersave]
