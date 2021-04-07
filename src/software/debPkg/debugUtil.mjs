@@ -22,6 +22,7 @@ export default async(bun) => {
     'powertop',
     'units',      // convert disk size prefixes
     'usbutils',   // lsusb
+    // 'uuid',    // nah. just cat /proc/sys/kernel/random/uuid
     // ¬focal 'winpdb',
   ]);
 };
