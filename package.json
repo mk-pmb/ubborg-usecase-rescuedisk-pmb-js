@@ -1,5 +1,5 @@
 { "name": "ubborg-usecase-rescuedisk-pmb",
-  "version": "0.0.54",
+  "version": "0.0.55",
   "description": "An example ubborg bundle for an Ubuntu/GRUB/LVM rescue disk.",
   "keywords": [],
 
