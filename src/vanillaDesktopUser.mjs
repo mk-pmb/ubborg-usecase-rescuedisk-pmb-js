@@ -27,19 +27,31 @@ async function vdu(bun, props) {
     windowManager,
   } = props;
   if (loginName === false) { return; }
-  let { userIdNum } = props;
+  let {
+    userIdNum,
+    primaryGroupName,
+  } = props;
 
-  let hmnGrpId = props.homonymousGroupIdNum;
-  if (userIdNum === 'gid') {
-    userIdNum = hmnGrpId;
-    await bun.needs('osUserGroup', { grName: loginName, grIdNum: hmnGrpId });
-    hmnGrpId = undefined;
-  }
-  if (hmnGrpId !== undefined) {
-    const e = ('Option "homonymousGroupIdNum" is currently implemented only '
-      + 'for userIdNum=gid');
+  await (async function homGrp() {
+    const hgKey = 'homonymousGroupIdNum';
+    const hgVal = props[hgKey];
+    if (hgVal) {
+      if (primaryGroupName !== undefined) {
+        const e = ('Props primaryGroupName and ' + hgKey
+          + ' are mutually exclusive');
+        throw new Error(e);
+      }
+      primaryGroupName = loginName;
+    }
+    if (userIdNum === 'gid') {
+      userIdNum = hgVal;
+      await bun.needs('osUserGroup', { grName: loginName, grIdNum: hgVal });
+      return;
+    }
+    const e = ('Option ' + hgKey
+      + ' is currently implemented only for userIdNum=gid');
     throw new Error(e);
-  }
+  }());
 
   const groups = [
     loginName,
@@ -63,6 +75,7 @@ async function vdu(bun, props) {
     shell: 'bash',
     ...props,
     userIdNum,
+    primaryGroupName,
     groups,
     admin: undefined,
     desktopBgColor: undefined,

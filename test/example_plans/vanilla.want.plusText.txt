@@ -92,6 +92,7 @@
         = interactive: true
         = passwordHash: "$6$fake…$==bo…"
         = preserveExistingPasswordHash: false
+        = primaryGroupName: "urd"
         = shell: "bash"
         = userIdNum: 942
         + osUserLogin[…]
@@ -101,8 +102,10 @@
           = interactive: true
           = passwordHash: "$6$fake…$==bo…"
           = preserveExistingPasswordHash: false
+          = primaryGroupName: "urd"
           = shell: "bash"
           = userIdNum: 942
+          ^ osUserGroup[…]
           - osUserLogin[…]
         + osUserGroupMembership[…|urd]
           = grName: "urd"
