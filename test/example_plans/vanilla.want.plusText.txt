@@ -1397,16 +1397,16 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[socat]
-          + debPkg[wget]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[wget]
           + debPkg[sshfs]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[sshfs]
+          + debPkg[wget]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[wget]
           + debPkg[corkscrew]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
