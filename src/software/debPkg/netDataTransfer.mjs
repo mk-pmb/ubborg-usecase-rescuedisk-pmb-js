@@ -6,8 +6,8 @@ export default async(bun) => {
     'curl',
     'netcat',
     'socat',
-    'wget',
     'sshfs',
+    'wget',
 
     'corkscrew',    // Tunnel TCP connections through HTTP proxies
     'proxytunnel',  // tunnel a connection through a standard HTTPS proxy
