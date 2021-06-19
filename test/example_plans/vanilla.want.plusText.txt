@@ -1028,6 +1028,18 @@
             = state: "installed"
             - debPkg[nullmailer]
           - bundle[…diskSmart]
+        + bundle[…driverVgaIntel]
+          + debPkg[vainfo]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[vainfo]
+          + debPkg[i965-va-driver-shaders]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[i965-va-driver-shaders]
+          - bundle[…driverVgaIntel]
         + bundle[…fileCmp]
           + debPkg[colordiff]
             = defer: true
