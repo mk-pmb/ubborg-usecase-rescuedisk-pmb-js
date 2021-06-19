@@ -1,6 +1,6 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import fileGeneratedHint from '../fileGeneratedHint';
+import fileGeneratedHint from '../fileGeneratedHint.mjs';
 
 export default async(bun) => {
   bun.needs('xdgAutostarter', { bfn: 'update-notifier', exec: false });

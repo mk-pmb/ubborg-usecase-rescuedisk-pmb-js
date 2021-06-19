@@ -1,6 +1,6 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import dfOpt from './src/dfOpt';
+import dfOpt from './src/dfOpt.mjs';
 
 async function rescueDisk(bun) {
   const mustParam = bun.makeParamPopper().mustBe;
