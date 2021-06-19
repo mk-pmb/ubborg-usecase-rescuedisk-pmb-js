@@ -4,7 +4,7 @@ import mustBe from 'typechecks-pmb/must-be';
 import lPad from 'lodash.padstart';
 import loPick from 'lodash.pick';
 
-import iniStyleNpmrc from '../../util/iniStyleNpmrc';
+import iniStyleNpmrc from '../../util/iniStyleNpmrc.mjs';
 
 const dfNodeOpts = {
   version: 12,

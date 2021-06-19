@@ -5,9 +5,9 @@ import mustBe from 'typechecks-pmb/must-be';
 import passwordHash from 'ansible-bogus-linux-pwhash';
 
 import pkgMeta from '../package.json';
-import gitCfg from './cfg/dfGitCfg';
-import vdu from './vanillaDesktopUser';
-import fileGeneratedHint from './fileGeneratedHint';
+import gitCfg from './cfg/dfGitCfg.mjs';
+import vdu from './vanillaDesktopUser.mjs';
+import fileGeneratedHint from './fileGeneratedHint.mjs';
 
 const paramDefaults = {
   rescueUser: {

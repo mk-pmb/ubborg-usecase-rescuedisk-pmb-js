@@ -2,7 +2,7 @@
 
 import sysFactsHelper from 'ubborg-sysfacts-helper-pmb';
 
-import hostFacts from './inc/vanilla.hostFacts';
+import hostFacts from './inc/vanilla.hostFacts.mjs';
 
 export default async(bun) => {
   await sysFactsHelper(bun, hostFacts, true);

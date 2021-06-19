@@ -2,7 +2,7 @@
 
 import mapMerge from 'map-merge-defaults-pmb';
 
-import iniStyleNpmrc from './util/iniStyleNpmrc';
+import iniStyleNpmrc from './util/iniStyleNpmrc.mjs';
 
 const defaultUserFiles = [
   '~/',
