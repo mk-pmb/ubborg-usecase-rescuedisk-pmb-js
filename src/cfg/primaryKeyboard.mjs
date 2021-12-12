@@ -16,9 +16,9 @@ async function dfKbd(bun) {
     + '=' + shq.always(param('str', k)) + '\n'));
   param.expectEmpty();
 
-  bun.needs('file', {
+  bun.needs('admFile', {
     path: '/etc/default/keyboard',
-    mimeType: 'text/plain',
+    mimeType: 'utf8_tw; 2; #',
     content: ['# Keyboard config, see man 5 keyboard\n', ...etcKbd],
   });
 }
