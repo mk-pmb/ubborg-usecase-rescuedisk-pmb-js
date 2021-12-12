@@ -26,14 +26,24 @@ export default async(bun) => {
     'xdiagnose',
     'xdotool',
     'xinput',
+    'xvfb', // headless X server
     'xserver-xorg',
     'libxcb-xtest0',
 
+    'numlockx',
+    'xclip',
     'xdg-utils',
     'xsel',
     'xterm',
 
     'scrot',
     'wmctrl',
+
+    'xli',  // load images into an X11 window or onto the root window
+    'gsetroot', // wallpaper configurator
+    'hsetroot', // wallpaper configurator
+
+    'suckless-tools => cmd:ssid',
+    // ^-- suckless-tools: "simple commands for minimalistic window managers"
   ]);
 };
