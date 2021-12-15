@@ -46,4 +46,9 @@ export default async(bun) => {
     'suckless-tools => cmd:ssid',
     // ^-- suckless-tools: "simple commands for minimalistic window managers"
   ]);
+
+  bun.needs('admFile', {
+    path: '/var/lib/AccountsService/users/',
+    enforcedModes: 'a=rx,ug+w',
+  });
 };
