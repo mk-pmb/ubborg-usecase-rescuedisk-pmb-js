@@ -36,6 +36,8 @@ export default async(bun) => {
     'xsel',
     'xterm',
 
+    'x11-apps', // oclock, xcalc, xeyes, xmag
+
     'scrot',
     'wmctrl',
 
