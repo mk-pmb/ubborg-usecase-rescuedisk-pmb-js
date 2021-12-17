@@ -91,6 +91,8 @@ async function vdu(bun, props) {
     sections: {
       User: {
         XSession: (windowManager || 'openbox'),
+        // ^- Refers to `/usr/share/xsessions/${XSession}.desktop`.
+        //    ATTN: Case sensitive! e.g. 'xfce' but 'LXDE'.
       },
     },
   });
