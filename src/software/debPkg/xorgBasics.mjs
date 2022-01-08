@@ -51,6 +51,7 @@ export default async(bun) => {
 
   bun.needs('admFile', {
     path: '/var/lib/AccountsService/users/',
-    enforcedModes: 'a=rx,ug+w',
+    // default for admFile: enforcedModes: 'a-x,a=rX,ug+w'
+    // setting a non-default "enforcedModes" caused a conflict @ 2022-01-08.
   });
 };
