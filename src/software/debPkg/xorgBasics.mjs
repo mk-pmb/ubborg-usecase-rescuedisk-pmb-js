@@ -41,6 +41,8 @@ export default async(bun) => {
     'scrot',
     'wmctrl',
 
+    'libnotify-bin => cmd:notify-send',
+
     'xli',  // load images into an X11 window or onto the root window
     'gsetroot', // wallpaper configurator
     'hsetroot', // wallpaper configurator
