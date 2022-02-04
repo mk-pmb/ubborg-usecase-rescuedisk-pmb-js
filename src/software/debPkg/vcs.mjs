@@ -4,5 +4,6 @@ export default async(bun) => {
   bun.needs('debPkg', [
     'git',
     'git-annex',
+    'git-cola',
   ]);
 };
