@@ -98,10 +98,10 @@ async function vdu(bun, props) {
   });
 
 
-  await mapMerge.pr({ owner: loginName }, 'path', [
+  await bun.needs('userFile', mapMerge({ owner: loginName }, 'path', [
     ...(dontCreateHomeDir ? [] : defaultUserFiles),
     ...(extraUserFiles || []),
-  ], bun.needs.bind(bun, 'userFile'));
+  ]));
   if (dontCreateHomeDir) { return; }
 
   await (desktopBgColor && bun.needs('xdgAutostarter', {
