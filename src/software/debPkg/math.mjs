@@ -3,6 +3,7 @@
 export default async(bun) => {
   bun.needs('debPkg', [
     'bc',
+    'galculator',
     'gnumeric',
     'wxmaxima',
   ]);
