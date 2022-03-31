@@ -17,10 +17,14 @@
   "private": false, "license": "ISC",
 
   "main": "rescueDisk.mjs",
-  "scripts": { "test": "bash test/all.sh" },
+  "scripts": {
+    "lint": "elp",
+    "test": "bash test/all.sh"
+  },
   "directories": { "test": "test" },
   "eslintConfig": { "extends": "nodejs-pmb" },
 
+  "engines": { "npm": ">=7.0.0", "node": ">=16.0.0" },
   "dependencies": {
     "absdir": "^1.0.6",
     "ansible-bogus-linux-pwhash": "^1.0.0",
@@ -36,7 +40,10 @@
     "ubborg-sysfacts-helper-pmb": "^0.2.1"
   },
   "devDependencies": {
-    "eslint-config-nodejs-pmb": "^0.2.0"
+    "eslint-config-nodejs-pmb": "^0.3.3",
+    "eslint-plugin-json-light-pmb": "^1.0.7",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-pretty-pmb": "^1.0.5"
   },
 
 
