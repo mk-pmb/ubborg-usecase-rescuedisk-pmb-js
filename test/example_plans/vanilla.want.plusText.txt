@@ -13,13 +13,17 @@
     + bundle[…/src/cfg/primaryKeyboard]
       = param: {}
       + file[/etc/default/keyboard]
-        = content: ["# Keyboard config, see man 5 keyboard\n",
+        = content: ["# -*- coding: utf-8, tab-width: 2 -*-\n",
+¬¶            "# Keyboard config, see man 5 keyboard\n\n",
 ¬¶            "XKBMODEL='pc105'\n",
 ¬¶            "XKBLAYOUT='us'\n",
 ¬¶            "XKBVARIANT='nodeadkeys'\n",
 ¬¶            "XKBOPTIONS='caps:none'\n",
 ¬¶            "BACKSPACE='guess'\n"]
-        = mimeType: "text/plain"
+        = enforcedGroup: "adm"
+        = enforcedModes: "a-x,a=rX,ug+w"
+        = enforcedOwner: "root"
+        = mimeType: "text/plain; charset=UTF-8"
         + file[/etc/default]
           = mimeType: "inode/directory"
           + file[/etc]
@@ -288,7 +292,7 @@
 ¬¶            "Terminal=no\n",
 ¬¶            "Hidden=false\n"]
         = enforcedGroup: "urd"
-        = enforcedModes: "a=rx,ug+w"
+        = enforcedModes: "a=r,ug+w,a+x"
         = enforcedOwner: "urd"
         = mimeType: "text/plain"
         ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
@@ -399,7 +403,7 @@
       + bundle[…aptAvoidDefaultUpdates]
         + file[/etc/xdg/autostart/update-notifier.desktop]
           = content: ["[Desktop Entry]\n", "Hidden=true\n"]
-          = enforcedModes: "a=rx,ug+w"
+          = enforcedModes: "a=r,ug+w"
           = mimeType: "text/plain"
           + file[/etc/xdg/autostart]
             = mimeType: "inode/directory"
@@ -485,7 +489,7 @@
 ¬¶            "StartupNotify=no\n",
 ¬¶            "Terminal=no\n",
 ¬¶            "Hidden=false\n"]
-          = enforcedModes: "a=rx,ug+w"
+          = enforcedModes: "a=r,ug+w,a+x"
           = mimeType: "text/plain"
           ^ file[/etc/xdg/autostart]
           - file[/etc/xdg/autostart/touchpad-config-synclient.desktop]
@@ -567,6 +571,24 @@
       + bundle[…ubuntuVersionSpecific]
         ^ sysFacts[osVersion]
         + bundle[cjs:ubborg-usecase-rescuedisk-pmb/src/workarounds/focal/]
+          + bundle[…ethernetPowersaveDisableOnBuggyAdapters]
+            + file[/lib/systemd/system-sleep/ubborg.disable_ethernet_powersave_on_buggy_adapters.sh]
+              = enforcedGroup: "adm"
+              = enforcedModes: "a=rx,ug+w"
+              = enforcedOwner: "root"
+              = mimeType: "text/plain"
+              = uploadFromLocalPath: "…/focal/files/disable_ethernet_powersave_on_buggy_adapters.sh"
+              + file[/lib/systemd/system-sleep]
+                = mimeType: "inode/directory"
+                + file[/lib/systemd]
+                  = mimeType: "inode/directory"
+                  + file[/lib]
+                    = mimeType: "inode/directory"
+                    - file[/lib]
+                  - file[/lib/systemd]
+                - file[/lib/systemd/system-sleep]
+              - file[/lib/systemd/system-sleep/ubborg.disable_ethernet_powersave_on_buggy_adapters.sh]
+            - bundle[…ethernetPowersaveDisableOnBuggyAdapters]
           + bundle[…lateModProbes]
             + file[/lib/systemd/system/ubborg-rescuedisk-late-modprobes.service]
               = content: ["[Service]\n",
@@ -580,12 +602,7 @@
               = mimeType: "text/plain"
               + file[/lib/systemd/system]
                 = mimeType: "inode/directory"
-                + file[/lib/systemd]
-                  = mimeType: "inode/directory"
-                  + file[/lib]
-                    = mimeType: "inode/directory"
-                    - file[/lib]
-                  - file[/lib/systemd]
+                ^ file[/lib/systemd]
                 - file[/lib/systemd/system]
               - file[/lib/systemd/system/ubborg-rescuedisk-late-modprobes.service]
             + file[/etc/systemd/system/sysinit.target.wants/ubborg-rescuedisk-late-modprobes.service]
@@ -1307,6 +1324,11 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[bc]
+          + debPkg[galculator]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[galculator]
           + debPkg[gnumeric]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1494,7 +1516,7 @@
           + debPkgRepo[nodejs]
             = archs: null
             = components: ["main"]
-            = debUrls: ["https://deb.nodesource.com/node_12.x/"]
+            = debUrls: ["https://deb.nodesource.com/node_16.x/"]
             = deferPkgListUpdate: true
             = dists: ["%{codename}"]
             = keyUrls: ["/gpgkey/nodesource.gpg.key"]
@@ -1504,8 +1526,8 @@
             ^ sysFacts[osVersion]
             + file[/etc/apt/sources.list.d/ubborg.nodejs.list]
               = content: ["# This file was generated using ubborg-planner-pmb\n",
-¬¶            "deb     https://deb.nodesource.com/node_12.x/ focal main\n",
-¬¶            "deb-src https://deb.nodesource.com/node_12.x/ focal main\n"]
+¬¶            "deb     https://deb.nodesource.com/node_16.x/ focal main\n",
+¬¶            "deb-src https://deb.nodesource.com/node_16.x/ focal main\n"]
               = enforcedGroup: "adm"
               = enforcedModes: "a-x,a=rX,ug+w"
               = enforcedOwner: "root"
@@ -1817,6 +1839,11 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[linux-firmware]
+          + debPkg[thermald]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[thermald]
           - bundle[…sysDrivers]
         + bundle[…sysInstall]
           + debPkg[multistrap]
@@ -1865,6 +1892,11 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[git-annex]
+          + debPkg[git-cola]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[git-cola]
           - bundle[…vcs]
         + bundle[…xorgBasics]
           + debPkg[unity-greeter]
@@ -1917,6 +1949,11 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[xinput]
+          + debPkg[xvfb]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[xvfb]
           + debPkg[xserver-xorg]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1927,6 +1964,16 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[libxcb-xtest0]
+          + debPkg[numlockx]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[numlockx]
+          + debPkg[xclip]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[xclip]
           + debPkg[xdg-utils]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1942,6 +1989,11 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[xterm]
+          + debPkg[x11-apps]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[x11-apps]
           + debPkg[scrot]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1952,6 +2004,34 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[wmctrl]
+          + debPkg[libnotify-bin]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:notify-send"
+            = state: "installed"
+            - debPkg[libnotify-bin]
+          + debPkg[xli]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[xli]
+          + debPkg[gsetroot]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[gsetroot]
+          + debPkg[hsetroot]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[hsetroot]
+          + debPkg[suckless-tools]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:ssid"
+            = state: "installed"
+            - debPkg[suckless-tools]
+          ^ file[/var/lib/AccountsService/users]
           - bundle[…xorgBasics]
         + bundle[…xorgClipboardPersist]
           + debPkg[parcellite]
@@ -1982,7 +2062,21 @@
           - bundle[…xorgXcb]
         - stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
       - bundle[…/src/software/debPkg/__stage__]
-    * bundle[…/src/software/nonDebDrivers/]
+    + bundle[…/src/software/nonDebDrivers/]
+      + bundle[…kernelModulesJustEnable]
+        + file[/etc/modules-load.d/ubborg.pinnacle_pctv.conf]
+          = content: ["# -*- coding: utf-8, tab-width: 20 -*-\n", "bttv\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain; charset=UTF-8"
+          + file[/etc/modules-load.d]
+            = mimeType: "inode/directory"
+            ^ file[/etc]
+            - file[/etc/modules-load.d]
+          - file[/etc/modules-load.d/ubborg.pinnacle_pctv.conf]
+        - bundle[…kernelModulesJustEnable]
+      - bundle[…/src/software/nonDebDrivers/]
     + bundle[…/src/software/npmPkg/__stage__]
       * stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/npmPkg/]
       - bundle[…/src/software/npmPkg/__stage__]
