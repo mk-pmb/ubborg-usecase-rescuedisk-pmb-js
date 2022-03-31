@@ -13,7 +13,7 @@ const paramDefaults = {
 async function dfKbd(bun) {
   const param = bun.makeParamPopper().mustBe;
   const etcKbd = Object.keys(paramDefaults).map(k => (k.toUpperCase()
-    + '=' + shq.always(param('str', k)) + '\n'));
+    + '=' + shq.always(param('str', k))));
   param.expectEmpty();
 
   bun.needs('admFile', {
