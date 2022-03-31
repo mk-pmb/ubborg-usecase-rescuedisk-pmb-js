@@ -14,6 +14,11 @@ function all () {
   esac
 
   SECONDS=0
+  echo 'D: lint…'
+  ( cd .. && elp ) || return $?
+  echo "D: linting took ≈ $SECONDS seconds."
+
+  SECONDS=0
   export UBBORG_TIMEOUT_FACTOR=20
 
   local PLAN= ERR_CNT=0
