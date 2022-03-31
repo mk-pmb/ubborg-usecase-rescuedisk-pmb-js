@@ -1,6 +1,6 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-export default async(bun) => {
+export default async (bun) => {
   // https://wiki.ubuntu.com/ClipboardPersistence
 
   bun.needs('debPkg', [

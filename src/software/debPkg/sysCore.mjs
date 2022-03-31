@@ -12,7 +12,7 @@ const ubuMin = [
   // 'tzdata',
 ];
 
-export default async(bun) => {
+export default async (bun) => {
   bun.needs('debPkg', [
     ...ubuMin,
     'anacron',

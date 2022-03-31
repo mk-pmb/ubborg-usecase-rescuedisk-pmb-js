@@ -9,7 +9,7 @@ const fixRootBecomeUser = [
 ];
 
 
-export default async(bun) => {
+export default async (bun) => {
   bun.needs('debPkg', [
     ...fixRootBecomeUser,
   ]);

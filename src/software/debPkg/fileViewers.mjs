@@ -10,7 +10,7 @@ const pdfReaders = [
   'okular',   // starts sloooow but nice table selection and image area copy
 ];
 
-export default async(bun) => {
+export default async (bun) => {
   bun.needs('debPkg', [
     ...imageViewers,
     ...pdfReaders,

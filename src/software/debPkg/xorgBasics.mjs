@@ -17,7 +17,7 @@ const xinputDevices = [
   'xserver-xorg-input-wacom',
 ];
 
-export default async(bun) => {
+export default async (bun) => {
   bun.needs('debPkg', [
     ...xGreeters,
     ...xinputDevices,

@@ -15,7 +15,7 @@ const lvm = [
   'cryptsetup-initramfs', // initrd hooks are separate starting in 20.04
 ];
 
-export default async(bun) => {
+export default async (bun) => {
   bun.needs('debPkg', [
     'hdparm',
     'util-linux',   // provides sfdisk

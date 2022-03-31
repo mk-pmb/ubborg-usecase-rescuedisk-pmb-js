@@ -2,7 +2,7 @@
 
 import fileGeneratedHint from '../fileGeneratedHint.mjs';
 
-export default async(bun) => {
+export default async (bun) => {
   const dropin = {
     pathPre: '/etc/systemd/user/pulseaudio.',
     pathSuf: '.d/audio_group_only.conf',

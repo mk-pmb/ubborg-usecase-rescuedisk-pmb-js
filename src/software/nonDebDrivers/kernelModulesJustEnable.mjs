@@ -17,6 +17,6 @@ function fmt([path, content]) {
   };
 }
 
-export default async(bun) => {
+export default async (bun) => {
   bun.needs('admFile', Object.entries(drivers).map(fmt));
 };

@@ -8,10 +8,10 @@ const powerMgtOpt = 'rtw_power_mgnt';
 //     grep -aboPe rtw_power_mg.t -m 1 -r /lib/modules/*.*-*/kernel/drivers
 
 
-export default async(bun) => {
+export default async (bun) => {
   // see also: ../software/debPkg/netMgr.mjs
   bun.needs('admFile', {
-    path: `/etc/modprobe.d/wifi-avoid-powersave-urd.conf`,
+    path: '/etc/modprobe.d/wifi-avoid-powersave-urd.conf',
     mimeType: 'lines',
     content: [
       fileGeneratedHint('# ', '\n'),

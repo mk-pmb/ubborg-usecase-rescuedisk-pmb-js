@@ -6,7 +6,7 @@ const mods = [
   'ax88179_178a',
 ];
 
-export default async(bun) => {
+export default async (bun) => {
   const svcUnitSpec = {
     mimeType: 'static_ini; speq',
     pathPre: '/lib/systemd/system/',

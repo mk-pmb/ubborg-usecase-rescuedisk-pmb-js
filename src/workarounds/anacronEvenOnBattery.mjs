@@ -4,7 +4,7 @@ const ConditionACPower = '';
 // ^-- ATTN: Empty = ignore.
 //    false or 'no' would mean to start anacron only if on external power.
 
-export default async(bun) => {
+export default async (bun) => {
   bun.needs('admFile', {
     path: '/etc/systemd/system/anacron.service.d/on-ac.conf',
     mimeType: 'static_ini',
