@@ -2,7 +2,7 @@
 
 const installProprietaryShaders = true;
 
-export default async(bun) => {
+export default async (bun) => {
   bun.needs('debPkg', [
     'vainfo',
     'i965-va-driver' + (installProprietaryShaders ? '-shaders' : ''),

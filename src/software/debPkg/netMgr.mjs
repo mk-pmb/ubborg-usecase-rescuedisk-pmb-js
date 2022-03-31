@@ -13,7 +13,7 @@ Known problems with NetworkManager:
 
 */
 
-export default async(bun) => {
+export default async (bun) => {
   bun.needs('debPkg', [
     'network-manager',
   ]);

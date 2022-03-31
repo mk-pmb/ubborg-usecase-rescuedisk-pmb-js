@@ -10,7 +10,7 @@ const remminaPlugins = [
   'xdmcp',
 ].map(n => 'remmina-plugin-' + n);
 
-export default async(bun) => {
+export default async (bun) => {
   bun.needs('debPkg', [
     'x11vnc',
 

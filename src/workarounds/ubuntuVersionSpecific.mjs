@@ -2,7 +2,7 @@
 
 import sysFactsHelper from 'ubborg-sysfacts-helper-pmb';
 
-export default async(bun) => {
+export default async (bun) => {
   const osVer = await sysFactsHelper.mtd(bun, 'osVersion')();
   const cn = (osVer || false).codename;
   if (!cn) { return; }

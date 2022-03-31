@@ -3,7 +3,7 @@
 import sysFactsHelper from 'ubborg-sysfacts-helper-pmb';
 
 
-export default async(bun) => {
+export default async (bun) => {
   await sysFactsHelper(bun, {
     osVersion: {
       family: 'linux',

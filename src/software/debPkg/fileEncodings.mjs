@@ -15,7 +15,7 @@ const lzip = [
   'lzma',
 ];
 
-export default async(bun) => {
+export default async (bun) => {
   bun.needs('debPkg', [
     'file',
     'sharutils',   // uuencode

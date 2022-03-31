@@ -1,6 +1,6 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-export default async(bun) => {
+export default async (bun) => {
   bun.needs('admFile', {
     path: '/etc/apt/apt.conf.d/90cache-limit-avoid-segfault',
     mimeType: 'utf8_tw; 2; #',

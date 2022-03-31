@@ -2,7 +2,7 @@
 
 import fileGeneratedHint from '../fileGeneratedHint.mjs';
 
-export default async(bun) => {
+export default async (bun) => {
   bun.needs('xdgAutostarter', { bfn: 'update-notifier', exec: false });
 
   function aptCfg(name, lines) {

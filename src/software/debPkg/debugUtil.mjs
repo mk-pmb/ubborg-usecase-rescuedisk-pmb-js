@@ -6,7 +6,7 @@ const straceAndFriends = [
   'strace',
 ];
 
-export default async(bun) => {
+export default async (bun) => {
   bun.needs('debPkg', [
     ...straceAndFriends,
     'acpi',

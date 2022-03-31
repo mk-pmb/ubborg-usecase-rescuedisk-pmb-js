@@ -12,7 +12,7 @@ const content = [
   'kernel.sysrq = 1',
 ];
 
-export default async(bun) => {
+export default async (bun) => {
   bun.needs('admFile', {
     path: '/etc/sysctl.d/90-allow-magic-sysrq.conf',
     mimeType: 'utf8_tw; 2; #',
