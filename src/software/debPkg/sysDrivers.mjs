@@ -8,6 +8,8 @@ export default async (bun) => {
     // 'fwupd', // Automatic firmware update, but implemented as daemon. :-(
 
     'linux-firmware',
+    'lxc',
+    'lxc-utils',
     'thermald',
   ]);
 };
