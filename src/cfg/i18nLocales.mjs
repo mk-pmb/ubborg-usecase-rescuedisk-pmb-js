@@ -1,7 +1,15 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
+const bestEnglishIsoDateLocale = 'en_DK';
+// ^- ISO 8601 date format (yyyy-mm-dd) with English weekday and month names.
+//    Can be used with LC_TIME=… for e.g. Thunderbird and Claws Mail.
+
+
 const paramDefaults = {
-  add: 'en_US.UTF-8',
+  add: [
+    'en_US',
+    bestEnglishIsoDateLocale,
+  ],
   // ^- Any combination of (nested) array(s) and/or string(s).
   //    Strings with multiple locale names may use any (non-empty)
   //    combination of whitespace and/or comma as separator.
