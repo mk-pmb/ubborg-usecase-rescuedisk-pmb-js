@@ -23,7 +23,7 @@ export default async (bun) => {
     ...xinputDevices,
 
     'x11-xserver-utils',    // provides xsetroot
-    'xdiagnose',
+    // would install python3-apport // 'xdiagnose',
     'xdotool',
     'xinput',
     'xvfb', // headless X server
