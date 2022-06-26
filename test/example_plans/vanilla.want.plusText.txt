@@ -948,6 +948,11 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[build-essential]
+          + debPkg[geany]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[geany]
           - bundle[…develBasics]
         + bundle[…dialogScripting]
           + debPkg[gxmessage]
