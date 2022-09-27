@@ -745,6 +745,28 @@
             = state: "installed"
             - debPkg[acl]
           - bundle[…ansibleAux]
+        + bundle[…barcodes]
+          + debPkg[barcode]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[barcode]
+          + debPkg[qtqr]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[qtqr]
+          + debPkg[qrencode]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[qrencode]
+          + debPkg[zbar-tools]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[zbar-tools]
+          - bundle[…barcodes]
         + bundle[…basicImageEditing]
           + debPkg[mtpaint]
             = defer: true
@@ -1916,6 +1938,23 @@
             = state: "installed"
             - debPkg[git-cola]
           - bundle[…vcs]
+        + bundle[…webcam]
+          + debPkg[fswebcam]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[fswebcam]
+          + debPkg[guvcview]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[guvcview]
+          + debPkg[uvcdynctrl]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[uvcdynctrl]
+          - bundle[…webcam]
         + bundle[…xorgBasics]
           + debPkg[unity-greeter]
             = defer: true
