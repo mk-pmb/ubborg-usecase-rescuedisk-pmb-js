@@ -6,6 +6,7 @@ export default async (bun) => {
     'bash-completion',
 
     'mingetty', // reportedly it can --autologin easier than agetty.
+    // mingetty is used by debparture to provide getty@tty1.service
 
     'screen',
     'tmux',
