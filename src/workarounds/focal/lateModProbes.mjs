@@ -3,7 +3,11 @@
 import sysdWants from 'ubborg-sysd-wants';
 
 const mods = [
+  'ath10k_pci',
   'ax88179_178a',
+
+  // For modules that can be loaded early, see
+  // src/software/nonDebDrivers/kernelModulesJustEnable.mjs
 ];
 
 export default async (bun) => {

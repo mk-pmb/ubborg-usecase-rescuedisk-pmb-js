@@ -598,6 +598,7 @@
 ¬¶            "SyslogIdentifier = %N\n",
 ¬¶            "WorkingDirectory = /\n",
 ¬¶            "Type = oneshot\n",
+¬¶            "ExecStart = modprobe ath10k_pci\n",
 ¬¶            "ExecStart = modprobe ax88179_178a\n"]
               = enforcedGroup: "adm"
               = enforcedModes: "a-x,a=rX,ug+w"
