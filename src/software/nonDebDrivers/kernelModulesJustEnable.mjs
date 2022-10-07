@@ -4,6 +4,8 @@ const drivers = {
 
   pinnacle_pctv: 'bttv',
 
+  // For modules that must be (re)loaded late in focal, see
+  // src/workarounds/focal/lateModProbes.mjs
 };
 
 
