@@ -1312,6 +1312,11 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[grub-pc-bin]
+          + debPkg[efibootmgr]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[efibootmgr]
           - bundle[…grub]
         + bundle[…hexEditors]
           + debPkg[ghex]

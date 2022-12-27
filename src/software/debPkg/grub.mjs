@@ -6,5 +6,7 @@ export default async (bun) => {
     'grub-efi-amd64-bin',
     'grub-efi-ia32-bin',
     'grub-pc-bin',
+
+    'efibootmgr',
   ]);
 };
