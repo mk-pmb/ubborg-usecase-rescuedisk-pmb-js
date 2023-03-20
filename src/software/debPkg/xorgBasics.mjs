@@ -22,30 +22,30 @@ export default async (bun) => {
     ...xGreeters,
     ...xinputDevices,
 
-    'x11-xserver-utils',    // provides xsetroot
+    'x11-xserver-utils => cmd:xsetroot',
     // would install python3-apport // 'xdiagnose',
-    'xdotool',
-    'xinput',
-    'xvfb', // headless X server
+    'xdotool => cmd:',
+    'xinput => cmd:',
+    'xvfb => cmd:', // headless X server
     'xserver-xorg',
     'libxcb-xtest0',
 
-    'numlockx',
-    'xclip',
+    'numlockx => cmd:',
+    'xclip => cmd:',
     'xdg-utils',
-    'xsel',
-    'xterm',
+    'xsel => cmd:',
+    'xterm => cmd:',
 
-    'x11-apps', // oclock, xcalc, xeyes, xmag
+    'x11-apps => cmd:oclock', // also provides xcalc, xeyes, xmag
 
-    'scrot',
-    'wmctrl',
+    'scrot => cmd:',
+    'wmctrl => cmd:',
 
     'libnotify-bin => cmd:notify-send',
 
-    'xli',  // load images into an X11 window or onto the root window
-    'gsetroot', // wallpaper configurator
-    'hsetroot', // wallpaper configurator
+    'xli => cmd:',  // load images into an X11 window or onto the root window
+    'gsetroot => cmd:', // wallpaper configurator
+    'hsetroot => cmd:', // wallpaper configurator
 
     'suckless-tools => cmd:ssid',
     // ^-- suckless-tools: "simple commands for minimalistic window managers"

@@ -18,7 +18,7 @@ export default async (bun) => {
     'anacron',
     'console-data',
     'cron => cmd:crontab',
-    // deprecated as of Ubuntu 18.04 // 'gksu',     // provides gksudo
+    // deprecated as of Ubuntu 18.04 // 'gksu => cmd:gksudo',
     'initramfs-tools',
     'keyboard-configuration',
     'logrotate',
