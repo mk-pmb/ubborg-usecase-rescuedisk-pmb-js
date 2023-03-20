@@ -792,6 +792,36 @@
             = state: "installed"
             - debPkg[ansible]
           - bundle[…configMgmt]
+        + bundle[…consoleScreenPowerMgmt]
+          + debPkg[util-linux]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[util-linux]
+          + file[/etc/profile.d/power_mgmt.console_screen.urd.sh]
+            = content: ["# -*- coding: utf-8, tab-width: 2 -*-\n",
+¬¶            "[ \"$TERM\" = linux ] || return 0\n",
+¬¶            "  # Single dash arguments to setterm are for Ubuntu trusty compat.\n",
+¬¶            "  # Ubuntu focal uses double dash arguments but still supports single.\n",
+¬¶            "\n",
+¬¶            "  # Blank terminal after this many minutes of inactivity (0 = disable):\n",
+¬¶            "  setterm -blank 5\n",
+¬¶            "\n",
+¬¶            "  # Set display to VESA power saving mode…\n",
+¬¶            "  setterm -powersave powerdown\n",
+¬¶            "  # … after this many minutes of being blanked (0 = disable):\n",
+¬¶            "  setterm -powerdown 5\n",
+¬¶            "fi\n"]
+            = enforcedGroup: "adm"
+            = enforcedModes: "a-x,a=rX,ug+w"
+            = enforcedOwner: "root"
+            = mimeType: "text/plain; charset=UTF-8"
+            + file[/etc/profile.d]
+              = mimeType: "inode/directory"
+              ^ file[/etc]
+              - file[/etc/profile.d]
+            - file[/etc/profile.d/power_mgmt.console_screen.urd.sh]
+          - bundle[…consoleScreenPowerMgmt]
         + bundle[…cryptoAndRandomness]
           + debPkg[ent]
             = defer: true
@@ -1010,11 +1040,7 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[hdparm]
-          + debPkg[util-linux]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[util-linux]
+          ^ debPkg[util-linux]
           + debPkg[gparted]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1604,10 +1630,7 @@
             = enforcedModes: "a-x,a=rX,ug+w"
             = enforcedOwner: "root"
             = mimeType: "text/plain; charset=UTF-8"
-            + file[/etc/profile.d]
-              = mimeType: "inode/directory"
-              ^ file[/etc]
-              - file[/etc/profile.d]
+            ^ file[/etc/profile.d]
             - file[/etc/profile.d/nodejs.urd.sh]
           + file[/etc/npmrc]
             = content: ["audit = false\n",
