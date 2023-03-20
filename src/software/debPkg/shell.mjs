@@ -2,25 +2,25 @@
 
 export default async (bun) => {
   bun.needs('debPkg', [
-    'bash',
+    'bash => cmd:',
     'bash-completion',
 
     'mingetty', // reportedly it can --autologin easier than agetty.
     // mingetty is used by debparture to provide getty@tty1.service
 
-    'screen',
-    'tmux',
+    'screen => cmd:',
+    'tmux => cmd:',
 
-    'less',
-    'moreutils',  // provides vidir
-    'nano',
-    'procps',   // provides "top", and a proper "ps".
-    'pv',       // pipe viewer: progress bar with ETA
+    'less => cmd:',
+    'moreutils => cmd:vidir',
+    'nano => cmd:',
+    'procps => cmd:top',  // also provides a proper "ps".
+    'pv => cmd:',         // pipe viewer: progress bar with ETA
     'rename',
-    'rlwrap',
-    'psmisc',   // provides killall
+    'rlwrap => cmd:',
+    'psmisc => cmd:killall',
 
-    'inotify-tools',
+    'inotify-tools => cmd:inotifywait',
     'lockfile-progs',
   ]);
 };

@@ -17,7 +17,9 @@ const setTermScriptLines = [
 
 export default async (bun) => {
   bun.needs('debPkg', [
-    'util-linux',   // provides setterm
+    'util-linux',
+    // I'd prefer to command-detect it via ' => cmd:setterm',
+    // but ./diskPartMgmt already detects it via sfdisk.
   ]);
   bun.needs('admFile', [
     { path: '/etc/profile.d/power_mgmt.console_screen.urd.sh',
