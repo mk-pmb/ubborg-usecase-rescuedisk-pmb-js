@@ -796,6 +796,7 @@
           + debPkg[util-linux]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:sfdisk"
             = state: "installed"
             - debPkg[util-linux]
           + file[/etc/profile.d/power_mgmt.console_screen.urd.sh]
@@ -1038,17 +1039,20 @@
           + debPkg[hdparm]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[hdparm]
           ^ debPkg[util-linux]
           + debPkg[gparted]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[gparted]
           + debPkg[gpart]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[gpart]
           + debPkg[dosfstools]
@@ -1069,6 +1073,7 @@
           + debPkg[cryptsetup]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[cryptsetup]
           + debPkg[cryptsetup-initramfs]
@@ -1079,6 +1084,7 @@
           + debPkg[dmsetup]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[dmsetup]
           + file[/FL]
@@ -1321,6 +1327,7 @@
           + debPkg[grub2-common]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:grub-install"
             = state: "installed"
             - debPkg[grub2-common]
           + debPkg[grub-efi-amd64-bin]
@@ -1341,6 +1348,7 @@
           + debPkg[efibootmgr]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[efibootmgr]
           - bundle[…grub]
@@ -1758,6 +1766,7 @@
           + debPkg[bash]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[bash]
           + debPkg[bash-completion]
@@ -1773,36 +1782,43 @@
           + debPkg[screen]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[screen]
           + debPkg[tmux]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[tmux]
           + debPkg[less]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[less]
           + debPkg[moreutils]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:vidir"
             = state: "installed"
             - debPkg[moreutils]
           + debPkg[nano]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[nano]
           + debPkg[procps]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:top"
             = state: "installed"
             - debPkg[procps]
           + debPkg[pv]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[pv]
           + debPkg[rename]
@@ -1813,16 +1829,19 @@
           + debPkg[rlwrap]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[rlwrap]
           + debPkg[psmisc]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:killall"
             = state: "installed"
             - debPkg[psmisc]
           + debPkg[inotify-tools]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:inotifywait"
             = state: "installed"
             - debPkg[inotify-tools]
           + debPkg[lockfile-progs]
@@ -2018,21 +2037,25 @@
           + debPkg[x11-xserver-utils]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:xsetroot"
             = state: "installed"
             - debPkg[x11-xserver-utils]
           + debPkg[xdotool]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[xdotool]
           + debPkg[xinput]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[xinput]
           + debPkg[xvfb]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[xvfb]
           + debPkg[xserver-xorg]
@@ -2048,11 +2071,13 @@
           + debPkg[numlockx]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[numlockx]
           + debPkg[xclip]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[xclip]
           + debPkg[xdg-utils]
@@ -2063,26 +2088,31 @@
           + debPkg[xsel]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[xsel]
           + debPkg[xterm]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[xterm]
           + debPkg[x11-apps]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:oclock"
             = state: "installed"
             - debPkg[x11-apps]
           + debPkg[scrot]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[scrot]
           + debPkg[wmctrl]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[wmctrl]
           + debPkg[libnotify-bin]
@@ -2094,16 +2124,19 @@
           + debPkg[xli]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[xli]
           + debPkg[gsetroot]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[gsetroot]
           + debPkg[hsetroot]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[hsetroot]
           + debPkg[suckless-tools]
