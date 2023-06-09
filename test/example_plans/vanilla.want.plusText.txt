@@ -918,6 +918,7 @@
             - debPkg[aptitude]
           - bundle[…debPkgUtil]
         + bundle[…debugUtil]
+          ^ sysFacts[osVersion]
           + debPkg[libc-dev-bin]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1219,6 +1220,7 @@
             - debPkg[fuse-zip]
           - bundle[…fileEncodings]
         + bundle[…fileSystems]
+          ^ sysFacts[osVersion]
           + debPkg[ext3grep]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1410,6 +1412,7 @@
             - debPkg[wxmaxima]
           - bundle[…math]
         + bundle[…netBasics]
+          ^ sysFacts[osVersion]
           + debPkg[avahi-daemon]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1658,6 +1661,7 @@
             - file[/etc/npmrc]
           - bundle[…nodejs]
         + bundle[…openbox]
+          ^ sysFacts[osVersion]
           + debPkg[openbox]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1706,6 +1710,7 @@
             - debPkg[wmbubble]
           - bundle[…openbox]
         + bundle[…remoteDesktop]
+          ^ sysFacts[osVersion]
           + debPkg[x11vnc]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
