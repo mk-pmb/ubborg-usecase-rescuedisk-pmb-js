@@ -7,6 +7,8 @@ export default async (bun) => {
     'avahi-utils',
     'python-avahi',
 
+    'ethtool', // required for ../../workarounds/focal/files/disable_ethernet_powersave_on_buggy_adapters.sh
+
     'ifupdown',
     'libnss-mdns',
     'libnss-myhostname',

@@ -1431,6 +1431,11 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[python-avahi]
+          + debPkg[ethtool]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[ethtool]
           + debPkg[ifupdown]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
