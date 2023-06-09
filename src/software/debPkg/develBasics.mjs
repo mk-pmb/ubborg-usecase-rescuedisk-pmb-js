@@ -4,6 +4,7 @@ export default async (bun) => {
   bun.needs('debPkg', [
     'build-essential',
 
-    'geany',    // Text editor that can fold JSON containers
+    'geany => cmd:',  // Text editor that can fold JSON containers
+    'gucharmap => cmd:',  // View Unicode blocks, e.g. for RegExp ranges.
   ]);
 };

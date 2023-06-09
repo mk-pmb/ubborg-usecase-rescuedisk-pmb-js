@@ -1006,8 +1006,15 @@
           + debPkg[geany]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[geany]
+          + debPkg[gucharmap]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
+            = state: "installed"
+            - debPkg[gucharmap]
           - bundle[…develBasics]
         + bundle[…dialogScripting]
           + debPkg[gxmessage]
