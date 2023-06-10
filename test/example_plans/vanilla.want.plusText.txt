@@ -769,16 +769,17 @@
             - debPkg[zbar-tools]
           - bundle[…barcodes]
         + bundle[…basicImageEditing]
-          + debPkg[mtpaint]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[mtpaint]
           + debPkg[imagemagick]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[imagemagick]
+          + debPkg[pinta]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
+            = state: "installed"
+            - debPkg[pinta]
           - bundle[…basicImageEditing]
         + bundle[…configMgmt]
           + debPkg[crudini]
