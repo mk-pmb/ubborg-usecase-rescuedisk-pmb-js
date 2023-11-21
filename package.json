@@ -43,7 +43,8 @@
     "eslint-config-nodejs-pmb": "^0.3.5",
     "eslint-plugin-json-light-pmb": "^1.0.7",
     "eslint-plugin-n": "^15.2.4",
-    "eslint-pretty-pmb": "^1.0.5"
+    "eslint-pretty-pmb": "^1.0.5",
+    "ubborg-planner-pmb": "^0.0.96"
   },
 
 
