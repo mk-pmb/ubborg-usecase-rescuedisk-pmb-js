@@ -5,6 +5,7 @@ export default async (bun) => {
     'arping',
     'bind9-dnsutils => cmd:dig',
     'iputils-ping => cmd:ping',
+    'libmime-encwords-perl',
     'netsed',
   ]);
 };
