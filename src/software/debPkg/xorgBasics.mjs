@@ -47,6 +47,8 @@ export default async (bun) => {
     'gsetroot => cmd:', // wallpaper configurator
     'hsetroot => cmd:', // wallpaper configurator
 
+    'extra-xdg-menus',  // for more icons
+
     'suckless-tools => cmd:ssid',
     // ^-- suckless-tools: "simple commands for minimalistic window managers"
   ]);
