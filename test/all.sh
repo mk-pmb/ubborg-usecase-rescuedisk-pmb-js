@@ -6,6 +6,7 @@ function all () {
   export LANG{,UAGE}=en_US.UTF-8  # make error messages search engine-friendly
   local SELFPATH="$(readlink -m -- "$BASH_SOURCE"/..)"
   cd -- "$SELFPATH" || return $?
+  exec </dev/null
 
   case "$1" in
     '' ) ;;
@@ -65,7 +66,9 @@ function check_fmt () {
   [ -f "$EXPECTED" ] || return 0
   local TMP_DEST="$PLAN.tmp.$FMT.$FEXT"
   local DIFF_DEST="$PLAN.tmp.$FMT.diff"
-  ubborg-planner-pmb depsTree "$PLAN" | ./censor."$FMT".sed >"$TMP_DEST"
+  local UBB_CMD=( ubborg-planner-pmb depsTree "$PLAN" )
+  echo "D: gonna run: ${UBB_CMD[*]}" >&2
+  "${UBB_CMD[@]}" | ./censor."$FMT".sed >"$TMP_DEST"
   [ "${PIPESTATUS[*]}" == '0 0' ] || return 2
   if diff -U 2 -- "$EXPECTED" "$TMP_DEST" >"$DIFF_DEST"; then
     rm --one-file-system -- "$DIFF_DEST" "$TMP_DEST"
