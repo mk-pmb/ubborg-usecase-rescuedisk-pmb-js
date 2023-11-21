@@ -825,6 +825,12 @@
             - file[/etc/profile.d/power_mgmt.console_screen.urd.sh]
           - bundle[…consoleScreenPowerMgmt]
         + bundle[…cryptoAndRandomness]
+          + debPkg[apache2-utils]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:htpasswd"
+            = state: "installed"
+            - debPkg[apache2-utils]
           + debPkg[ent]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
