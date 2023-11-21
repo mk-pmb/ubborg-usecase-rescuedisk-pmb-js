@@ -13,6 +13,8 @@ function all () {
     * ) echo "E: unsupported option: '$1'" >&2; return 3;;
   esac
 
+  check_for_banned_strings || return $?
+
   SECONDS=0
   echo 'D: lint…'
   ( cd .. && elp ) || return $?
@@ -26,6 +28,8 @@ function all () {
     PLAN="${PLAN%.mjs}"
     check_plan || (( ERR_CNT += 1 ))
   done
+
+  check_for_banned_strings || return $?
 
   local DIFFS=( example_plans/*.tmp.*.diff )
   echo ":total_duration_sec=$SECONDS"
@@ -77,6 +81,16 @@ function check_fmt () {
 }
 
 
+function check_for_banned_strings () {
+  echo "D: ${FUNCNAME//_/ }…"
+  local BANS="$(grep -Pe '^[^#]' -- banned_strings.txt)"
+  [ -n "$BANS" ] || return 4$(echo 'E: Failed to read ban list.' >&2)
+  BANS="${BANS//$'\n'/'|'}"
+  ( cd .. && git grep -nPie "$BANS"
+  ) | grep -vPe '^test/banned_strings\.txt:' || return 0
+  echo 'E: Found some banned strings.'
+  return 2
+}
 
 
 
@@ -85,4 +99,6 @@ function check_fmt () {
 
 
 
-[ "$1" == --lib ] && return 0; all "$@"; exit $?
+
+
+all "$@"; exit $?

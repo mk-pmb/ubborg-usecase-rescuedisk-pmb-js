@@ -8,6 +8,7 @@
 }
 /^ += content: .{100,}/s~, "~,\n¬¶            "~g
 /^ += debugHints: \{/d
+/^ += uploadFromLocalPath: /s~"[^"]+((/[^/]+){3})~"…\1~g
 
 
 
