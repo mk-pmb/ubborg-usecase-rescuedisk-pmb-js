@@ -851,6 +851,11 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[libnet-ssleay-perl]
+          + debPkg[oathtool]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[oathtool]
           - bundle[…cryptoAndRandomness]
         + bundle[…dataRecovery]
           + debPkg[gddrescue]
