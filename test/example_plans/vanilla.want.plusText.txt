@@ -1572,6 +1572,11 @@
             = presenceMarker: "cmd:ping"
             = state: "installed"
             - debPkg[iputils-ping]
+          + debPkg[libmime-encwords-perl]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[libmime-encwords-perl]
           + debPkg[netsed]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
