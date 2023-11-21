@@ -2173,6 +2173,11 @@
             = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[hsetroot]
+          + debPkg[extra-xdg-menus]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[extra-xdg-menus]
           + debPkg[suckless-tools]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
