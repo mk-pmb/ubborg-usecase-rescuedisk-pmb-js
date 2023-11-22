@@ -941,51 +941,61 @@
           + debPkg[ltrace]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[ltrace]
           + debPkg[strace]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[strace]
           + debPkg[acpi]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[acpi]
           + debPkg[cpuid]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[cpuid]
           + debPkg[debconf-utils]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:debconf-get-selections"
             = state: "installed"
             - debPkg[debconf-utils]
           + debPkg[hddtemp]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[hddtemp]
           + debPkg[htop]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[htop]
           + debPkg[iotop]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[iotop]
           + debPkg[lshw]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[lshw]
           + debPkg[lsof]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[lsof]
           + debPkg[mmc-utils]
@@ -996,16 +1006,19 @@
           + debPkg[powertop]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[powertop]
           + debPkg[units]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[units]
           + debPkg[usbutils]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:lsusb"
             = state: "installed"
             - debPkg[usbutils]
           - bundle[…debugUtil]
