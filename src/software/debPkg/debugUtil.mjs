@@ -4,27 +4,27 @@ import sysFactsHelper from 'ubborg-sysfacts-helper-pmb';
 
 const straceAndFriends = [
   'libc-dev-bin => cmd:mtrace',
-  'ltrace',
-  'strace',
+  'ltrace => cmd:',
+  'strace => cmd:',
 ];
 
 export default async (bun) => {
   const osCn = (await sysFactsHelper.mtd(bun, 'osVersion')()).codename;
   bun.needs('debPkg', [
     ...straceAndFriends,
-    'acpi',
-    'cpuid',
+    'acpi => cmd:',
+    'cpuid => cmd:',
     // ¬focal 'dconf-tools',    // <-- dconf != debconf; includes dconf-editor
-    'debconf-utils',
-    ((osCn !== 'jammy') && 'hddtemp'),
-    'htop',
-    'iotop',
-    'lshw',
-    'lsof',
+    'debconf-utils => cmd:debconf-get-selections',
+    ((osCn !== 'jammy') && 'hddtemp => cmd:'),
+    'htop => cmd:',
+    'iotop => cmd:',
+    'lshw => cmd:',
+    'lsof => cmd:',
     'mmc-utils',  // debug memory card slots
-    'powertop',
-    'units',      // convert disk size prefixes
-    'usbutils',   // lsusb
+    'powertop => cmd:',
+    'units => cmd:',      // convert disk size prefixes
+    'usbutils => cmd:lsusb',
     // 'uuid',    // nah. just cat /proc/sys/kernel/random/uuid
     // ¬focal 'winpdb',
   ]);
