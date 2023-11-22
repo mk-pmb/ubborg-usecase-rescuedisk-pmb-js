@@ -23,6 +23,8 @@ export default async (bun) => {
     'lsof => cmd:',
     'mmc-utils',  // debug memory card slots
     'powertop => cmd:',
+    'smem => cmd:',
+    'smemstat => cmd:',
     'units => cmd:',      // convert disk size prefixes
     'usbutils => cmd:lsusb',
     // 'uuid',    // nah. just cat /proc/sys/kernel/random/uuid
