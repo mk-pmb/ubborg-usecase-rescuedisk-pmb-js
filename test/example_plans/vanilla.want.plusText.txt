@@ -2047,6 +2047,12 @@
             = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[git-cola]
+          + debPkg[git-email]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "file:///usr/lib/git-core/git-send-email"
+            = state: "installed"
+            - debPkg[git-email]
           - bundle[…vcs]
         + bundle[…webcam]
           + debPkg[fswebcam]
