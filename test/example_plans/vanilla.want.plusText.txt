@@ -2032,16 +2032,19 @@
           + debPkg[git]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[git]
           + debPkg[git-annex]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[git-annex]
           + debPkg[git-cola]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[git-cola]
           - bundle[…vcs]
