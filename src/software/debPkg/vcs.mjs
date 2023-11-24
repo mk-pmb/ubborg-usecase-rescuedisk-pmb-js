@@ -5,5 +5,6 @@ export default async (bun) => {
     'git => cmd:',
     'git-annex => cmd:',
     'git-cola => cmd:',
+    'git-email => file:///usr/lib/git-core/git-send-email',
   ]);
 };
