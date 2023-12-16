@@ -23,6 +23,7 @@ export default async (bun) => {
     'keyboard-configuration',
     'logrotate',
     'perl',
+    's6', // successor of daemontools, cousin to runit.
     'systemd',
   ]);
 
