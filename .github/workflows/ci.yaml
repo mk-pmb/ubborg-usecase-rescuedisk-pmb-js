@@ -16,7 +16,7 @@ jobs:
             matrix:
                 t:
                   # - { node: 8, eslint: 6 }
-                  - { node: 16, eslint: 8 }
+                  - { node: 20, eslint: 8 }
 
         steps:
             -   uses: actions/checkout@v2
