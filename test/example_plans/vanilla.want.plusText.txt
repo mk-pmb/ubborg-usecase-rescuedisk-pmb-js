@@ -201,16 +201,6 @@
             = interactive: false
             - osUserGroup[audio]
           - osUserGroupMembership[…|audio]
-        + osUserGroupMembership[…|nopasswdlogin]
-          = grName: "nopasswdlogin"
-          = loginName: "urd"
-          = member: true
-          ^ osUserLogin[urd]
-          + osUserGroup[nopasswdlogin]
-            = exists: true
-            = interactive: false
-            - osUserGroup[nopasswdlogin]
-          - osUserGroupMembership[…|nopasswdlogin]
         - osUser[urd]
       + iniFile[/var/lib/AccountsService/users/urd]
         + file[…]
