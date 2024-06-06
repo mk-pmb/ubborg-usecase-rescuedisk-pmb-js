@@ -1,0 +1,247 @@
++ stage[example_plans/justPrimaryUser]
+  + sysFacts[osVersion]
+    = facts: {"codename": "focal", "distro": "ubuntu", "family": "linux"}
+    - sysFacts[osVersion]
+  + osUserGroup[urd]
+    = exists: true
+    = grIdNum: 942
+    = interactive: false
+    - osUserGroup[urd]
+  + osUser[urd]
+    = disablePasswordLogin: false
+    = exists: true
+    = homeDirPath: "/var/lib/ubborg-usecase-rescuedisk-pmb"
+    = interactive: true
+    = passwordHash: "$6$fake…$==bo…"
+    = preserveExistingPasswordHash: false
+    = primaryGroupName: "urd"
+    = shell: "bash"
+    = userIdNum: 942
+    + osUserLogin[…]
+      = disablePasswordLogin: false
+      = exists: true
+      = homeDirPath: "/var/lib/ubborg-usecase-rescuedisk-pmb"
+      = interactive: true
+      = passwordHash: "$6$fake…$==bo…"
+      = preserveExistingPasswordHash: false
+      = primaryGroupName: "urd"
+      = shell: "bash"
+      = userIdNum: 942
+      ^ osUserGroup[…]
+      - osUserLogin[…]
+    + osUserGroupMembership[…|urd]
+      = grName: "urd"
+      = loginName: "urd"
+      = member: true
+      ^ osUserLogin[urd]
+      ^ osUserGroup[urd]
+      - osUserGroupMembership[…|urd]
+    + osUserGroupMembership[…|netdev]
+      = grName: "netdev"
+      = loginName: "urd"
+      = member: true
+      ^ osUserLogin[urd]
+      + osUserGroup[netdev]
+        = exists: true
+        = interactive: false
+        - osUserGroup[netdev]
+      - osUserGroupMembership[…|netdev]
+    + osUserGroupMembership[…|dialout]
+      = grName: "dialout"
+      = loginName: "urd"
+      = member: true
+      ^ osUserLogin[urd]
+      + osUserGroup[dialout]
+        = exists: true
+        = interactive: false
+        - osUserGroup[dialout]
+      - osUserGroupMembership[…|dialout]
+    + osUserGroupMembership[…|fuse]
+      = grName: "fuse"
+      = loginName: "urd"
+      = member: true
+      ^ osUserLogin[urd]
+      + osUserGroup[fuse]
+        = exists: true
+        = interactive: false
+        - osUserGroup[fuse]
+      - osUserGroupMembership[…|fuse]
+    + osUserGroupMembership[…|saned]
+      = grName: "saned"
+      = loginName: "urd"
+      = member: true
+      ^ osUserLogin[urd]
+      + osUserGroup[saned]
+        = exists: true
+        = interactive: false
+        - osUserGroup[saned]
+      - osUserGroupMembership[…|saned]
+    + osUserGroupMembership[…|lp]
+      = grName: "lp"
+      = loginName: "urd"
+      = member: true
+      ^ osUserLogin[urd]
+      + osUserGroup[lp]
+        = exists: true
+        = interactive: false
+        - osUserGroup[lp]
+      - osUserGroupMembership[…|lp]
+    + osUserGroupMembership[…|adm]
+      = grName: "adm"
+      = loginName: "urd"
+      = member: true
+      ^ osUserLogin[urd]
+      + osUserGroup[adm]
+        = exists: true
+        = interactive: false
+        - osUserGroup[adm]
+      - osUserGroupMembership[…|adm]
+    + osUserGroupMembership[…|sudo]
+      = grName: "sudo"
+      = loginName: "urd"
+      = member: true
+      ^ osUserLogin[urd]
+      + osUserGroup[sudo]
+        = exists: true
+        = interactive: false
+        - osUserGroup[sudo]
+      - osUserGroupMembership[…|sudo]
+    + osUserGroupMembership[…|audio]
+      = grName: "audio"
+      = loginName: "urd"
+      = member: true
+      ^ osUserLogin[urd]
+      + osUserGroup[audio]
+        = exists: true
+        = interactive: false
+        - osUserGroup[audio]
+      - osUserGroupMembership[…|audio]
+    - osUser[urd]
+  + iniFile[/var/lib/AccountsService/users/urd]
+    + file[…]
+      = mimeType: "text/plain"
+      + file[/var/lib/AccountsService/users]
+        = mimeType: "inode/directory"
+        + file[/var/lib/AccountsService]
+          = mimeType: "inode/directory"
+          + file[/var/lib]
+            = mimeType: "inode/directory"
+            + file[/var]
+              = mimeType: "inode/directory"
+              - file[/var]
+            - file[/var/lib]
+          - file[/var/lib/AccountsService]
+        - file[/var/lib/AccountsService/users]
+      - file[…]
+    + iniFileSect[…|User]
+      = exists: true
+      = path: "/var/lib/AccountsService/users/urd"
+      = sect: "User"
+      - iniFileSect[…|User]
+    + iniFileOpt[…|User|XSession]
+      = key: "XSession"
+      = path: "/var/lib/AccountsService/users/urd"
+      = sect: "User"
+      = val: "openbox"
+      ^ iniFileSect[/var/lib/AccountsService/users/urd|User]
+      - iniFileOpt[…|User|XSession]
+    - iniFile[/var/lib/AccountsService/users/urd]
+  + file[/var/lib/ubborg-usecase-rescuedisk-pmb]
+    = enforcedGroup: "urd"
+    = enforcedModes: "a-x,a=rX,ug+w"
+    = enforcedOwner: "urd"
+    = mimeType: "inode/directory"
+    ^ file[/var/lib]
+    - file[/var/lib/ubborg-usecase-rescuedisk-pmb]
+  + file[/var/lib/ubborg-usecase-rescuedisk-pmb/Desktop]
+    = enforcedGroup: "urd"
+    = enforcedModes: "a-x,a=rX,ug+w"
+    = enforcedOwner: "urd"
+    = mimeType: "inode/directory"
+    ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb]
+    - file[/var/lib/ubborg-usecase-rescuedisk-pmb/Desktop]
+  + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
+    = enforcedGroup: "urd"
+    = enforcedModes: "a-x,a=rX,ug+w"
+    = enforcedOwner: "urd"
+    = mimeType: "inode/directory"
+    ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb]
+    - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
+  + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/ssh]
+    = enforcedGroup: "urd"
+    = enforcedModes: "a-x,a=rX,ug+w"
+    = enforcedOwner: "urd"
+    = mimeType: "inode/directory"
+    ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
+    - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/ssh]
+  ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/ssh]
+  + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
+    = enforcedGroup: "urd"
+    = enforcedModes: "a-x,a=rX,ug+w"
+    = enforcedOwner: "urd"
+    = mimeType: "inode/directory"
+    ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
+    - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
+  + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/user-dirs.locale]
+    = content: "C\n"
+    = enforcedGroup: "urd"
+    = enforcedModes: "a-x,a=rX,ug+w"
+    = enforcedOwner: "urd"
+    = mimeType: "text/plain"
+    ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
+    - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/user-dirs.locale]
+  + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/desktop_bgcolor.desktop]
+    = content: ["[Desktop Entry]\n",
+¬¶            "Encoding=UTF-8\n",
+¬¶            "Version=0.9.4\n",
+¬¶            "Type=Application\n",
+¬¶            "Name=Set desktop background color\n",
+¬¶            "Comment=\n",
+¬¶            "Icon=\n",
+¬¶            "Exec=xsetroot -solid darkslateblue\n",
+¬¶            "StartupNotify=no\n",
+¬¶            "Terminal=no\n",
+¬¶            "Hidden=false\n"]
+    = enforcedGroup: "urd"
+    = enforcedModes: "a=r,ug+w,a+x"
+    = enforcedOwner: "urd"
+    = mimeType: "text/plain"
+    ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
+    - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart/desktop_bgcolor.desktop]
+  + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.gitconfig]
+    = content: ["[user]\n",
+¬¶            "\tname = User Name\n",
+¬¶            "\temail = user@host.tld\n",
+¬¶            "\n",
+¬¶            "[color]\n",
+¬¶            "\tui = auto\n",
+¬¶            "\n",
+¬¶            "[color \"status\"]\n",
+¬¶            "\tupdated = bold yellow\n",
+¬¶            "\tchanged = bold red\n",
+¬¶            "\tuntracked = cyan\n",
+¬¶            "\n",
+¬¶            "[merge]\n",
+¬¶            "\tff = only\n",
+¬¶            "\n",
+¬¶            "[receive]\n",
+¬¶            "\tdenyDeletes = true\n",
+¬¶            "\tdenyNonFastForwards = true\n",
+¬¶            "\n",
+¬¶            "[push]\n",
+¬¶            "\tdefault = matching\n",
+¬¶            "\n",
+¬¶            "[annex]\n",
+¬¶            "\tbackends = SHA256E SHA512E\n",
+¬¶            "\n",
+¬¶            "[alias]\n",
+¬¶            "\tchp = cherry-pick\n",
+¬¶            "\trmt = remote\n",
+¬¶            "\tusi = update-server-info\n"]
+    = enforcedGroup: "urd"
+    = enforcedModes: "a-x,a=rX,ug+w"
+    = enforcedOwner: "urd"
+    = mimeType: "text/plain"
+    ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb]
+    - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.gitconfig]
+  - stage[example_plans/justPrimaryUser]
