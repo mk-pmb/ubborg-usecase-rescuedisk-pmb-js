@@ -1959,6 +1959,14 @@
             = mimeType: "inode/symlink"
             ^ file[/etc/systemd/system]
             - file[/etc/systemd/system/ureadahead.service]
+          + file[/etc/machine-id.@dbus]
+            = content: "/var/lib/dbus/machine-id"
+            = enforcedGroup: "adm"
+            = enforcedModes: "a-x,a=rX,ug+w"
+            = enforcedOwner: "root"
+            = mimeType: "inode/symlink"
+            ^ file[/etc]
+            - file[/etc/machine-id.@dbus]
           - bundle[…sysCore]
         + bundle[…sysDrivers]
           + debPkg[ubuntu-drivers-common]

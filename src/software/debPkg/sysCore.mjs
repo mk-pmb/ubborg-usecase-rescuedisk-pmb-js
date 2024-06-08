@@ -34,4 +34,8 @@ export default async (bun) => {
     // Keeping ureadahead installed b/c it's part of ubuntu-minimal and
     // would thus cause package flickering with abstract config managers.
   });
+
+  bun.needs('admSymLink', [
+    '/etc/machine-id.@dbus =-> /var/lib/dbus/machine-id',
+  ]);
 };
