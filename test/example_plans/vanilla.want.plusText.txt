@@ -1658,7 +1658,7 @@
           + debPkgRepo[nodejs]
             = archs: null
             = components: ["main"]
-            = debUrls: ["https://deb.nodesource.com/node_16.x/"]
+            = debUrls: ["https://deb.nodesource.com/node_20.x/"]
             = deferPkgListUpdate: true
             = dists: ["%{codename}"]
             = keyUrls: ["/gpgkey/nodesource.gpg.key"]
@@ -1668,8 +1668,8 @@
             ^ sysFacts[osVersion]
             + file[/etc/apt/sources.list.d/ubborg.nodejs.list]
               = content: ["# This file was generated using ubborg-planner-pmb\n",
-¬¶            "deb     https://deb.nodesource.com/node_16.x/ focal main\n",
-¬¶            "deb-src https://deb.nodesource.com/node_16.x/ focal main\n"]
+¬¶            "deb     https://deb.nodesource.com/node_20.x/ focal main\n",
+¬¶            "deb-src https://deb.nodesource.com/node_20.x/ focal main\n"]
               = enforcedGroup: "adm"
               = enforcedModes: "a-x,a=rX,ug+w"
               = enforcedOwner: "root"
