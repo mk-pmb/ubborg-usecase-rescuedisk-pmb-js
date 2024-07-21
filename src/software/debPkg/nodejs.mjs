@@ -7,7 +7,7 @@ import loPick from 'lodash.pick';
 import iniStyleNpmrc from '../../util/iniStyleNpmrc.mjs';
 
 const dfNodeOpts = {
-  version: 16,
+  version: 20,
   repo: {
     debUrl: 'https://deb.nodesource.com/node_%1v.x/',
     // %Dv is a placeholder for the version number,
