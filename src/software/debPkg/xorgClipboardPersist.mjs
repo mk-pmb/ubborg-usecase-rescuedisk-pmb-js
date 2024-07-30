@@ -12,10 +12,5 @@ export default async (bun) => {
   bun.needs('debPkgConflict', [
     // Declare incompatibilities:
     'unity-services',
-
-    // Let's give thise another chance in focal,
-    // because they're required by xfce4-goodies:
-    // 'xfce4-clipman-plugin',
-    // 'xfce4-clipman',
   ]);
 };
