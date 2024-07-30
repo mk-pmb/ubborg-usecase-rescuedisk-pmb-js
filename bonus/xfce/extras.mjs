@@ -2,6 +2,8 @@
 
 export default async (bun) => {
   bun.needs('debPkg', [
+    'xfce4-clipman-plugin',
+    'xfce4-clipman',
     'xfce4-goodies',
   ]);
 };
