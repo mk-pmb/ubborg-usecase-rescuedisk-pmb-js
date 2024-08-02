@@ -1153,6 +1153,13 @@
             = state: "installed"
             - debPkg[nullmailer]
           - bundle[…diskSmart]
+        + bundle[…diskUtil]
+          + debPkg[f3]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[f3]
+          - bundle[…diskUtil]
         + bundle[…driverVgaIntel]
           + debPkg[vainfo]
             = defer: true
