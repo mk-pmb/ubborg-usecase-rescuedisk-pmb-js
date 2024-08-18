@@ -38,6 +38,8 @@ export default async (bun) => {
 
     'x11-apps => cmd:oclock', // also provides xcalc, xeyes, xmag
 
+    'xprintidle => cmd:',
+
     'scrot => cmd:',
     'wmctrl => cmd:',
 
