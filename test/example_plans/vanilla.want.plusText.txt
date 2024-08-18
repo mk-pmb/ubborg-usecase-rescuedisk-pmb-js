@@ -2216,6 +2216,12 @@
             = presenceMarker: "cmd:oclock"
             = state: "installed"
             - debPkg[x11-apps]
+          + debPkg[xprintidle]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
+            = state: "installed"
+            - debPkg[xprintidle]
           + debPkg[scrot]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
