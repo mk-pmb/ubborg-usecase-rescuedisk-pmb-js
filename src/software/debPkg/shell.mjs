@@ -15,10 +15,10 @@ export default async (bun) => {
     'moreutils => cmd:vidir',
     'nano => cmd:',
     'procps => cmd:top',  // also provides a proper "ps".
+    'psmisc => cmd:killall',
     'pv => cmd:',         // pipe viewer: progress bar with ETA
     'rename',
     'rlwrap => cmd:',
-    'psmisc => cmd:killall',
 
     'inotify-tools => cmd:inotifywait',
     'lockfile-progs',
