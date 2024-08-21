@@ -4,6 +4,7 @@ export default async (bun) => {
   bun.needs('debPkg', [
     'bash => cmd:',
     'bash-completion',
+    'shellcheck => cmd:', // linter for shell scripts.
 
     'mingetty', // reportedly it can --autologin easier than agetty.
     // mingetty is used by debparture to provide getty@tty1.service
