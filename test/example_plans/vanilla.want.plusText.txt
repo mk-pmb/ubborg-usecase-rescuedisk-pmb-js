@@ -1901,6 +1901,12 @@
             = presenceMarker: "cmd:top"
             = state: "installed"
             - debPkg[procps]
+          + debPkg[psmisc]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:killall"
+            = state: "installed"
+            - debPkg[psmisc]
           + debPkg[pv]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1918,12 +1924,6 @@
             = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[rlwrap]
-          + debPkg[psmisc]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = presenceMarker: "cmd:killall"
-            = state: "installed"
-            - debPkg[psmisc]
           + debPkg[inotify-tools]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
