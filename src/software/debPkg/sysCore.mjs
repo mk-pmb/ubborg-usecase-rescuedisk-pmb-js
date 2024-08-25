@@ -15,17 +15,17 @@ const ubuMin = [
 export default async (bun) => {
   bun.needs('debPkg', [
     ...ubuMin,
-    'anacron',
+    'anacron => cmd:',
     'console-data',
     'cron => cmd:crontab',
     // deprecated as of Ubuntu 18.04 // 'gksu => cmd:gksudo',
-    'initramfs-tools',
+    'initramfs-tools => cmd:mkinitramfs',
     'keyboard-configuration',
-    'logrotate',
-    'perl',
+    'logrotate => cmd:',
+    'perl => cmd:',
     'python3-pyinotify',
     's6', // successor of daemontools, cousin to runit.
-    'systemd',
+    'systemd => cmd:',
   ]);
 
   bun.needs('admSymLink', {
