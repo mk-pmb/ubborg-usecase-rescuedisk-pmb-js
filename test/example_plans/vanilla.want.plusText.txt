@@ -1951,6 +1951,7 @@
           + debPkg[anacron]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[anacron]
           + debPkg[console-data]
@@ -1967,6 +1968,7 @@
           + debPkg[initramfs-tools]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:mkinitramfs"
             = state: "installed"
             - debPkg[initramfs-tools]
           + debPkg[keyboard-configuration]
@@ -1977,11 +1979,13 @@
           + debPkg[logrotate]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[logrotate]
           + debPkg[perl]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[perl]
           + debPkg[python3-pyinotify]
@@ -1997,6 +2001,7 @@
           + debPkg[systemd]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[systemd]
           + file[/etc/systemd/system/ureadahead.service]
