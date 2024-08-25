@@ -19,6 +19,7 @@ export default async (bun) => {
     'console-data',
     'cron => cmd:crontab',
     // deprecated as of Ubuntu 18.04 // 'gksu => cmd:gksudo',
+    'cgroup-tools => cmd:cgexec',
     'cpulimit => cmd:',
     'initramfs-tools => cmd:mkinitramfs',
     'keyboard-configuration',
