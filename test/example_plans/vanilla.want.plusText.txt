@@ -1965,6 +1965,12 @@
             = presenceMarker: "cmd:crontab"
             = state: "installed"
             - debPkg[cron]
+          + debPkg[cpulimit]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
+            = state: "installed"
+            - debPkg[cpulimit]
           + debPkg[initramfs-tools]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
