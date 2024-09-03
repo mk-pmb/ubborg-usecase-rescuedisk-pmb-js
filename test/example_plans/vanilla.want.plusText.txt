@@ -2000,6 +2000,16 @@
             = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[perl]
+          + debPkg[python3-evdev]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[python3-evdev]
+          + debPkg[python3-libevdev]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[python3-libevdev]
           + debPkg[python3-pyinotify]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
