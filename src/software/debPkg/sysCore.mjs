@@ -25,6 +25,8 @@ export default async (bun) => {
     'keyboard-configuration',
     'logrotate => cmd:',
     'perl => cmd:',
+    'python3-evdev',
+    'python3-libevdev',
     'python3-pyinotify',
     's6', // successor of daemontools, cousin to runit.
     'systemd => cmd:',
