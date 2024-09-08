@@ -2316,6 +2316,14 @@
             = state: "absent"
             - debPkg[unity-services]
           - bundle[…xorgClipboardPersist]
+        + bundle[…xorgDebug]
+          + debPkg[gkbd-capplet]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:gkbd-keyboard-display"
+            = state: "installed"
+            - debPkg[gkbd-capplet]
+          - bundle[…xorgDebug]
         + bundle[…xorgMesa]
           + debPkg[libgl1-mesa-glx]
             = defer: true
