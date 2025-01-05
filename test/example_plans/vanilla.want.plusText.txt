@@ -1059,6 +1059,11 @@
             - debPkg[gucharmap]
           - bundle[…develBasics]
         + bundle[…dialogScripting]
+          + debPkg[alltray]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[alltray]
           + debPkg[gxmessage]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -1069,21 +1074,16 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[x11-utils]
-          + debPkg[zenity]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[zenity]
           + debPkg[yad]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[yad]
-          + debPkg[alltray]
+          + debPkg[zenity]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
-            - debPkg[alltray]
+            - debPkg[zenity]
           - bundle[…dialogScripting]
         + bundle[…diskPartMgmt]
           + debPkg[hdparm]

@@ -2,10 +2,10 @@
 
 export default async (bun) => {
   bun.needs('debPkg', [
+    'alltray',
     'gxmessage',
     'x11-utils',  // xmessage
-    'zenity',
     'yad',        // a better zenity
-    'alltray',
+    'zenity',
   ]);
 };
