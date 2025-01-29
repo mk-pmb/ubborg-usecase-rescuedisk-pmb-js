@@ -2083,6 +2083,17 @@
             - debPkg[thermald]
           - bundle[…sysDrivers]
         + bundle[…sysInstall]
+          ^ sysFacts[osVersion]
+          + debPkg[kpatch]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[kpatch]
+          + debPkg[linux-image-lowlatency-hwe-20.04-edge]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[linux-image-lowlatency-hwe-20.04-edge]
           + debPkg[multistrap]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
