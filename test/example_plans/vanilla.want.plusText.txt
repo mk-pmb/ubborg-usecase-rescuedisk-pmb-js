@@ -1194,6 +1194,13 @@
             = state: "installed"
             - debPkg[meld]
           - bundle[…fileCmp]
+        + bundle[…fileCompression]
+          + debPkg[pigz]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[pigz]
+          - bundle[…fileCompression]
         + bundle[…fileEncodings]
           + debPkg[file]
             = defer: true
