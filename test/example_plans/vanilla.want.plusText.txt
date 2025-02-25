@@ -853,6 +853,11 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[gddrescue]
+          + debPkg[testdisk]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[testdisk]
           - bundle[…dataRecovery]
         + bundle[…debPkgLists_ubuntuDefault]
           ^ sysFacts[osVersion]
