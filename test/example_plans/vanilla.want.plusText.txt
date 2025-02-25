@@ -924,6 +924,11 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[aptitude]
+          + debPkg[extrepo]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[extrepo]
           - bundle[…debPkgUtil]
         + bundle[…debugUtil]
           ^ sysFacts[osVersion]
