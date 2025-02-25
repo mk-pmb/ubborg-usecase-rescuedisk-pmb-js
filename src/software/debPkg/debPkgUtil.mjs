@@ -4,5 +4,6 @@ export default async (bun) => {
   bun.needs('debPkg', [
     'apt',
     'aptitude',
+    'extrepo',    // enabler for curated community-run APT repos.
   ]);
 };
