@@ -4,6 +4,7 @@ export default async (bun) => {
   bun.needs('debPkg', [
     'axel',   // parallel wget
     'curl',
+    'ncat',   // supports --sh-exec, --chat, --max-conns. not "nchat".
     'netcat',
     'socat',
     'sshfs',
