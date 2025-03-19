@@ -6,5 +6,7 @@ export default async (bun) => {
 
     'gnome-terminal',
     'dconf-cli',  // for taming GT on startup.
+
+    'nyancat',    // a terminal screensaver. nyancat --no-title --no-counter
   ]);
 };
