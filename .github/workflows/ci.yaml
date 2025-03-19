@@ -20,16 +20,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - uses: mk-pmb/github-ci-util-2405-pmb/act/install@experimental
         with:
-          node-version: "${{ matrix.t.node }}.x"
-      - run: npm install "eslint@${{ matrix.t.eslint }}"
-      - run: npm install .
+          nodejs_version: "${{ matrix.t.node }}.x"
+      - run: ghciu npm install "eslint@${{ matrix.t.eslint }}"
+      - run: ghciu npm install .
       - run: >
           ln --symbolic --no-target-directory
           -- .. node_modules/ubborg-usecase-rescuedisk-pmb
-      - run: npm test
+      - run: ghciu npm test
 
 
 ...
