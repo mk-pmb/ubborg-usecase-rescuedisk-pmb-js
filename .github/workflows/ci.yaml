@@ -1,35 +1,35 @@
 %YAML 1.1
 # ^-- ATTN: [2019-12-31] If you use a later version, Github will fail
 #     with a bogus error message "You have an error in your yaml syntax".
-# -*- coding: UTF-8, tab-width: 4 -*-
+# -*- coding: UTF-8, tab-width: 2 -*-
 ---
 
 on:
-    push:
-        branches:
-            -   '*'
+  push:
+    branches:
+      - '*'
 
 jobs:
-    job_npm_test:
-        runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                t:
-                  # - { node: 8, eslint: 6 }
-                  - { node: 20, eslint: 8 }
+  job_npm_test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        t:
+          # - { node: 8, eslint: 6 }
+          - { node: 20, eslint: 8 }
 
-        steps:
-            -   uses: actions/checkout@v4
-            -   name: Use Node.js ${{ matrix.node-version }}
-                uses: actions/setup-node@v4
-                with:
-                    node-version: "${{ matrix.t.node }}.x"
-            -   run: npm install "eslint@${{ matrix.t.eslint }}"
-            -   run: npm install .
-            -   run: >
-                    ln --symbolic --no-target-directory
-                    -- .. node_modules/ubborg-usecase-rescuedisk-pmb
-            -   run: npm test
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: "${{ matrix.t.node }}.x"
+      - run: npm install "eslint@${{ matrix.t.eslint }}"
+      - run: npm install .
+      - run: >
+          ln --symbolic --no-target-directory
+          -- .. node_modules/ubborg-usecase-rescuedisk-pmb
+      - run: npm test
 
 
 ...
