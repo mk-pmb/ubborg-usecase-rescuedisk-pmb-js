@@ -2131,6 +2131,11 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[dconf-cli]
+          + debPkg[nyancat]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[nyancat]
           - bundle[…terminalEmus]
         + bundle[…textEditors]
           + debPkg[featherpad]
