@@ -19,6 +19,7 @@ export default async (bun) => {
     ((osCn !== 'jammy') && 'hddtemp => cmd:'),
     'htop => cmd:',
     'iotop => cmd:',
+    'lm-sensors => cmd:sensors-detect',
     'lshw => cmd:',
     'lsof => cmd:',
     'mmc-utils',  // debug memory card slots
