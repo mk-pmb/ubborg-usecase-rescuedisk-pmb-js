@@ -2392,8 +2392,8 @@
       - bundle[…/src/software/debPkg/__stage__]
     + bundle[…/src/software/nonDebDrivers/]
       + bundle[…kernelModulesJustEnable]
-        + file[/etc/modules-load.d/ubborg.pinnacle_pctv.conf]
-          = content: ["# -*- coding: utf-8, tab-width: 20 -*-\n", "bttv\n"]
+        + file[/etc/modules-load.d/ubborg.cpu_temperature_intel.conf]
+          = content: ["# -*- coding: utf-8, tab-width: 20 -*-\n", "coretemp\n"]
           = enforcedGroup: "adm"
           = enforcedModes: "a-x,a=rX,ug+w"
           = enforcedOwner: "root"
@@ -2402,6 +2402,14 @@
             = mimeType: "inode/directory"
             ^ file[/etc]
             - file[/etc/modules-load.d]
+          - file[/etc/modules-load.d/ubborg.cpu_temperature_intel.conf]
+        + file[/etc/modules-load.d/ubborg.pinnacle_pctv.conf]
+          = content: ["# -*- coding: utf-8, tab-width: 20 -*-\n", "bttv\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain; charset=UTF-8"
+          ^ file[/etc/modules-load.d]
           - file[/etc/modules-load.d/ubborg.pinnacle_pctv.conf]
         - bundle[…kernelModulesJustEnable]
       - bundle[…/src/software/nonDebDrivers/]
