@@ -986,6 +986,12 @@
             = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[iotop]
+          + debPkg[lm-sensors]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:sensors-detect"
+            = state: "installed"
+            - debPkg[lm-sensors]
           + debPkg[lshw]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
