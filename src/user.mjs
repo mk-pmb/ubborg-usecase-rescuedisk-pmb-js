@@ -1,7 +1,7 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
 import objPop from 'objpop';
-import mustBe from 'typechecks-pmb/must-be';
+import mustBe from 'typechecks-pmb/must-be.js';
 import passwordHash from 'ansible-bogus-linux-pwhash';
 
 import pkgMeta from '../package.json';
