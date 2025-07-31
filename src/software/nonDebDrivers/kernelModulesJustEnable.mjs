@@ -2,6 +2,7 @@
 
 const drivers = {
 
+  cpu_temperature_intel: 'coretemp',
   pinnacle_pctv: 'bttv',
 
   // For modules that must be (re)loaded late in focal, see
