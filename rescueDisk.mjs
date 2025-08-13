@@ -21,7 +21,9 @@ async function rescueDisk(bun) {
   bun.needs('subBundle', [
     'src/workarounds/',
 
+    'src/software/earlyDebPkg/__stage__',
     'src/software/debPkg/__stage__',
+    'src/software/lateDebPkg/__stage__',
     'src/software/nonDebDrivers/',
     'src/software/npmPkg/__stage__',
   ]);

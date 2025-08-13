@@ -725,6 +725,35 @@
           - file[/usr/share/X11/xorg.conf.d/20-workaround-focal-xkb-use-evdev-rules.conf]
         - bundle[…xorgUseEvdevRules]
       - bundle[…/src/workarounds/]
+    + bundle[…/src/software/earlyDebPkg/__stage__]
+      + stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/earlyDebPkg/]
+        = deferredDebPkgs: {"installs": […], "modifies": …, "policy": {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}, "removes": 0}
+        + bundle[…betterRandomness]
+          + debPkg[haveged]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[haveged]
+          - bundle[…betterRandomness]
+        + bundle[…debPkgUtil]
+          + debPkg[apt]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[apt]
+          + debPkg[aptitude]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[aptitude]
+          + debPkg[extrepo]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[extrepo]
+          - bundle[…debPkgUtil]
+        - stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/earlyDebPkg/]
+      - bundle[…/src/software/earlyDebPkg/__stage__]
     + bundle[…/src/software/debPkg/__stage__]
       + stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
         = deferredDebPkgs: {"installs": […], "modifies": …, "policy": {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}, "removes": […], "updatePkgLists": true}
@@ -758,19 +787,6 @@
             = state: "installed"
             - debPkg[zbar-tools]
           - bundle[…barcodes]
-        + bundle[…basicImageEditing]
-          + debPkg[imagemagick]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[imagemagick]
-          + debPkg[pinta]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = presenceMarker: "cmd:"
-            = state: "installed"
-            - debPkg[pinta]
-          - bundle[…basicImageEditing]
         + bundle[…configMgmt]
           + debPkg[crudini]
             = defer: true
@@ -826,11 +842,6 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[ent]
-          + debPkg[haveged]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[haveged]
           + debPkg[libcrypt-ssleay-perl]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
@@ -913,23 +924,6 @@
               - file[/etc/apt/sources.list.d/ubborg.ubuntu_base.list]
             - debPkgRepo[ubuntu_base]
           - bundle[…debPkgLists_ubuntuDefault]
-        + bundle[…debPkgUtil]
-          + debPkg[apt]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[apt]
-          + debPkg[aptitude]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[aptitude]
-          + debPkg[extrepo]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[extrepo]
-          - bundle[…debPkgUtil]
         + bundle[…debugUtil]
           ^ sysFacts[osVersion]
           + debPkg[libc-dev-bin]
@@ -1474,43 +1468,6 @@
             = state: "installed"
             - debPkg[linux-image-lowlatency]
           - bundle[…kernel]
-        + bundle[…math]
-          + debPkg[bc]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[bc]
-          + debPkg[galculator]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[galculator]
-          + debPkg[geogebra]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[geogebra]
-          + debPkg[gnumeric]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[gnumeric]
-          + debPkg[maxima-share]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[maxima-share]
-          + debPkg[maxima]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[maxima]
-          + debPkg[wxmaxima]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[wxmaxima]
-          - bundle[…math]
         + bundle[…netBasics]
           ^ sysFacts[osVersion]
           + debPkg[avahi-daemon]
@@ -2390,6 +2347,61 @@
           - bundle[…xorgXcb]
         - stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/debPkg/]
       - bundle[…/src/software/debPkg/__stage__]
+    + bundle[…/src/software/lateDebPkg/__stage__]
+      + stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/lateDebPkg/]
+        = deferredDebPkgs: {"installs": […], "modifies": …, "policy": {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}, "removes": 0}
+        + bundle[…basicImageEditing]
+          + debPkg[imagemagick]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[imagemagick]
+          + debPkg[pinta]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
+            = state: "installed"
+            - debPkg[pinta]
+          - bundle[…basicImageEditing]
+        + bundle[…math]
+          + debPkg[bc]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[bc]
+          + debPkg[galculator]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[galculator]
+          + debPkg[geogebra]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[geogebra]
+          + debPkg[gnumeric]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[gnumeric]
+          + debPkg[maxima-share]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[maxima-share]
+          + debPkg[maxima]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[maxima]
+          + debPkg[wxmaxima]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[wxmaxima]
+          - bundle[…math]
+        - stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/lateDebPkg/]
+      - bundle[…/src/software/lateDebPkg/__stage__]
     + bundle[…/src/software/nonDebDrivers/]
       + bundle[…kernelModulesJustEnable]
         + file[/etc/modules-load.d/ubborg.cpu_temperature_intel.conf]
