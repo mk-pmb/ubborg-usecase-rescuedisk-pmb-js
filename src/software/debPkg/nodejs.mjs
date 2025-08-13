@@ -6,6 +6,14 @@ import loPick from 'lodash.pick';
 
 import iniStyleNpmrc from '../../util/iniStyleNpmrc.mjs';
 
+const howtoSourceUrl = ('https://web.archive.org/web/20250506001215/'
+  + 'https://github.com/nodesource/distributions/'
+  + 'wiki/Repository-Manual-Installation');
+
+const doc = {
+  howtoSourceUrl,
+};
+
 const dfNodeOpts = {
   version: 20,
   repo: {
@@ -14,8 +22,9 @@ const dfNodeOpts = {
     // where D is a digit 1-9 to indicate how many digits wide
     // the number shall be, adding leading zeroes if necessary.
     components: ['main'],
+    dists: ['nodistro'],
 
-    keyUrls: ['/gpgkey/nodesource.gpg.key'],
+    keyUrls: ['/gpgkey/nodesource-repo.gpg.key'],
     keyVerify: {
       gpgKeySummary: [
         'pub  4096R/68576280 2014-06-13 NodeSource <gpg@nodesource.com>',
@@ -102,6 +111,7 @@ async function installNodejs(bun) {
 };
 
 Object.assign(installNodejs, {
+  doc,
   paramDefaults: { nodejs: dfNodeOpts },
   inheritParam: {
     osVersion: true,
