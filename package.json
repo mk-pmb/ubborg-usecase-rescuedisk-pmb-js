@@ -28,8 +28,8 @@
   "dependencies": {
     "absdir": "^1.0.6",
     "ansible-bogus-linux-pwhash": "^1.0.2",
+    "lodash.mapvalues": "^4.6.0",
     "lodash.padstart": "^4.6.1",
-    "lodash.pick": "^3.1.0",
     "map-merge-defaults-pmb": "^0.1.0",
     "objpop": "^0.3.6",
     "shq": "^1.0.3",

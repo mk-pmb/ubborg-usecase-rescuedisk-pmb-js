@@ -1670,8 +1670,8 @@
             ^ sysFacts[osVersion]
             + file[/etc/apt/sources.list.d/ubborg.nodejs.list]
               = content: ["# This file was generated using ubborg-planner-pmb\n",
-¬¶            "deb     https://deb.nodesource.com/node_20.x/ focal main\n",
-¬¶            "deb-src https://deb.nodesource.com/node_20.x/ focal main\n"]
+¬¶            "deb     https://deb.nodesource.com/node_20.x/ nodistro main\n",
+¬¶            "deb-src https://deb.nodesource.com/node_20.x/ nodistro main\n"]
               = enforcedGroup: "adm"
               = enforcedModes: "a-x,a=rX,ug+w"
               = enforcedOwner: "root"
