@@ -727,7 +727,7 @@
       - bundle[…/src/workarounds/]
     + bundle[…/src/software/earlyDebPkg/__stage__]
       + stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/earlyDebPkg/]
-        = deferredDebPkgs: {"installs": […], "modifies": …, "policy": {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}, "removes": 0}
+        = deferredDebPkgs: {"installs": […], "modifies": …, "policy": {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}, "removes": 0, "updatePkgLists": true}
         + bundle[…betterRandomness]
           + debPkg[haveged]
             = defer: true
@@ -735,6 +735,60 @@
             = state: "installed"
             - debPkg[haveged]
           - bundle[…betterRandomness]
+        + bundle[…debPkgLists_ubuntuDefault]
+          ^ sysFacts[osVersion]
+          + debPkgRepo[ubuntu_security]
+            = archs: null
+            = components: ["main", "restricted", "universe", "multiverse"]
+            = debUrls: ["http://security.ubuntu.com/ubuntu"]
+            = deferPkgListUpdate: true
+            = dists: ["%{codename}-security"]
+            = keyUrls: null
+            = src: true
+            = state: "enabled"
+            ^ sysFacts[osVersion]
+            + file[/etc/apt/sources.list.d/ubborg.ubuntu_security.list]
+              = content: ["# This file was generated using ubborg-planner-pmb\n",
+¬¶            "deb     http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse\n",
+¬¶            "deb-src http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse\n"]
+              = enforcedGroup: "adm"
+              = enforcedModes: "a-x,a=rX,ug+w"
+              = enforcedOwner: "root"
+              = mimeType: "text/plain"
+              + file[/etc/apt/sources.list.d]
+                = mimeType: "inode/directory"
+                ^ file[/etc/apt]
+                - file[/etc/apt/sources.list.d]
+              - file[/etc/apt/sources.list.d/ubborg.ubuntu_security.list]
+            - debPkgRepo[ubuntu_security]
+          + debPkgRepo[ubuntu_base]
+            = archs: null
+            = components: ["main", "restricted", "universe", "multiverse"]
+            = debUrls: ["http://de.archive.ubuntu.com/ubuntu"]
+            = deferPkgListUpdate: true
+            = dists: ["%{codename}", "%{codename}-backports", "%{codename}-updates", "%{codename}-proposed"]
+            = keyUrls: null
+            = src: true
+            = state: "enabled"
+            ^ sysFacts[osVersion]
+            + file[/etc/apt/sources.list.d/ubborg.ubuntu_base.list]
+              = content: ["# This file was generated using ubborg-planner-pmb\n",
+¬¶            "deb     http://de.archive.ubuntu.com/ubuntu focal main restricted universe multiverse\n",
+¬¶            "deb-src http://de.archive.ubuntu.com/ubuntu focal main restricted universe multiverse\n",
+¬¶            "deb     http://de.archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse\n",
+¬¶            "deb-src http://de.archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse\n",
+¬¶            "deb     http://de.archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse\n",
+¬¶            "deb-src http://de.archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse\n",
+¬¶            "deb     http://de.archive.ubuntu.com/ubuntu focal-proposed main restricted universe multiverse\n",
+¬¶            "deb-src http://de.archive.ubuntu.com/ubuntu focal-proposed main restricted universe multiverse\n"]
+              = enforcedGroup: "adm"
+              = enforcedModes: "a-x,a=rX,ug+w"
+              = enforcedOwner: "root"
+              = mimeType: "text/plain"
+              ^ file[/etc/apt/sources.list.d]
+              - file[/etc/apt/sources.list.d/ubborg.ubuntu_base.list]
+            - debPkgRepo[ubuntu_base]
+          - bundle[…debPkgLists_ubuntuDefault]
         + bundle[…debPkgUtil]
           + debPkg[apt]
             = defer: true
@@ -869,60 +923,6 @@
             = state: "installed"
             - debPkg[testdisk]
           - bundle[…dataRecovery]
-        + bundle[…debPkgLists_ubuntuDefault]
-          ^ sysFacts[osVersion]
-          + debPkgRepo[ubuntu_security]
-            = archs: null
-            = components: ["main", "restricted", "universe", "multiverse"]
-            = debUrls: ["http://security.ubuntu.com/ubuntu"]
-            = deferPkgListUpdate: true
-            = dists: ["%{codename}-security"]
-            = keyUrls: null
-            = src: true
-            = state: "enabled"
-            ^ sysFacts[osVersion]
-            + file[/etc/apt/sources.list.d/ubborg.ubuntu_security.list]
-              = content: ["# This file was generated using ubborg-planner-pmb\n",
-¬¶            "deb     http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse\n",
-¬¶            "deb-src http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse\n"]
-              = enforcedGroup: "adm"
-              = enforcedModes: "a-x,a=rX,ug+w"
-              = enforcedOwner: "root"
-              = mimeType: "text/plain"
-              + file[/etc/apt/sources.list.d]
-                = mimeType: "inode/directory"
-                ^ file[/etc/apt]
-                - file[/etc/apt/sources.list.d]
-              - file[/etc/apt/sources.list.d/ubborg.ubuntu_security.list]
-            - debPkgRepo[ubuntu_security]
-          + debPkgRepo[ubuntu_base]
-            = archs: null
-            = components: ["main", "restricted", "universe", "multiverse"]
-            = debUrls: ["http://de.archive.ubuntu.com/ubuntu"]
-            = deferPkgListUpdate: true
-            = dists: ["%{codename}", "%{codename}-backports", "%{codename}-updates", "%{codename}-proposed"]
-            = keyUrls: null
-            = src: true
-            = state: "enabled"
-            ^ sysFacts[osVersion]
-            + file[/etc/apt/sources.list.d/ubborg.ubuntu_base.list]
-              = content: ["# This file was generated using ubborg-planner-pmb\n",
-¬¶            "deb     http://de.archive.ubuntu.com/ubuntu focal main restricted universe multiverse\n",
-¬¶            "deb-src http://de.archive.ubuntu.com/ubuntu focal main restricted universe multiverse\n",
-¬¶            "deb     http://de.archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse\n",
-¬¶            "deb-src http://de.archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse\n",
-¬¶            "deb     http://de.archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse\n",
-¬¶            "deb-src http://de.archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse\n",
-¬¶            "deb     http://de.archive.ubuntu.com/ubuntu focal-proposed main restricted universe multiverse\n",
-¬¶            "deb-src http://de.archive.ubuntu.com/ubuntu focal-proposed main restricted universe multiverse\n"]
-              = enforcedGroup: "adm"
-              = enforcedModes: "a-x,a=rX,ug+w"
-              = enforcedOwner: "root"
-              = mimeType: "text/plain"
-              ^ file[/etc/apt/sources.list.d]
-              - file[/etc/apt/sources.list.d/ubborg.ubuntu_base.list]
-            - debPkgRepo[ubuntu_base]
-          - bundle[…debPkgLists_ubuntuDefault]
         + bundle[…debugUtil]
           ^ sysFacts[osVersion]
           + debPkg[libc-dev-bin]
