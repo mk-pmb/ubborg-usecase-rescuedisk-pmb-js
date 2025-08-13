@@ -38,14 +38,14 @@
     "ubborg-sysd-dropin-pmb": "^0.1.0",
     "ubborg-sysd-wants": "^0.1.2",
     "ubborg-sysfacts-helper-pmb": "^0.2.1",
-    "ubuntu-versions-table-pmb": "^0.2.3"
+    "ubuntu-versions-table-pmb": "^0.2.4"
   },
   "devDependencies": {
-    "eslint-config-nodejs-pmb": "^0.3.8",
+    "eslint-config-nodejs-pmb": "^0.3.9",
     "eslint-plugin-json-light-pmb": "^1.0.7",
     "eslint-plugin-n": "^17.16.2",
     "eslint-pretty-pmb": "^1.0.7",
-    "ubborg-planner-pmb": "^0.0.98"
+    "ubborg-planner-pmb": "^0.0.100"
   },
 
 
