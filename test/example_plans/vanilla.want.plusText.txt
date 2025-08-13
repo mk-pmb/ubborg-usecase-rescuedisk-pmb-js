@@ -752,6 +752,13 @@
             = state: "installed"
             - debPkg[extrepo]
           - bundle[…debPkgUtil]
+        + bundle[…sslCerts.default]
+          + debPkg[ca-certificates]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[ca-certificates]
+          - bundle[…sslCerts.default]
         - stage[cjs:ubborg-usecase-rescuedisk-pmb/src/software/earlyDebPkg/]
       - bundle[…/src/software/earlyDebPkg/__stage__]
     + bundle[…/src/software/debPkg/__stage__]
