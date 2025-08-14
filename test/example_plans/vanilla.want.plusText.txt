@@ -1076,6 +1076,7 @@
             - debPkg[gucharmap]
           - bundle[…develBasics]
         + bundle[…dialogScripting]
+          ^ sysFacts[osVersion]
           + debPkg[alltray]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}

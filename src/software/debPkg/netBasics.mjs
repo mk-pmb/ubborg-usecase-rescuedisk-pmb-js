@@ -1,14 +1,14 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import sysFactsHelper from 'ubborg-sysfacts-helper-pmb';
+import osVerInfo from 'ubborg-sysfacts-helper-pmb/util/osVersionInfo.mjs';
 
 export default async (bun) => {
-  const osCn = (await sysFactsHelper.mtd(bun, 'osVersion')()).codename;
+  const { verNumYear } = await osVerInfo(bun);
   bun.needs('debPkg', [
     'avahi-daemon',
     'avahi-discover',
     'avahi-utils',
-    ((osCn !== 'jammy') && 'python-avahi'),
+    ((verNumYear <= 22) && 'python-avahi'),
 
     'ethtool', // required for ../../workarounds/focal/files/disable_ethernet_powersave_on_buggy_adapters.sh
 
@@ -22,5 +22,5 @@ export default async (bun) => {
     'iw',
     'wireless-tools => cmd:iwlist',
     'rfkill',
-  ]);
+  ].filter(Boolean));
 };

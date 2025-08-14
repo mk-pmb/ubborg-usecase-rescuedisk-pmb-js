@@ -1,20 +1,20 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import sysFactsHelper from 'ubborg-sysfacts-helper-pmb';
+import osVerInfo from 'ubborg-sysfacts-helper-pmb/util/osVersionInfo.mjs';
 
 export default async (bun) => {
-  const osCn = (await sysFactsHelper.mtd(bun, 'osVersion')()).codename;
+  const { verNumYear } = await osVerInfo(bun);
   bun.needs('debPkg', [
     'openbox',
     'obconf',
 
     // required for openbox *.desktop autostart:
-    ((osCn !== 'jammy') && 'python-xdg'),
+    ((verNumYear <= 22) && 'python-xdg'),
     'python3-xdg',
 
     // A launch bar, b/c openbox doesn't have desktop icons:
     'wbar',
-    ((osCn !== 'jammy') && 'wbar-config'),
+    ((verNumYear <= 22) && 'wbar-config'),
     // Some PNG icons for wbar:
     'gnome-accessibility-themes => file:/usr/share/icons/HighContrast/32x32/',
 

@@ -1,9 +1,12 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-export default async (bun) => {
-  bun.needs('debPkg', [
-    'libgl1-mesa-glx',
+import osVerInfo from 'ubborg-sysfacts-helper-pmb/util/osVersionInfo.mjs';
 
-    'libegl1-mesa',
-  ]);
+export default async (bun) => {
+  const { verNumYear } = await osVerInfo(bun);
+  bun.needs('debPkg', [
+    ((verNumYear <= 22) && 'libgl1-mesa-glx'),
+
+    ((verNumYear <= 22) && 'libegl1-mesa'),
+  ].filter(Boolean));
 };

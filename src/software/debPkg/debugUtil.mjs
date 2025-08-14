@@ -1,6 +1,6 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import sysFactsHelper from 'ubborg-sysfacts-helper-pmb';
+import osVerInfo from 'ubborg-sysfacts-helper-pmb/util/osVersionInfo.mjs';
 
 const straceAndFriends = [
   'libc-dev-bin => cmd:mtrace',
@@ -9,14 +9,14 @@ const straceAndFriends = [
 ];
 
 export default async (bun) => {
-  const osCn = (await sysFactsHelper.mtd(bun, 'osVersion')()).codename;
+  const { verNumYear } = await osVerInfo(bun);
   bun.needs('debPkg', [
     ...straceAndFriends,
     'acpi => cmd:',
     'cpuid => cmd:',
-    // ¬focal 'dconf-tools',    // <-- dconf != debconf; includes dconf-editor
+    ((verNumYear <= 18) && 'dconf-tools'), // <-- != debconf; has dconf-editor
     'debconf-utils => cmd:debconf-get-selections',
-    ((osCn !== 'jammy') && 'hddtemp => cmd:'),
+    ((verNumYear <= 22) && 'hddtemp => cmd:'),
     'htop => cmd:',
     'iotop => cmd:',
     'lm-sensors => cmd:sensors-detect',
@@ -29,6 +29,6 @@ export default async (bun) => {
     'units => cmd:',      // convert disk size prefixes
     'usbutils => cmd:lsusb',
     // 'uuid',    // nah. just cat /proc/sys/kernel/random/uuid
-    // ¬focal 'winpdb',
-  ]);
+    ((verNumYear <= 18) && 'winpdb'),
+  ].filter(Boolean));
 };

@@ -1,16 +1,12 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import sysFactsHelper from 'ubborg-sysfacts-helper-pmb';
-import ubuntuVersionsTable from 'ubuntu-versions-table-pmb';
-
+import osVerInfo from 'ubborg-sysfacts-helper-pmb/util/osVersionInfo.mjs';
 
 export default async (bun) => {
-  const osCn = (await sysFactsHelper.mtd(bun, 'osVersion')()).codename;
-  const osRel = ubuntuVersionsTable.byCodename(osCn).release;
-
+  const { verNumYear, release } = await osVerInfo(bun);
   bun.needs('debPkg', [
-    'kpatch',
-    'linux-image-lowlatency-hwe-' + osRel + '-edge',
+    ((verNumYear <= 22) && 'kpatch'),
+    'linux-image-lowlatency-hwe-' + release + '-edge',
     'multistrap',
-  ]);
+  ].filter(Boolean));
 };

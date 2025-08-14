@@ -37,7 +37,7 @@
     "ubborg-bundled-optional-bundles-pmb": "^0.1.3",
     "ubborg-sysd-dropin-pmb": "^0.1.0",
     "ubborg-sysd-wants": "^0.1.2",
-    "ubborg-sysfacts-helper-pmb": "^0.2.1",
+    "ubborg-sysfacts-helper-pmb": "^0.2.2",
     "ubuntu-versions-table-pmb": "^0.2.4"
   },
   "devDependencies": {

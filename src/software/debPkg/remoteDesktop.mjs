@@ -1,18 +1,18 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import sysFactsHelper from 'ubborg-sysfacts-helper-pmb';
+import osVerInfo from 'ubborg-sysfacts-helper-pmb/util/osVersionInfo.mjs';
 
 export default async (bun) => {
-  const osCn = (await sysFactsHelper.mtd(bun, 'osVersion')()).codename;
+  const { verNumYear } = await osVerInfo(bun);
 
   const remminaPlugins = [
-    ((osCn !== 'jammy') && 'nx'),
+    ((verNumYear <= 20) && 'nx'),
     'rdp',
     'secret',
     'spice',
     'vnc',
     'www',
-    ((osCn !== 'jammy') && 'xdmcp'),
+    ((verNumYear <= 20) && 'xdmcp'),
   ].filter(Boolean).map(n => 'remmina-plugin-' + n);
 
   bun.needs('debPkg', [

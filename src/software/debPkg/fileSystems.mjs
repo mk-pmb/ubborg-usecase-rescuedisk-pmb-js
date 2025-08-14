@@ -1,9 +1,9 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import sysFactsHelper from 'ubborg-sysfacts-helper-pmb';
+import osVerInfo from 'ubborg-sysfacts-helper-pmb/util/osVersionInfo.mjs';
 
 export default async (bun) => {
-  const osCn = (await sysFactsHelper.mtd(bun, 'osVersion')()).codename;
+  const { verNumYear } = await osVerInfo(bun);
   bun.needs('debPkg', [
     'ext3grep',
     'ext4magic',
@@ -12,11 +12,11 @@ export default async (bun) => {
     'udisks2',
     'udiskie',    // a mount helper tray icon
 
-    ((osCn !== 'jammy') && 'gvfs-bin'),   // provides basic GIO support
+    ((verNumYear <= 22) && 'gvfs-bin'),   // provides basic GIO support
     'gvfs-fuse',
 
     'exfat-fuse',
-    ((osCn !== 'jammy') && 'exfat-utils'),
+    ((verNumYear <= 22) && 'exfat-utils'),
     'fatattr',
     'fatresize',
     'ntfs-3g',

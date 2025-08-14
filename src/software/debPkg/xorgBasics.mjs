@@ -1,5 +1,7 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
+import osVerInfo from 'ubborg-sysfacts-helper-pmb/util/osVersionInfo.mjs';
+
 const xGreeters = [
   // @2018-12-12 failed to autologin // 'lightdm-autologin-greeter',
   // @2018-12-12 failed to autologin // 'lightdm-gtk-greeter',
@@ -18,6 +20,7 @@ const xinputDevices = [
 ];
 
 export default async (bun) => {
+  const { verNumYear } = await osVerInfo(bun);
   bun.needs('debPkg', [
     ...xGreeters,
     ...xinputDevices,
@@ -46,14 +49,14 @@ export default async (bun) => {
     'libnotify-bin => cmd:notify-send',
 
     'xli => cmd:',  // load images into an X11 window or onto the root window
-    'gsetroot => cmd:', // wallpaper configurator
+    ((verNumYear <= 22) && 'gsetroot => cmd:'), // wallpaper configurator
     'hsetroot => cmd:', // wallpaper configurator
 
     'extra-xdg-menus',  // for more icons
 
     'suckless-tools => cmd:ssid',
     // ^-- suckless-tools: "simple commands for minimalistic window managers"
-  ]);
+  ].filter(Boolean));
 
   bun.needs('admFile', {
     path: '/var/lib/AccountsService/users/',
