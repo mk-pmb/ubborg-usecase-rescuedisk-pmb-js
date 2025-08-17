@@ -1,8 +1,9 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import mustBe from 'typechecks-pmb/must-be.js';
+import loMapValues from 'lodash.mapvalues';
 import lPad from 'lodash.padstart';
-import loPick from 'lodash.pick';
+import mustBe from 'typechecks-pmb/must-be.js';
+import objPop from 'objpop';
 
 import iniStyleNpmrc from '../../util/iniStyleNpmrc.mjs';
 
@@ -62,26 +63,34 @@ function makeVersionTemplateRenderer(v) {
 }
 
 
+function makeSubSettingPopper(mustBeDescrPrefix, origSettings) {
+  const mustPop = objPop(origSettings, { mustBe, mustBeDescrPrefix }).mustBe;
+  return mustPop;
+}
+
+
 async function installNodejs(bun) {
-  const nodeSett = bun.makeParamPopper().mustBe('tru | dictObj', 'nodejs');
-  const mustNode = mustBe.tProp('Node.js setting ', nodeSett);
-  const repoInfo = mustNode('undef | dictObj', 'repo');
-  // console.error(repoInfo).fail();
-  const mustRepo = mustBe.tProp('Node.js debian repo setting ', repoInfo);
+  const popNodeOpt = makeSubSettingPopper('Node.js setting ',
+    bun.makeParamPopper().mustBe('tru | dictObj', 'nodejs'));
+  const popRepoOpt = makeSubSettingPopper('Node.js debian repo setting ',
+    popNodeOpt('undef | dictObj', 'repo'));
 
-  const version = mustNode('pos int', 'version');
+  const version = popNodeOpt('pos int', 'version');
   const verTpl = makeVersionTemplateRenderer(version);
-  const debUrl = verTpl(mustRepo('nonEmpty str', 'debUrl'));
+  const debUrl = verTpl(popRepoOpt('nonEmpty str', 'debUrl'));
 
-  await bun.needs('debPkgRepo', {
+  const debPkgHow = {
     name: 'nodejs',
     debUrls: [debUrl],
-    components: mustRepo('nonEmpty ary', 'components'),
-    ...loPick(repoInfo, [
-      'keyUrls',
-      'keyVerify',
-    ]),
-  });
+    ...loMapValues({
+      components: 'nonEmpty ary',
+      dists: 'nonEmpty ary',
+      keyUrls: 'nonEmpty ary',
+      keyVerify: 'nonEmpty dictObj',
+    }, popRepoOpt),
+  };
+  await bun.needs('debPkgRepo', debPkgHow);
+  popRepoOpt.expectEmpty();
 
   await bun.needs('debPkg', [
     'nodejs',
@@ -98,7 +107,7 @@ async function installNodejs(bun) {
     },
   ]);
 
-  const npmrc = mustNode('undef | fal | dictObj', 'etcNpmrc');
+  const npmrc = popNodeOpt('undef | fal | dictObj', 'etcNpmrc');
   if (npmrc) {
     if (npmrc['https-proxy'] === true) { npmrc['https-proxy'] = npmrc.proxy; }
     await bun.needs('admFile', {
@@ -108,6 +117,8 @@ async function installNodejs(bun) {
       iniOpt: iniStyleNpmrc,
     });
   }
+
+  popNodeOpt.expectEmpty();
 };
 
 Object.assign(installNodejs, {
