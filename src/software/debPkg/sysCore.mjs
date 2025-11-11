@@ -28,6 +28,7 @@ export default async (bun) => {
     'python3-evdev',
     'python3-libevdev',
     'python3-pyinotify',
+    'python3-venv',
     's6', // successor of daemontools, cousin to runit.
     'systemd => cmd:',
   ]);
