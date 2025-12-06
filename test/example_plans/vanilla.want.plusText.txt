@@ -876,6 +876,12 @@
             = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[efibootmgr]
+          + debPkg[refind]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:refind-install"
+            = state: "absent"
+            - debPkg[refind]
           - bundle[…bootloaders]
         + bundle[…configMgmt]
           + debPkg[crudini]
