@@ -12,6 +12,16 @@ An example ubborg bundle for an Ubuntu/GRUB/LVM rescue disk.
 ### Stability: Alpha preview
 
 
+ISO image download
+------------------
+
+The ISO file can be built with [ubborg-make-example-live-isos-pmb][mkliveiso],
+and if you're lucky, there may even be a recent release with a download.
+
+  [mkliveiso]: https://github.com/mk-pmb/ubborg-make-example-live-isos-pmb
+
+
+
 API
 ---
 
