@@ -848,6 +848,35 @@
             = state: "installed"
             - debPkg[zbar-tools]
           - bundle[…barcodes]
+        + bundle[…bootloaders]
+          + debPkg[grub2-common]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:grub-install"
+            = state: "installed"
+            - debPkg[grub2-common]
+          + debPkg[grub-efi-amd64-bin]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[grub-efi-amd64-bin]
+          + debPkg[grub-efi-ia32-bin]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[grub-efi-ia32-bin]
+          + debPkg[grub-pc-bin]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[grub-pc-bin]
+          + debPkg[efibootmgr]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
+            = state: "installed"
+            - debPkg[efibootmgr]
+          - bundle[…bootloaders]
         + bundle[…configMgmt]
           + debPkg[crudini]
             = defer: true
@@ -1409,35 +1438,6 @@
             = state: "installed"
             - debPkg[okular]
           - bundle[…fileViewers]
-        + bundle[…grub]
-          + debPkg[grub2-common]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = presenceMarker: "cmd:grub-install"
-            = state: "installed"
-            - debPkg[grub2-common]
-          + debPkg[grub-efi-amd64-bin]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[grub-efi-amd64-bin]
-          + debPkg[grub-efi-ia32-bin]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[grub-efi-ia32-bin]
-          + debPkg[grub-pc-bin]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[grub-pc-bin]
-          + debPkg[efibootmgr]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = presenceMarker: "cmd:"
-            = state: "installed"
-            - debPkg[efibootmgr]
-          - bundle[…grub]
         + bundle[…hexEditors]
           + debPkg[ghex]
             = defer: true
