@@ -2352,6 +2352,24 @@
             = presenceMarker: "cmd:gkbd-keyboard-display"
             = state: "installed"
             - debPkg[gkbd-capplet]
+          + debPkg[ddcutil]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
+            = state: "installed"
+            - debPkg[ddcutil]
+          + debPkg[edid-decode]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:"
+            = state: "installed"
+            - debPkg[edid-decode]
+          + debPkg[read-edid]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:get-edid"
+            = state: "installed"
+            - debPkg[read-edid]
           - bundle[…xorgDebug]
         + bundle[…xorgMesa]
           + debPkg[libgl1-mesa-glx]
