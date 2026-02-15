@@ -1108,6 +1108,12 @@
             = presenceMarker: "cmd:"
             = state: "installed"
             - debPkg[gucharmap]
+          + debPkg[equivs]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = presenceMarker: "cmd:equivs-build"
+            = state: "installed"
+            - debPkg[equivs]
           - bundle[…develBasics]
         + bundle[…dialogScripting]
           + debPkg[alltray]

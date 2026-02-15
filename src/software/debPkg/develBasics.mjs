@@ -9,5 +9,8 @@ export default async (bun) => {
 
     'geany => cmd:',  // Text editor that can fold JSON containers
     'gucharmap => cmd:',  // View Unicode blocks, e.g. for RegExp ranges.
+
+    'equivs => cmd:equivs-build', // "a tool to create trivial Debian packages."
+
   ]);
 };
