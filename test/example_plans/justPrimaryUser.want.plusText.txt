@@ -174,7 +174,6 @@
     = mimeType: "inode/directory"
     ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config]
     - file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/ssh]
-  ^ file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/ssh]
   + file[/var/lib/ubborg-usecase-rescuedisk-pmb/.config/autostart]
     = enforcedGroup: "urd"
     = enforcedModes: "a-x,a=rX,ug+w"
