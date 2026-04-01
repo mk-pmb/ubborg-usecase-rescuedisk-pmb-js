@@ -4,10 +4,10 @@ import objPop from 'objpop';
 import mustBe from 'typechecks-pmb/must-be.js';
 import passwordHash from 'ansible-bogus-linux-pwhash';
 
-import pkgMeta from '../package.json';
-import gitCfg from './cfg/dfGitCfg.mjs';
-import vdu from './vanillaDesktopUser.mjs';
 import fileGeneratedHint from './fileGeneratedHint.mjs';
+import gitCfg from './cfg/dfGitCfg.mjs';
+import pkgMeta from '../package.json' with { type: 'json' };
+import vdu from './vanillaDesktopUser.mjs';
 
 const paramDefaults = {
   rescueUser: {

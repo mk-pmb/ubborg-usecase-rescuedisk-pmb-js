@@ -1,5 +1,5 @@
 { "name": "ubborg-usecase-rescuedisk-pmb",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "An example ubborg bundle for an Ubuntu/GRUB/LVM rescue disk.",
   "keywords": [],
 
@@ -27,7 +27,7 @@
 
   "dependencies": {
     "absdir": "^1.0.6",
-    "ansible-bogus-linux-pwhash": "^1.0.2",
+    "ansible-bogus-linux-pwhash": "^1.0.3",
     "lodash.mapvalues": "^4.6.0",
     "lodash.padstart": "^4.6.1",
     "map-merge-defaults-pmb": "^0.1.0",
@@ -38,17 +38,17 @@
     "ubborg-sysd-dropin-pmb": "^0.1.0",
     "ubborg-sysd-wants": "^0.1.2",
     "ubborg-sysfacts-helper-pmb": "^0.2.2",
-    "ubuntu-versions-table-pmb": "^0.2.4"
+    "ubuntu-versions-table-pmb": "^0.2.5"
   },
   "devDependencies": {
     "eslint-config-nodejs-pmb": "^0.3.13",
     "eslint-plugin-json-light-pmb": "^1.0.7",
     "eslint-plugin-n": "^17.16.2",
     "eslint-pretty-pmb": "^1.0.7",
-    "ubborg-planner-pmb": "^0.0.106"
+    "ubborg-planner-pmb": "^0.0.107"
   },
 
 
 
-  "engines": { "npm": ">=7.0.0", "node": ">=16.0.0" }
+  "engines": { "npm": ">=7.0.0", "node": ">=24.0.0" }
 }

@@ -4,10 +4,13 @@
 # -*- coding: UTF-8, tab-width: 2 -*-
 ---
 
+name: '☂ CI tests'
+
 on:
   push:
     branches:
       - '*'
+  workflow_dispatch:
 
 jobs:
   job_npm_test:
@@ -15,20 +18,40 @@ jobs:
     strategy:
       matrix:
         t:
-          # - { node: 8, eslint: 6 }
-          - { node: 20, eslint: 8 }
+          - { node: 24, eslint: 8 }
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: mk-pmb/github-ci-util-2405-pmb/act/install@experimental
+      - uses: actions/checkout@v6
+
+      - name: 'Install ghciu'
+        uses: mk-pmb/github-ci-util-2405-pmb/act/install@experimental
         with:
-          nodejs_version: "${{ matrix.t.node }}.x"
-      - run: ghciu npm install "eslint@${{ matrix.t.eslint }}"
+          nodejs_version: '${{ matrix.t.node }}'
+
+      - name: 'Use the experimental version of ubborg-planner-pmb'
+        run: >
+          ghciu npm install --save "${{ github.repository_owner
+            }}/ubborg-planner-pmb-js#experimental"
+
+      - run: 'ghciu npm install "eslint@${{ matrix.t.eslint }}"'
       - run: ghciu npm install .
-      - run: >
+      - name: 'Symlink repo as module'
+        run: >
           ln --symbolic --no-target-directory
           -- .. node_modules/ubborg-usecase-rescuedisk-pmb
       - run: ghciu npm test
+
+      - run: 'ghciu ./test/ci_log_hints.sh'
+        if: '!cancelled()'
+
+      - name: 'Pack the ghciu logs as an artifact.'
+        if: '!cancelled()'
+        uses: actions/upload-artifact@v6
+        with:
+          name: 'ghciu_logs.${{ env.GHCIU_TRACE_JOB }}'
+          path: .ghciu/logs.local/
+
+
 
 
 ...
