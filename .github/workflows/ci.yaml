@@ -15,14 +15,14 @@ jobs:
     strategy:
       matrix:
         t:
-          # - { node: 8, eslint: 6 }
-          - { node: 20, eslint: 8 }
+          - { node: 24, eslint: 8 }
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: mk-pmb/github-ci-util-2405-pmb/act/install@experimental
         with:
           nodejs_version: "${{ matrix.t.node }}.x"
+      - run: ghciu ./.github/ci-extras/ci_prep.sh
       - run: ghciu npm install "eslint@${{ matrix.t.eslint }}"
       - run: ghciu npm install .
       - run: >

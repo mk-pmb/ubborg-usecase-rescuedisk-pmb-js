@@ -66,7 +66,11 @@ function check_fmt () {
   [ -f "$EXPECTED" ] || return 0
   local TMP_DEST="$PLAN.tmp.$FMT.$FEXT"
   local DIFF_DEST="$PLAN.tmp.$FMT.diff"
-  local UBB_CMD=( ubborg-planner-pmb depsTree "$PLAN" )
+  local UBB_CMD=( {,node_modules/.bin/}ubborg-planner-pmb )
+  UBB_CMD[0]="$(which -- "${UBB_CMD[@]}" |& grep -m 1 -Pe '^/' ||
+    echo E: "Failed to find planner command '${UBB_CMD[0]}'!" >&2)"
+  [ -x "${UBB_CMD[0]}" ] || return 4
+  UBB_CMD+=( depsTree "$PLAN" )
   echo "D: gonna run: ${UBB_CMD[*]}" >&2
   "${UBB_CMD[@]}" | ./censor."$FMT".sed >"$TMP_DEST"
   [ "${PIPESTATUS[*]}" == '0 0' ] || return 2
