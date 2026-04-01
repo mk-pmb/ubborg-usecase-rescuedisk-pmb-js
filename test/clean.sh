@@ -16,3 +16,5 @@ FIND=(
   -delete
   )
 find "${FIND[@]}"
+
+git checkout HEAD -- example_plans/*.want.plusText.txt
