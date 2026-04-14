@@ -11,6 +11,5 @@ export default async (bun) => {
   bun.needs('debPkg', [
     'kpatch',
     'linux-image-lowlatency-hwe-' + osRel + '-edge',
-    'multistrap',
   ]);
 };

@@ -2094,12 +2094,24 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[linux-image-lowlatency-hwe-20.04-edge]
+          - bundle[…sysInstall]
+        + bundle[…sysSpread]
+          + debPkg[isolinux]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[isolinux]
           + debPkg[multistrap]
             = defer: true
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[multistrap]
-          - bundle[…sysInstall]
+          + debPkg[xorriso]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[xorriso]
+          - bundle[…sysSpread]
         + bundle[…terminalEmus]
           + debPkg[sakura]
             = defer: true
