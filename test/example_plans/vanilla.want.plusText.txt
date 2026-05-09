@@ -1497,13 +1497,6 @@
             = state: "installed"
             - debPkg[adwaita-icon-theme-full]
           - bundle[…iconsGnomeDefault]
-        + bundle[…kernel]
-          + debPkg[linux-image-lowlatency]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[linux-image-lowlatency]
-          - bundle[…kernel]
         + bundle[…netBasics]
           ^ sysFacts[osVersion]
           + debPkg[avahi-daemon]
@@ -2114,6 +2107,13 @@
             = state: "installed"
             - debPkg[linux-image-lowlatency-hwe-20.04-edge]
           - bundle[…sysInstall]
+        + bundle[…sysKernel]
+          + debPkg[linux-image-lowlatency]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[linux-image-lowlatency]
+          - bundle[…sysKernel]
         + bundle[…sysSpread]
           + debPkg[isolinux]
             = defer: true
