@@ -2094,7 +2094,7 @@
             = state: "installed"
             - debPkg[thermald]
           - bundle[…sysDrivers]
-        + bundle[…sysInstall]
+        + bundle[…sysKernel]
           ^ sysFacts[osVersion]
           + debPkg[kpatch]
             = defer: true
@@ -2106,13 +2106,6 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[linux-image-lowlatency-hwe-20.04-edge]
-          - bundle[…sysInstall]
-        + bundle[…sysKernel]
-          + debPkg[linux-image-lowlatency]
-            = defer: true
-            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
-            = state: "installed"
-            - debPkg[linux-image-lowlatency]
           - bundle[…sysKernel]
         + bundle[…sysSpread]
           + debPkg[isolinux]
