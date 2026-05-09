@@ -650,6 +650,7 @@
       + bundle[…wifiAvoidPowersave]
         + file[/etc/modprobe.d/wifi-avoid-powersave-urd.conf]
           = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n\n",
+¬¶            "# This rule might be redundant with /etc/udev/rules.d/60-wifi-avoid-powersave-urd.rules\n",
 ¬¶            "options 8188eu rtw_power_mgnt=0 rtw_enusbss=0\n",
 ¬¶            "options 8723bs rtw_power_mgnt=0 rtw_enusbss=0\n"]
           = enforcedGroup: "adm"
@@ -661,6 +662,24 @@
             ^ file[/etc]
             - file[/etc/modprobe.d]
           - file[/etc/modprobe.d/wifi-avoid-powersave-urd.conf]
+        + file[/etc/udev/rules.d/60-wifi-avoid-powersave-urd.rules]
+          = content: ["# This file was generated using ubborg-usecase-rescuedisk-pmb\n\n",
+¬¶            "# Device class 0xE0 = Wireless Controller (wifi, bluetooth, …)\n",
+¬¶            "# This rule might be redundant with /etc/modprobe.d/wifi-avoid-powersave-urd.conf\n",
+¬¶            "ACTION==\"add\", SUBSYSTEM==\"usb\", ATTR{bDeviceClass}==\"e0\", \\\n",
+¬¶            "  TEST==\"power/control\", ATTR{power/control}=\"on\"\n"]
+          = enforcedGroup: "adm"
+          = enforcedModes: "a-x,a=rX,ug+w"
+          = enforcedOwner: "root"
+          = mimeType: "text/plain; charset=UTF-8"
+          + file[/etc/udev/rules.d]
+            = mimeType: "inode/directory"
+            + file[/etc/udev]
+              = mimeType: "inode/directory"
+              ^ file[/etc]
+              - file[/etc/udev]
+            - file[/etc/udev/rules.d]
+          - file[/etc/udev/rules.d/60-wifi-avoid-powersave-urd.rules]
         - bundle[…wifiAvoidPowersave]
       + bundle[…xorgDisableBogusDefaultPointer]
         + file[/usr/share/X11/xorg.conf.d/20-workaround-focal-ignore-default-pointer.conf]
