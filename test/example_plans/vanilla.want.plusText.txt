@@ -1468,6 +1468,18 @@
             = state: "installed"
             - debPkg[okular]
           - bundle[…fileViewers]
+        + bundle[…fonts]
+          + debPkg[fonts-hack]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[fonts-hack]
+          + debPkg[fonts-opendyslexic]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[fonts-opendyslexic]
+          - bundle[…fonts]
         + bundle[…hexEditors]
           + debPkg[ghex]
             = defer: true
