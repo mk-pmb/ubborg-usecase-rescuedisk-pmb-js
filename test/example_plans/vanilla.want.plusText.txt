@@ -2427,6 +2427,27 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[mesa-utils-extra]
+          + file[/etc/profile.d/nouveau_use_software_rendering.sh]
+            = content: ["# This file is meant to keep the GeForce fan quiet, by making apps\n",
+¬¶            "# such as browsers use software rendering, while still allowing\n",
+¬¶            "# 2D acceleration for e.g. window manager compositing.\n",
+¬¶            "\n",
+¬¶            "if ! [ -L /etc/X11/libgl.enable-full-3d-accel ]; then\n",
+¬¶            "  # For easy documentation, make the symlink point to this file here.\n",
+¬¶            "  LIBGL_ALWAYS_SOFTWARE=1\n",
+¬¶            "  export LIBGL_ALWAYS_SOFTWARE\n",
+¬¶            "fi\n",
+¬¶            "\n",
+¬¶            "# To set powersave behavior at runtime, use\n",
+¬¶            "# /sys/class/drm/card*/device/power/control\n",
+¬¶            "# However, the nouveau driver only offers the \"allow kernel to suspend\n",
+¬¶            "# the GPU when idle\" flag, i.e. mode names \"auto\" (default) and \"on\".\n"]
+            = enforcedGroup: "adm"
+            = enforcedModes: "a-x,a=rX,ug+w"
+            = enforcedOwner: "root"
+            = mimeType: "text/plain; charset=UTF-8"
+            ^ file[/etc/profile.d]
+            - file[/etc/profile.d/nouveau_use_software_rendering.sh]
           - bundle[…xorgMesa]
         + bundle[…xorgXcb]
           ^ debPkg[libxcb-xtest0]
