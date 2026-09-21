@@ -5,5 +5,8 @@ export default async (bun) => {
     'libgl1-mesa-glx',
 
     'libegl1-mesa',
+
+    'mesa-utils',
+    'mesa-utils-extra',
   ]);
 };

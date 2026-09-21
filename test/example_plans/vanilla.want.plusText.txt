@@ -2417,6 +2417,16 @@
             = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
             = state: "installed"
             - debPkg[libegl1-mesa]
+          + debPkg[mesa-utils]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[mesa-utils]
+          + debPkg[mesa-utils-extra]
+            = defer: true
+            = policy: {"conflict": "flinch", "incompatible": "flinch", "tryPreserveOldConfig": true}
+            = state: "installed"
+            - debPkg[mesa-utils-extra]
           - bundle[…xorgMesa]
         + bundle[…xorgXcb]
           ^ debPkg[libxcb-xtest0]
